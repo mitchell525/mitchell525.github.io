@@ -2,3 +2,9 @@
     color: #1b1464;
     border-color: #1b1464;
 };
+
+.jumbotron {
+    background-image: url('img/mitch_smith_website_background-02.png');
+    background-size: cover;
+    height: 100%;
+  }
