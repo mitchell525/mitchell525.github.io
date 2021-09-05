@@ -8,3 +8,21 @@
     background-size: cover;
     height: 100%;
   }
+
+.ms_row_head {
+    padding-bottom: 2em;
+}
+
+.ms_row {
+    color: white;
+    padding-bottom: 2em;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+.ms-store-logo {
+    height: 40px;
+}
