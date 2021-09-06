@@ -9,6 +9,10 @@
     height: 100%;
   }
 
+.ms-legal a{
+    text-decoration: underline;
+}
+
 .ms_row_head {
     padding-bottom: 2em;
 }
@@ -17,6 +21,11 @@
     color: white;
     padding-bottom: 2em;
 }
+
+.ms_row a{
+    color:white;
+}
+
 
 .vertical-align {
     display: flex;
