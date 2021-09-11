@@ -26,6 +26,11 @@
     color:white;
 }
 
+.ms-footer a{
+    color: #212529;
+    text-decoration: underline;
+}
+
 
 .vertical-align {
     display: flex;
