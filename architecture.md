@@ -7,7 +7,7 @@ This site is a static portfolio composed of standalone HTML pages styled with Bo
 #### Directory structure
 - `index.html`: Landing page that highlights all apps in vertically stacked sections. Each section links to a dedicated app subsite.
 - `about/`, `newsletter/`, `legal/`: Secondary content pages with the same navbar structure. Most of these pages load the shared footer via jQuery.
-- `<app>/` directories: One directory per app (e.g., `pinballoverdrive/`, `pinfinitesmash/`, `surgeblast/`, `dizzyfrog/`, `bounceandbound/`, `shiftandshatter/`, `jogit_logit/`, `pockettravelplanner/`, etc.). Each typically contains:
+- `<app>/` directories: One directory per app (e.g., `pinballoverdrive/`, `pinfinitesmash/`, `surgeblast/`, `dizzyfrog/`, `bounceandbound/`, `shiftandshatter/`, `jogit_logit/`, `pockettravelplanner/`, `tripstickers/`, etc.). Each typically contains:
   - `index.html`: App marketing page (hero, description, screenshots, store badges)
   - `product.html` (optional): Redirects to `index.html` for legacy links
   - `img/`: App‑specific images (icons, screenshots)
@@ -44,6 +44,8 @@ The home page inlines a footer block instead of loading the template (historical
 2. Replace text, links, and images; keep the navbar and footer patterns consistent.
 3. Update the global footer links in `templates/footer.html` if you want the app listed there.
 4. Optionally add a section to the home page `index.html` to feature the new app.
+
+**Recent addition**: Trip Stickers app (`tripstickers/`) - A travel sticker and journal app currently in development, featuring vintage travel art inspiration and premium features for exporting and exclusive icon packs.
 
 #### SEO and analytics
 - Pages include Open Graph tags and JSON‑LD organization markup pointing to the site icon.
