@@ -1,0 +1,91 @@
+---
+layout: default
+---
+
+{% assign app = site.data.apps | where: "slug", page.slug | first %}
+
+<!-- Content -->
+<!-- Jumbotron -->
+<div class="jumbotron jumbotron-fluid bg-dark"
+    style="background-color: {{ app.color }} !important; padding-top: 1em; padding-bottom: 1em;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-center">
+                <img src="{{ app.icon }}" height="192"
+                    class="d-inline-block align-top" alt="{{ app.name }} app icon">
+            </div>
+        </div>
+        <div class="row" style="padding-top:5px; color:white">
+            <div class="col-sm text-center">
+                <h1 class="display-4 font-weight-normal">{{ app.name }}</h1>
+                <p class="lead font-weight-normal">{{ app.tagline }}</p>
+            </div>
+        </div>
+
+        <div class="row" style="color:white">
+            <div class="col-sm text-center">
+                {% if app.coming_soon %}
+                    <p style="color: white; font-weight: bold;">Coming Soon!</p>
+                {% else %}
+                    {% if app.ios_url %}
+                        <a href='{{ app.ios_url }}'>
+                            <img alt='Download on the App Store'
+                                src="/img/appstore/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
+                                class="ms-store-logo">
+                        </a>
+                    {% endif %}
+                    {% if app.android_url %}
+                        <a href='{{ app.android_url }}'>
+                            <img alt='Get it on Google Play' src='/img/appstore/google-play-badge-01.svg'
+                                class="ms-store-logo" />
+                        </a>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Product Description -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <p>{{ app.description }}</p>
+        </div>
+    </div>
+    <hr />
+</div>
+
+<!-- Display Screenshots -->
+<div class="container">
+    <!-- Row 1-->
+    <div class="row text-center">
+        {% for screenshot in app.screenshots %}
+        <div class="col-sm">
+            <img src="{{ screenshot }}"
+                style="width:100%; border:1px solid darkgray; border-radius: 15px;" class="d-inline-block align-top"
+                alt="{{ app.name }} app screenshot">
+        </div>
+        {% endfor %}
+    </div>
+    <hr />
+</div>
+
+<!-- Feedback and legal -->
+<div class="container ms-app-feedback">
+    <div class="row">
+        <div class="col-sm">
+            <h3>Have some feedback or suggestions?</h3>
+            <p>Send me an email: <a href="mailto:mitchell525@gmail.com">mitchell525@gmail.com</a></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <h3>Terms and Policies</h3>
+            <ul>
+                <li><a href="{{ app.privacy_policy }}">Privacy Policy</a></li>
+                <li><a href="{{ app.terms }}">Terms of Use</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

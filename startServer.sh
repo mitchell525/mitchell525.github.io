@@ -1,2 +1,2 @@
-#python -m SimpleHTTPServer
-python3 -m http.server 9000
+#!/bin/bash
+bundle exec jekyll serve --livereload

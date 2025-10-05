@@ -1,0 +1,51 @@
+# Site settings
+title: "Mitch Smith: Software Engineer and App Developer"
+description: "Mitchell (Mitch) Smith is a full time Software Engineer and father from Baltimore Maryland. In his free time he enjoys creating apps as a hobby."
+url: "https://mitchell525.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Collections
+collections:
+  apps:
+    output: true
+    permalink: /:name/
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - JEKYLL_MIGRATION_README.md
+  - jekyll-migration-plan.md
+  - test_migration.sh
+  - startServer.sh
+  - vendor/
+  - bounceandbound/
+  - dizzyfrog/
+  - pinballoverdrive/
+  - pinfinitesmash/
+  - tapandteleport/
+  - pinballdefenseforce/
+  - surgeblast/
+  - shiftandshatter/
+  - pockettravelplanner/
+  - tripstickers/
+  - jogit_logit/
+
+# SEO settings
+twitter:
+  username: mitchell525
+  card: summary_large_image
+
+# Google Analytics
+google_analytics: UA-112034969-4
