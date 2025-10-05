@@ -4,88 +4,101 @@ layout: default
 
 {% assign app = site.data.apps | where: "slug", page.slug | first %}
 
-<!-- Content -->
-<!-- Jumbotron -->
-<div class="jumbotron jumbotron-fluid bg-dark"
-    style="background-color: {{ app.color }} !important; padding-top: 1em; padding-bottom: 1em;">
+<!-- Hero Section -->
+<section class="app-hero" style="background: linear-gradient(135deg, {{ app.color }} 0%, {{ app.color }}dd 100%);">
     <div class="container">
-        <div class="row">
-            <div class="col-sm text-center">
-                <img src="{{ app.icon }}" height="192"
-                    class="d-inline-block align-top" alt="{{ app.name }} app icon">
+        <div class="app-hero-content">
+            <div class="app-icon-container">
+                <img src="{{ app.icon }}" 
+                     class="app-icon" 
+                     alt="{{ app.name }} app icon">
             </div>
-        </div>
-        <div class="row" style="padding-top:5px; color:white">
-            <div class="col-sm text-center">
-                <h1 class="display-4 font-weight-normal">{{ app.name }}</h1>
-                <p class="lead font-weight-normal">{{ app.tagline }}</p>
-            </div>
-        </div>
-
-        <div class="row" style="color:white">
-            <div class="col-sm text-center">
-                {% if app.coming_soon %}
-                    <p style="color: white; font-weight: bold;">Coming Soon!</p>
-                {% else %}
-                    {% if app.ios_url %}
-                        <a href='{{ app.ios_url }}'>
-                            <img alt='Download on the App Store'
-                                src="/img/appstore/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
-                                class="ms-store-logo">
-                        </a>
+            <div class="app-info">
+                <h1 class="app-title">{{ app.name }}</h1>
+                <p class="app-tagline">{{ app.tagline }}</p>
+                
+                <div class="app-actions">
+                    {% if app.coming_soon %}
+                        <div class="coming-soon-badge">
+                            <span class="badge-text">Coming Soon</span>
+                        </div>
+                    {% else %}
+                        <div class="store-buttons">
+                            {% if app.ios_url %}
+                                <a href="{{ app.ios_url }}" class="store-button ios-button" aria-label="Download on the App Store">
+                                    <img src="/img/appstore/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" 
+                                         alt="Download on the App Store" 
+                                         class="store-badge">
+                                </a>
+                            {% endif %}
+                            {% if app.android_url %}
+                                <a href="{{ app.android_url }}" class="store-button android-button" aria-label="Get it on Google Play">
+                                    <img src="/img/appstore/google-play-badge-01.svg" 
+                                         alt="Get it on Google Play" 
+                                         class="store-badge">
+                                </a>
+                            {% endif %}
+                        </div>
                     {% endif %}
-                    {% if app.android_url %}
-                        <a href='{{ app.android_url }}'>
-                            <img alt='Get it on Google Play' src='/img/appstore/google-play-badge-01.svg'
-                                class="ms-store-logo" />
-                        </a>
-                    {% endif %}
-                {% endif %}
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<!-- Product Description -->
-<div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <p>{{ app.description }}</p>
+<!-- App Description -->
+<section class="app-description">
+    <div class="container">
+        <div class="description-content">
+            <h2 class="section-title">About {{ app.name }}</h2>
+            <p class="app-description-text">{{ app.description }}</p>
         </div>
     </div>
-    <hr />
-</div>
+</section>
 
-<!-- Display Screenshots -->
-<div class="container">
-    <!-- Row 1-->
-    <div class="row text-center">
-        {% for screenshot in app.screenshots %}
-        <div class="col-sm">
-            <img src="{{ screenshot }}"
-                style="width:100%" class="d-inline-block align-top"
-                alt="{{ app.name }} app screenshot">
+<!-- Screenshots Gallery -->
+<section class="app-screenshots">
+    <div class="container">
+        <h2 class="section-title">Screenshots</h2>
+        <div class="screenshots-grid">
+            {% for screenshot in app.screenshots %}
+            <div class="screenshot-item">
+                <img src="{{ screenshot }}" 
+                     class="screenshot-image" 
+                     alt="{{ app.name }} screenshot {{ forloop.index }}"
+                     loading="lazy">
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
-    <hr />
-</div>
+</section>
 
-<!-- Feedback and legal -->
-<div class="container ms-app-feedback">
-    <div class="row">
-        <div class="col-sm">
-            <h3>Have some feedback or suggestions?</h3>
-            <p>Send me an email: <a href="mailto:mitchell525@gmail.com">mitchell525@gmail.com</a></p>
+<!-- Contact and Legal -->
+<section class="app-footer-info">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="contact-section">
+                <h3 class="footer-section-title">Feedback & Support</h3>
+                <p class="contact-text">Have feedback or suggestions? We'd love to hear from you!</p>
+                <a href="mailto:mitchell525@gmail.com" class="contact-button">
+                    <span class="contact-icon">✉️</span>
+                    Send Feedback
+                </a>
+            </div>
+            
+            <div class="legal-section">
+                <h3 class="footer-section-title">Legal</h3>
+                <div class="legal-links">
+                    <a href="{{ app.privacy_policy }}" class="legal-link">
+                        <span class="legal-icon">🔒</span>
+                        Privacy Policy
+                    </a>
+                    <a href="{{ app.terms }}" class="legal-link">
+                        <span class="legal-icon">📋</span>
+                        Terms of Use
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm">
-            <h3>Terms and Policies</h3>
-            <ul>
-                <li><a href="{{ app.privacy_policy }}">Privacy Policy</a></li>
-                <li><a href="{{ app.terms }}">Terms of Use</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
+</section>
