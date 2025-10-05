@@ -6,7 +6,7 @@ This site is a static portfolio composed of standalone HTML pages styled with Bo
 
 #### Directory structure
 - `index.html`: Landing page that highlights all apps in vertically stacked sections. Each section links to a dedicated app subsite.
-- `about/`, `newsletter/`, `legal/`: Secondary content pages with the same navbar structure. Most of these pages load the shared footer via jQuery.
+- `about/`, `legal/`: Secondary content pages with the same navbar structure. Most of these pages load the shared footer via jQuery.
 - `<app>/` directories: One directory per app (e.g., `pinballoverdrive/`, `pinfinitesmash/`, `surgeblast/`, `dizzyfrog/`, `bounceandbound/`, `shiftandshatter/`, `jogit_logit/`, `pockettravelplanner/`, `tripstickers/`, etc.). Each typically contains:
   - `index.html`: App marketing page (hero, description, screenshots, store badges)
   - `product.html` (optional): Redirects to `index.html` for legacy links

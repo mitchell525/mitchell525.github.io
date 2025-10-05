@@ -24,7 +24,7 @@ Then open `http://localhost:9000`.
 
 ### Project layout
 - `index.html`: Home/portfolio landing page with sections for each app
-- `about/`, `newsletter/`, `legal/`: Static content pages
+- `about/`, `legal/`: Static content pages
 - `<app>/` (e.g., `pinballoverdrive/`, `pinfinitesmash/`, etc.): Per‑app landing pages
 - `templates/`: Shared HTML fragments (e.g., `footer.html`) loaded via jQuery on most pages
 - `css/mitchell525.css`: Global styles

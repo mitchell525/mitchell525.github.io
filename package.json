@@ -1,0 +1,25 @@
+{
+  "name": "mitchell525-github-io",
+  "version": "1.0.0",
+  "description": "Personal website and portfolio for Mitchell Smith",
+  "scripts": {
+    "start": "bundle exec jekyll serve --livereload --incremental --drafts --unpublished",
+    "dev": "bundle exec jekyll serve --livereload --incremental --drafts --unpublished",
+    "build": "bundle exec jekyll build",
+    "serve": "bundle exec jekyll serve",
+    "install-deps": "bundle install",
+    "clean": "bundle exec jekyll clean"
+  },
+  "keywords": [
+    "jekyll",
+    "portfolio",
+    "website",
+    "mitchell-smith"
+  ],
+  "author": "Mitchell Smith",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mitchell525/mitchell525.github.io.git"
+  }
+}

@@ -9,6 +9,10 @@ markdown: kramdown
 highlighter: rouge
 permalink: pretty
 
+# Development settings
+livereload: true
+incremental: true
+
 # Collections
 collections:
   apps:
@@ -25,22 +29,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
-  - JEKYLL_MIGRATION_README.md
-  - jekyll-migration-plan.md
-  - test_migration.sh
-  - startServer.sh
   - vendor/
-  - bounceandbound/
-  - dizzyfrog/
-  - pinballoverdrive/
-  - pinfinitesmash/
-  - tapandteleport/
-  - pinballdefenseforce/
-  - surgeblast/
-  - shiftandshatter/
-  - pockettravelplanner/
-  - tripstickers/
-  - jogit_logit/
 
 # SEO settings
 twitter:
