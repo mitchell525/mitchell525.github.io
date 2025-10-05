@@ -1,25 +1,60 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <!-- Brand -->
-    <a class="navbar-brand offset-md-1" href="/" style="color:white;">
-        <img src="/img/icons/material/ic_material_product_icon_192px copy 4xxxhdpi.png" height="30" alt="Mitch Smith Icon">
-    </a>
-    <!-- Toggle -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <!-- Links -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item {% if page.url == '/' %}active{% endif %}">
-                <a class="nav-link" href="/">Portfolio</a>
-            </li>
-            <li class="nav-item {% if page.url contains 'about' %}active{% endif %}">
-                <a class="nav-link" href="/pages/about/">About</a>
-            </li>
-            <li class="nav-item {% if page.url contains 'legal' %}active{% endif %}">
-                <a class="nav-link" href="/pages/legal/">Legal</a>
-            </li>
-        </ul>
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm" role="navigation" aria-label="Main navigation">
+    <div class="container-fluid">
+        <!-- Brand -->
+        <a class="navbar-brand d-flex align-items-center" href="/" aria-label="Mitch Smith - Home">
+            <img src="/img/icons/material/ic_material_product_icon_192px copy 4xxxhdpi.png" 
+                 height="32" 
+                 width="32"
+                 alt="Mitch Smith Icon" 
+                 class="me-2"
+                 loading="eager">
+            <span class="fw-semibold">Mitch Smith</span>
+        </a>
+        
+        <!-- Mobile toggle -->
+        <button class="navbar-toggler border-0" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation menu"
+                aria-describedby="navbar-toggler-description">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <span id="navbar-toggler-description" class="visually-hidden">Opens the main navigation menu</span>
+        
+        <!-- Navigation links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" role="menubar">
+                <li class="nav-item" role="none">
+                    <a class="nav-link {% if page.url == '/' %}active fw-semibold{% endif %}" 
+                       href="/" 
+                       role="menuitem"
+                       aria-current="{% if page.url == '/' %}page{% endif %}">
+                        <i class="bi bi-grid-3x3-gap me-1" aria-hidden="true"></i>
+                        Portfolio
+                    </a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a class="nav-link {% if page.url contains 'about' %}active fw-semibold{% endif %}" 
+                       href="/pages/about/" 
+                       role="menuitem"
+                       aria-current="{% if page.url contains 'about' %}page{% endif %}">
+                        <i class="bi bi-person me-1" aria-hidden="true"></i>
+                        About
+                    </a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a class="nav-link {% if page.url contains 'legal' %}active fw-semibold{% endif %}" 
+                       href="/pages/legal/" 
+                       role="menuitem"
+                       aria-current="{% if page.url contains 'legal' %}page{% endif %}">
+                        <i class="bi bi-shield-check me-1" aria-hidden="true"></i>
+                        Legal
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>

@@ -298,3 +298,97 @@
 .cookie-banner.show {
     transform: translateY(0);
 }
+
+/* Modern Navbar Enhancements */
+.navbar {
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+    transition: transform 0.2s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+}
+
+.navbar-brand img {
+    transition: transform 0.2s ease;
+}
+
+.navbar-brand:hover img {
+    transform: rotate(5deg);
+}
+
+.nav-link {
+    position: relative;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+    margin: 0 2px;
+}
+
+.nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: translateY(-1px);
+}
+
+.nav-link.active {
+    background-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 2px;
+    background-color: #1b1464;
+    border-radius: 1px;
+}
+
+.navbar-toggler {
+    transition: all 0.2s ease;
+}
+
+.navbar-toggler:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(27, 20, 100, 0.25);
+}
+
+/* Mobile navbar improvements */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-link {
+        padding: 0.75rem 1rem;
+        margin: 2px 0;
+    }
+    
+    .nav-link.active::after {
+        display: none;
+    }
+}
+
+/* Focus improvements for accessibility */
+.nav-link:focus-visible {
+    outline: 2px solid #1b1464;
+    outline-offset: 2px;
+}
+
+.navbar-brand:focus-visible {
+    outline: 2px solid #1b1464;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
