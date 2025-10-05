@@ -1,46 +1,85 @@
 # mitchell525.github.io
 
-Personal portfolio website for hosting and showcasing my mobile apps. Deployed via GitHub Pages.
+Personal portfolio website for hosting and showcasing my mobile apps. Built with Jekyll and deployed via GitHub Pages.
 
 ### Live site
 `https://mitchell525.github.io`
 
 ### Tech stack
-- HTML + CSS + JavaScript (no build step)
-- Bootstrap 4.3.1 via CDN
-- jQuery 3.5.1 for light DOM interactions and template injection
-- Google Analytics (UA)
+- **Jekyll 3.9.5** - Static site generator
+- **Bootstrap 4.3.1** - CSS framework via CDN
+- **jQuery 3.5.1** - DOM interactions and animations
+- **Google Analytics (UA)** - Site analytics
+- **Jekyll SEO Tag** - Automatic SEO optimization
+- **Jekyll Sitemap** - Automatic sitemap generation
+- **Jekyll Feed** - RSS feed generation
 
 ### Local development
-Run a simple static server from the repo root:
+Run the Jekyll development server:
 
 ```bash
-./startServer.sh
+./start-dev.sh
 # or
-python3 -m http.server 9000
+bundle exec jekyll serve --livereload --incremental
 ```
 
-Then open `http://localhost:9000`.
+Then open `http://localhost:4000`.
+
+**Prerequisites:**
+- Ruby and Bundler installed
+- Run `bundle install` to install dependencies
 
 ### Project layout
-- `index.html`: Home/portfolio landing page with sections for each app
-- `about/`, `legal/`: Static content pages
-- `<app>/` (e.g., `pinballoverdrive/`, `pinfinitesmash/`, etc.): Per‑app landing pages
-- `templates/`: Shared HTML fragments (e.g., `footer.html`) loaded via jQuery on most pages
-- `css/mitchell525.css`: Global styles
-- `js/mitchell525.js`: Small scroll/fade‑in effect
-- `img/`: Shared images (icons, store badges, previews)
+- **`_config.yml`**: Jekyll configuration and site settings
+- **`_data/apps.yml`**: Centralized app data (metadata, URLs, screenshots)
+- **`_apps/`**: Jekyll collection containing app pages (Markdown files)
+- **`_layouts/`**: Jekyll layouts (`default.html`, `app.html`)
+- **`_includes/`**: Reusable HTML fragments (`navbar.html`, `footer.html`)
+- **`pages/`**: Static content pages (`about.html`, `legal.html`)
+- **`css/mitchell525.css`**: Global styles
+- **`js/mitchell525.js`**: Scroll/fade-in effects
+- **`img/`**: Shared images (icons, store badges, previews)
+- **`legal/`**: Legal documents (privacy policies, terms)
 
-See the detailed structure and conventions in [`architecture.md`](./architecture.md).
+### Adding a new app
+1. Add app metadata to `_data/apps.yml`:
+   ```yaml
+   - name: "App Name"
+     slug: "appname"
+     tagline: "App tagline"
+     description: "App description"
+     icon: "/img/appname/icon.png"
+     color: "#HEXCOLOR"
+     ios_url: "https://apps.apple.com/..."
+     android_url: "https://play.google.com/..."
+     screenshots:
+       - "/img/appname/screenshot1.png"
+       - "/img/appname/screenshot2.png"
+     privacy_policy: "/legal/app_privacy_policy.html"
+     terms: "/legal/app_terms_and_conditions.html"
+   ```
 
-### Adding a new app page
-1. Create a new folder at repo root (e.g., `mynewapp/`).
-2. Add `index.html` following the pattern in other app folders, including the jQuery snippet to load the shared footer template.
-3. Place app screenshots and icons under `mynewapp/img/`.
-4. Update links where appropriate (home page section, `templates/footer.html`).
+2. Create app page in `_apps/appname.md`:
+   ```markdown
+   ---
+   layout: app
+   slug: appname
+   ---
+   ```
+
+3. Add app images to `img/appname/` directory
+4. Add legal documents to `legal/` directory
+
+### Jekyll Features
+- **Collections**: Apps are managed as a Jekyll collection for easy iteration
+- **Data Files**: Centralized app metadata in `_data/apps.yml`
+- **SEO**: Automatic meta tags, Open Graph, and Twitter Card support
+- **Sitemap**: Automatic XML sitemap generation
+- **RSS Feed**: Automatic RSS feed at `/feed.xml`
+- **Live Reload**: Development server with automatic browser refresh
 
 ### Deployment
-This repository is configured for GitHub Pages. Merges to `master` become live at `https://<user>.github.io/`.
+This repository is configured for GitHub Pages with Jekyll. Merges to `master` automatically trigger a Jekyll build and deploy to `https://mitchell525.github.io/`.
 
 ### License
 See [`LICENSE`](./LICENSE).

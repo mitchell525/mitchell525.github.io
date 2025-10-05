@@ -1,0 +1,54 @@
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" class="cookie-banner" style="display: none;">
+    <div class="cookie-banner-content">
+        <div class="cookie-banner-text">
+            <h5>Cookie Notice</h5>
+            <p>We use cookies to analyze site traffic and improve your experience. By continuing to use this site, you consent to our use of cookies. 
+            <a href="/legal/terms_of_use.html" target="_blank">Learn more</a></p>
+        </div>
+        <div class="cookie-banner-buttons">
+            <button id="cookie-accept" class="btn btn-primary btn-sm">Accept All</button>
+            <button id="cookie-decline" class="btn btn-outline-secondary btn-sm">Decline</button>
+            <button id="cookie-settings" class="btn btn-link btn-sm">Settings</button>
+        </div>
+    </div>
+</div>
+
+<!-- Cookie Settings Modal -->
+<div class="modal fade" id="cookieSettingsModal" tabindex="-1" aria-labelledby="cookieSettingsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cookieSettingsModalLabel">Cookie Preferences</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Choose which cookies you want to allow:</p>
+                
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="analytics-cookies" checked disabled>
+                    <label class="form-check-label" for="analytics-cookies">
+                        <strong>Analytics Cookies</strong> (Required)
+                        <small class="text-muted d-block">These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously.</small>
+                    </label>
+                </div>
+                
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="functional-cookies" checked>
+                    <label class="form-check-label" for="functional-cookies">
+                        <strong>Functional Cookies</strong>
+                        <small class="text-muted d-block">These cookies enable enhanced functionality and personalization, such as remembering your preferences.</small>
+                    </label>
+                </div>
+                
+                <div class="alert alert-info mt-3">
+                    <small><strong>Note:</strong> You can change your cookie preferences at any time by clicking the "Settings" button in the cookie banner.</small>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="save-cookie-preferences">Save Preferences</button>
+            </div>
+        </div>
+    </div>
+</div>
