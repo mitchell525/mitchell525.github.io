@@ -70,6 +70,28 @@ Then open `http://localhost:4000`.
 3. Add app images to `img/appname/` directory
 4. Add legal documents to `legal/` directory
 
+### Legal Pages Templatization
+Legal pages now use a Jekyll layout template (`_layouts/legal.html`) to eliminate HTML duplication. Each legal page contains only:
+
+1. **Front matter** with layout and title:
+   ```yaml
+   ---
+   layout: legal
+   title: "App Name: Privacy Policy"
+   ---
+   ```
+
+2. **Unique content** - the actual legal text without HTML boilerplate
+
+The template automatically provides:
+- Common HTML structure (DOCTYPE, head, meta tags)
+- Bootstrap CSS and custom styles
+- Google Analytics tracking
+- Navigation and footer
+- Responsive container layout
+
+This approach reduces maintenance overhead and ensures consistency across all legal documents.
+
 ### Jekyll Features
 - **Collections**: Apps are managed as a Jekyll collection for easy iteration
 - **Data Files**: Centralized app metadata in `_data/apps.yml`

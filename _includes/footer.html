@@ -1,26 +1,45 @@
-<footer class="ms-footer">
+<footer class="ms-footer-modern">
     <div class="container">
-        <div class="row">
-            <!-- Copyright Section -->
-            <div class="col-12 text-center mb-3">
-                <small class="text-muted">&copy; Copyright 2022, Mitchell Smith</small>
+        <!-- Main Footer Content -->
+        <div class="footer-main">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="/img/icons/ms_home_icon.png" alt="Mitchell Smith" class="brand-icon" />
+                </div>
+                <div class="brand-info">
+                    <h3 class="brand-name">Mitchell Smith</h3>
+                    <p class="brand-tagline">Software Engineer</p>
+                </div>
             </div>
             
-            <!-- Apps Grid -->
-            <div class="col-12">
-                <div class="row">
+            <!-- Apps Section -->
+            <div class="footer-apps">
+                <h4 class="footer-section-title">Apps</h4>
+                <div class="apps-grid">
                     {% assign apps = site.data.apps | sort: 'name' %}
                     {% for app in apps %}
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-2">
-                        <div class="footer-app-link">
-                            <a href="/{{ app.slug }}/" class="text-decoration-none">
-                                <small>{{ app.name }}</small>
-                            </a>
-                        </div>
-                    </div>
+                    <a href="/{{ app.slug }}/" class="app-link">
+                        <span class="app-name">{{ app.name }}</span>
+                    </a>
                     {% endfor %}
                 </div>
             </div>
         </div>
+        
+    </div>
+    
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="footer-bottom-content">
+            <div class="copyright">
+                <span>&copy; 2025 Mitchell Smith. All rights reserved.</span>
+            </div>
+            <div class="footer-links">
+                <a href="/pages/legal.html" class="footer-link">Legal</a>
+                <a href="/pages/about.html" class="footer-link">About</a>
+            </div>
+        </div>
+    </div>
     </div>
 </footer>

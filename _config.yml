@@ -16,6 +16,12 @@ defaults:
       type: "pages"
     values:
       layout: "default"
+  - scope:
+      path: "legal"
+      type: "pages"
+    values:
+      layout: "legal"
+      permalink: /:path/:basename.html
 
 # Development settings
 livereload: true
