@@ -3,66 +3,96 @@ layout: default
 title: "Mitch Smith: Software Engineer and Hobbyist App Developer"
 ---
 
-<!-- Title Section -->
-<div class="row ms_row_head vertical-align">
-    <!-- Content-->
-    <div class="col-md-6 offset-md-1">
-        <img src="img/icons/ms_home_icon.png" height="108" class="d-inline-block align-top" alt="Mitch Smith MS Logo">
-        <h1>
-            Mitch Smith
-        </h1>
-
-        <p>
-            Mitchell (Mitch) Smith is a full time Software Engineer and father from Baltimore Maryland. In his free time he enjoys creating apps as a hobby. 
-        </p>
-        <p>
-            These are some of the apps I have developed, check them out and let me know your thoughts!
-        </p>
-    </div>
-    <!-- Picture -->
-    <div class="col-md-4" style="height:auto">
-        <img src="img/profile/profile_photo-01.png" style="border-radius: 50%; max-width: 50%;" alt="Picture of Mitch Smith and his daughter" class="img-fluid mx-auto d-block">
-    </div>
-</div>
-
-{% for app in site.data.apps %}
-<!-- {{ app.name }}-->
-<div class="row ms_row vertical-align" style="background-color: {{ app.color }};">
-    <!-- Content-->
-    <div class="fade-in col-md-5 offset-md-1">
-
-        <img src="{{ app.icon }}" height="108" class="d-inline-block align-top" alt="{{ app.name }} logo">
-        <h1>
-            <a href="/{{ app.slug }}">{{ app.name }}</a>
-        </h1>
-
-        <p>
-            {{ app.description }}
-        </p>
-
-        <!-- Download buttons -->
-        <div>
-            {% if app.coming_soon %}
-                <p style="color: white; font-weight: bold;">Coming Soon!</p>
-            {% else %}
-                {% if app.ios_url %}
-                    <a href='{{ app.ios_url }}'>
-                        <img alt='Download on the App Store' src="/img/appstore/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" class="ms-store-logo" >
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-icon">
+                    <img src="img/icons/ms_home_icon.png" alt="Mitch Smith MS Logo" class="brand-icon">
+                </div>
+                <h1 class="hero-title">Mitch Smith</h1>
+                <p class="hero-subtitle">Software Engineer & App Developer</p>
+                <p class="hero-description">
+                    Full-time Software Engineer and father from Baltimore, Maryland. 
+                    In my free time, I create mobile apps that bring joy and entertainment to users worldwide.
+                </p>
+                <div class="hero-cta">
+                    <a href="#apps" class="cta-button">
+                        <span>Explore My Apps</span>
+                        <i class="bi bi-arrow-down"></i>
                     </a>
-                {% endif %}
-                {% if app.android_url %}
-                    <a href='{{ app.android_url }}'>
-                        <img alt='Get it on Google Play' src='/img/appstore/google-play-badge-01.svg' class="ms-store-logo" />
-                    </a>
-                {% endif %}
-            {% endif %}
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-container">
+                    <img src="img/profile/profile_photo-01.png" alt="Picture of Mitch Smith and his daughter" class="profile-image">
+                </div>
+            </div>
         </div>
     </div>
-    <!-- Picture -->
-    <div class="fade-in col-md-5">
-        {% for screenshot in app.screenshots %}
-            <img class="ms-img" src="{{ screenshot }}" alt="Screenshot for {{ app.name }}" {% if forloop.index > 1 %}style="padding-top:2em"{% endif %}>
-        {% endfor %}
+</section>
+
+<!-- Apps Section -->
+<section id="apps" class="apps-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">My Apps</h2>
+            <p class="section-subtitle">Discover the mobile experiences I've crafted</p>
+        </div>
+
+        <div class="apps-list">
+            {% for app in site.data.apps %}
+            <div class="app-item" data-app-color="{{ app.color }}">
+                <div class="app-item-content">
+                    <div class="app-header">
+                        <div class="app-icon-container">
+                            <img src="{{ app.icon }}" alt="{{ app.name }} logo" class="app-icon">
+                        </div>
+                        <div class="app-info">
+                            <h3 class="app-name">
+                                <a href="/{{ app.slug }}">{{ app.name }}</a>
+                            </h3>
+                            <p class="app-tagline">{{ app.tagline }}</p>
+                            <div class="app-actions">
+                                {% if app.coming_soon %}
+                                    <div class="coming-soon-badge">
+                                        <span class="badge-text">Coming Soon</span>
+                                    </div>
+                                {% else %}
+                                    <div class="store-buttons">
+                                        {% if app.ios_url %}
+                                            <a href="{{ app.ios_url }}" class="store-button" target="_blank" rel="noopener">
+                                                <img src="/img/appstore/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" 
+                                                     alt="Download on the App Store" class="store-badge">
+                                            </a>
+                                        {% endif %}
+                                        {% if app.android_url %}
+                                            <a href="{{ app.android_url }}" class="store-button" target="_blank" rel="noopener">
+                                                <img src="/img/appstore/google-play-badge-01.svg" 
+                                                     alt="Get it on Google Play" class="store-badge">
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="app-description">
+                        <p>{{ app.description }}</p>
+                    </div>
+                    
+                    <div class="app-screenshots">
+                        {% for screenshot in app.screenshots limit:3 %}
+                        <div class="screenshot-item">
+                            <img src="{{ screenshot }}" alt="Screenshot for {{ app.name }}" class="screenshot-image">
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
-</div>
-{% endfor %}
+</section>
