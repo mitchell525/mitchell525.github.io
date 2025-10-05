@@ -9,6 +9,14 @@ markdown: kramdown
 highlighter: rouge
 permalink: pretty
 
+# Pages configuration
+defaults:
+  - scope:
+      path: "pages"
+      type: "pages"
+    values:
+      layout: "default"
+
 # Development settings
 livereload: true
 incremental: true
