@@ -1,110 +1,110 @@
 ---
 layout: default
-title: "Terms, Policies, and other Legal stuff for Mitch Smith's Apps"
+title: "Legal Documents - Terms, Policies, and Legal Information"
 ---
 
-<!-- Title -->
-<div class="row ms_row_head vertical-align" style="padding-top: 1em;">
-    <!-- Content-->
-    <div class="col-md-11 offset-md-1">
-        <h1>
-            Terms and Policies
-        </h1>
-
-        <p>
-            All the terms and services required by app hosts.
-        </p>
-    </div>
-</div>
-
-<!-- Privacy Policy -->
-<div class="row ms_row vertical-align ms-legal" style="background-color: #45545B;">
-    <!-- Content-->
-    <div class="fade-in col-md-11 offset-md-1">
-        <h2 style="padding-top: 1em">
-            Privacy Policies
-        </h2>
-
-        <div class="row">
-            <div class="col-md-3">
-                <ul>
-                    <li><a href="/legal/log_it_jog_it_privacy_policy.html">Jog it Log it</a></li>
-                    <li><a href="/legal/shiftandshatter_privacy_policy.html">Shift And Shatter</a></li>
-                    <li><a href="/legal/bounce_and_bound_privacy_policy.html">Bounce And Bound</a></li>
-                    <li><a href="/legal/pinball_overdrive_privacy_policy.html">Pinball Overdrive</a></li>
-                    <li><a href="/legal/dizzy_frog_privacy_policy.html">Dizzy Frog</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <ul>
-                    <li><a href="/legal/surge_blast_privacy_policy.html">Surge Blast</a></li>
-                    <li><a href="/legal/pinball_defense_privacy_policy.html">Pinball Defense Force</a></li>
-                    <li><a href="/legal/tap_and_teleport_privacy_policy.html">Tap and Teleport</a></li>
-                    <li><a href="/legal/pinfinite_smash_privacy_policy.html">Pinfinite Smash</a></li>
-                    <li><a href="/legal/pocket_trip_planner_privacy_policy.html">Pocket Trip Planner</a></li>
-                    <li><a href="/legal/trip_stickers_privacy_policy.html">Trip Stickers</a></li>
-                </ul>
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div>
+            <div class="hero-text">
+                <div class="hero-icon">
+                    <img src="/img/icons/ms_home_icon.png" alt="Mitch Smith MS Logo" class="brand-icon">
+                </div>
+                <h1 class="hero-title">Legal Documents</h1>
+                <p class="hero-subtitle">Terms, Policies, and Legal Information</p>
+                <p class="">
+                    All the terms and services required by app hosts.
+                </p>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<!-- Terms of Use -->
-<div class="row ms_row vertical-align ms-legal" style="background-color: #30A092;">
-    <!-- Content-->
-    <div class="fade-in col-md-11 offset-md-1">
-        <h2 style="padding-top: 1em">
-            Terms of Use
-        </h2>
+<!-- Legal Documents Section -->
+<section class="apps-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">App Legal Documents</h2>
+            <p class="section-subtitle">Privacy policies and terms of service for each app</p>
+        </div>
 
-        <div class="row">
-            <div class="col-md-3">
-                <ul>
-                    <li><a href="/legal/terms_of_use.html">Jog it Log it</a></li>
-                    <li><a href="/legal/terms_of_use.html">Shift And Shatter</a></li>
-                    <li><a href="/legal/bounce_and_bound_terms_and_conditions.html">Bounce And Bound</a></li>
-                    <li><a href="/legal/pinball_overdrive_terms_and_conditions.html">Pinball Overdrive</a></li>
-                    <li><a href="/legal/dizzy_frog_terms_and_conditions.html">Dizzy Frog</a></li>
-                </ul>
+        <div class="apps-list">
+            {% for app in site.data.apps %}
+            <div class="app-item" data-app-color="{{ app.color }}">
+                <div class="app-item-content">
+                    <div class="app-header">
+                        <div class="app-icon-container">
+                            <img src="{{ app.icon }}" alt="{{ app.name }} logo" class="app-icon">
+                        </div>
+                        <div class="app-info">
+                            <h3 class="app-name">{{ app.name }}</h3>
+                            <p class="app-tagline">{{ app.tagline }}</p>
+                            <div class="app-actions">
+                                <div class="store-buttons">
+                                    <a href="{{ app.privacy_policy }}" class="store-button" target="_blank" rel="noopener">
+                                        <span style="background: var(--color-background-primary); color: var(--color-text-primary); padding: 0.5rem 1rem; border-radius: var(--radius-medium); border: 1px solid var(--color-separator); text-decoration: none; font-weight: 500;">🔒 Privacy Policy</span>
+                                    </a>
+                                    <a href="{{ app.terms }}" class="store-button" target="_blank" rel="noopener">
+                                        <span style="background: var(--color-background-primary); color: var(--color-text-primary); padding: 0.5rem 1rem; border-radius: var(--radius-medium); border: 1px solid var(--color-separator); text-decoration: none; font-weight: 500;">📋 Terms of Service</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-3">
-                <ul>
-                    <li><a href="/legal/surge_blast_terms_and_conditions.html">Surge Blast</a></li>
-                    <li><a href="/legal/pinball_defense_terms_and_conditions.html">Pinball Defense Force</a></li>
-                    <li><a href="/legal/tap_and_teleport_terms_and_conditions.html">Tap and Teleport</a></li>
-                    <li><a href="/legal/pinfinite_smash_terms_and_conditions.html">Pinfinite Smash</a></li>
-                    <li><a href="/legal/pocket_trip_planner_terms_and_conditions.html">Pocket Trip Planner</a></li>
-                    <li><a href="/legal/trip_stickers_terms_and_conditions.html">Trip Stickers</a></li>
-                </ul>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Additional Legal Information -->
+<section class="apps-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Additional Information</h2>
+            <p class="section-subtitle">Important legal notices and acknowledgments</p>
+        </div>
+
+        <div class="apps-list">
+            <div class="app-item">
+                <div class="app-item-content">
+                    <div class="app-header">
+                        <div class="app-info">
+                            <h3 class="app-name">Trademark Acknowledgments</h3>
+                            <p class="app-tagline">Third-party trademarks and acknowledgments</p>
+                            <div class="app-description">
+                                <ul style="text-align: left; margin: 1rem 0;">
+                                    <li>Google Play and the Google Play logo are trademarks of Google LLC.</li>
+                                    <li>App Store and the Apple logo are registered trademarks of Apple Inc.</li>
+                                    <li>All app names and logos are trademarks of their respective owners.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="app-item">
+                <div class="app-item-content">
+                    <div class="app-header">
+                        <div class="app-info">
+                            <h3 class="app-name">Contact & Support</h3>
+                            <p class="app-tagline">Questions about our legal documents or policies?</p>
+                            <div class="app-description">
+                                <p>If you have any questions about our privacy policies, terms of service, or any other legal matters, please don't hesitate to reach out.</p>
+                            </div>
+                            <div class="app-actions">
+                                <a href="mailto:mitchell525@gmail.com" class="cta-button">
+                                    <span>Contact Us</span>
+                                    <i class="bi bi-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-<!-- Credit Lines -->
-<div class="row ms_row vertical-align ms-legal" style="background-color: #33A8FF;">
-    <!-- Content-->
-    <div class="fade-in col-md-11 offset-md-1">
-        <h2 style="padding-top: 1em">
-            Credit Lines
-        </h2>
-
-        <ul>
-            <li>Google Play and the Google Play logo are trademarks of Google LLC.</li>
-            <li>App Store and the Apple logo are registered trademarks of Apple Inc.</li>
-        </ul>
-    </div>
-</div>
-
-<!-- Feedback -->
-<div class="row ms_row vertical-align ms-legal" style="background-color: #E9795D;">
-    <!-- Content-->
-    <div class="fade-in col-md-11 offset-md-1">
-        <h2 style="padding-top: 1em">
-            Feedback
-        </h2>
-
-        <p>Please send an email to Mitch at: <a href="mailto:mitchell525@gmail.com">mitchell525@gmail.com</a>
-        </p>
-    </div>
-</div>
+</section>

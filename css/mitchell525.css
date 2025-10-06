@@ -187,7 +187,7 @@
     
     .cookie-banner-buttons {
         justify-content: center;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
     }
     
     .cookie-banner-buttons .btn {
@@ -551,6 +551,21 @@ body {
     overflow: hidden;
 }
 
+/* Hero Section with colored background (for app pages) */
+.hero-section[style*="background"] {
+    color: white;
+}
+
+.hero-section[style*="background"] .hero-title,
+.hero-section[style*="background"] .hero-subtitle,
+.hero-section[style*="background"] .hero-description {
+    color: white;
+}
+
+.hero-section[style*="background"] .hero-cta {
+    color: white;
+}
+
 .hero-section::before {
     content: '';
     position: absolute;
@@ -567,7 +582,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    align-items: center;
+    align-items: start;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
@@ -579,6 +594,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    text-align: center;
 }
 
 .hero-icon {
@@ -588,8 +604,6 @@ body {
 .brand-icon {
     width: 80px;
     height: 80px;
-    border-radius: var(--radius-large);
-    box-shadow: var(--shadow-medium);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -663,7 +677,12 @@ body {
 .hero-image {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+}
+
+.hero-image .image-container {
+    width: 100%;
+    max-width: 400px;
 }
 
 .image-container {
@@ -687,13 +706,13 @@ body {
 
 /* Apps Section */
 .apps-section {
-    padding: 6rem 0;
+    padding: 1rem 0;
     background: var(--color-background-secondary);
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -764,10 +783,8 @@ body {
 }
 
 .app-icon {
-    width: 100px;
-    height: 100px;
-    border-radius: var(--radius-large);
-    box-shadow: var(--shadow-medium);
+    width: 40px;
+    height: 40px;
     transition: transform 0.3s ease;
 }
 
@@ -842,6 +859,7 @@ body {
 .screenshot-image {
     width: 100%;
     height: auto;
+    max-height: 500px;
     object-fit: contain;
     border-radius: var(--radius-small);
 }
@@ -855,13 +873,15 @@ body {
 .store-buttons {
     display: flex;
     gap: 1rem;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 .store-button {
     display: inline-block;
     transition: transform 0.2s ease;
     text-decoration: none;
+    margin-bottom: 0.5rem;
 }
 
 .store-button:hover {
@@ -944,11 +964,11 @@ body {
     }
     
     .apps-section {
-        padding: 4rem 0;
+        padding: 2rem 0;
     }
     
     .section-header {
-        margin-bottom: 3rem;
+        margin-bottom: 1.5rem;
         padding: 0 1rem;
     }
     
@@ -977,8 +997,8 @@ body {
     }
     
     .app-icon {
-        width: 80px;
-        height: 80px;
+        width: 35px;
+        height: 35px;
     }
     
     .app-name a {
@@ -1020,7 +1040,7 @@ body {
     }
     
     .apps-section {
-        padding: 3rem 0;
+        padding: 1.5rem 0;
     }
     
     .section-title {
@@ -1050,8 +1070,8 @@ body {
     }
     
     .app-icon {
-        width: 90px;
-        height: 90px;
+        width: 40px;
+        height: 40px;
     }
     
     .app-name a {
@@ -1148,6 +1168,21 @@ body {
         background: linear-gradient(135deg, #000000 0%, #1C1C1E 100%);
     }
     
+    /* Ensure colored hero sections maintain white text in dark mode */
+    .hero-section[style*="background"] {
+        color: white;
+    }
+    
+    .hero-section[style*="background"] .hero-title,
+    .hero-section[style*="background"] .hero-subtitle,
+    .hero-section[style*="background"] .hero-description {
+        color: white;
+    }
+    
+    .hero-section[style*="background"] .hero-cta {
+        color: white;
+    }
+    
     .apps-section {
         background: var(--color-background-secondary);
     }
@@ -1239,13 +1274,15 @@ body {
 .store-buttons {
     display: flex;
     gap: 1rem;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 .store-button {
     display: inline-block;
     transition: transform 0.2s ease, opacity 0.2s ease;
     text-decoration: none;
+    margin-bottom: 0.5rem;
 }
 
 .store-button:hover {
@@ -1332,7 +1369,7 @@ body {
 
 .screenshot-image {
     max-width: 100%;
-    max-height: 100%;
+    max-height: 500px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -1603,8 +1640,6 @@ body {
 .brand-icon {
     width: 60px;
     height: 60px;
-    border-radius: var(--radius-large);
-    box-shadow: var(--shadow-medium);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1853,6 +1888,34 @@ body {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
     border-radius: var(--radius-large);
+}
+
+/* Legal buttons responsive styling */
+.app-actions .store-buttons {
+    gap: 0.75rem;
+}
+
+.app-actions .store-button span {
+    white-space: nowrap;
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem !important;
+}
+
+@media (max-width: 480px) {
+    .app-actions .store-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .app-actions .store-button {
+        width: 100%;
+    }
+    
+    .app-actions .store-button span {
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
 }
 
 /* High contrast mode support */
