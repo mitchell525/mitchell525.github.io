@@ -55,26 +55,28 @@ title: "Mitch Smith: Software Engineer and Hobbyist App Developer"
                             </h3>
                             <p class="app-tagline">{{ app.tagline }}</p>
                             <div class="app-actions">
-                                {% if app.coming_soon %}
-                                    <div class="coming-soon-badge">
-                                        <span class="badge-text">Coming Soon</span>
-                                    </div>
-                                {% else %}
-                                    <div class="store-buttons">
-                                        {% if app.ios_url %}
-                                            <a href="{{ app.ios_url }}" class="store-button" target="_blank" rel="noopener">
-                                                <img src="/img/appstore/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" 
-                                                     alt="Download on the App Store" class="store-badge">
-                                            </a>
-                                        {% endif %}
-                                        {% if app.android_url %}
-                                            <a href="{{ app.android_url }}" class="store-button" target="_blank" rel="noopener">
-                                                <img src="/img/appstore/google-play-badge-01.svg" 
-                                                     alt="Get it on Google Play" class="store-badge">
-                                            </a>
-                                        {% endif %}
-                                    </div>
-                                {% endif %}
+                                {% unless app.legacy %}
+                                    {% if app.coming_soon %}
+                                        <div class="coming-soon-badge">
+                                            <span class="badge-text">Coming Soon</span>
+                                        </div>
+                                    {% else %}
+                                        <div class="store-buttons">
+                                            {% if app.ios_url %}
+                                                <a href="{{ app.ios_url }}" class="store-button" target="_blank" rel="noopener">
+                                                    <img src="/img/appstore/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" 
+                                                         alt="Download on the App Store" class="store-badge">
+                                                </a>
+                                            {% endif %}
+                                            {% if app.android_url %}
+                                                <a href="{{ app.android_url }}" class="store-button" target="_blank" rel="noopener">
+                                                    <img src="/img/appstore/google-play-badge-01.svg" 
+                                                         alt="Get it on Google Play" class="store-badge">
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                {% endunless %}
                             </div>
                         </div>
                     </div>
