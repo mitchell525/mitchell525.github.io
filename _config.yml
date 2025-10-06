@@ -1,7 +1,7 @@
 # Site settings
 title: "Mitch Smith: Software Engineer and App Developer"
 description: "Mitchell (Mitch) Smith is a full time Software Engineer and father from Baltimore Maryland. In his free time he enjoys creating apps as a hobby."
-url: "https://mitchell525.github.io"
+url: "https://mitchell525.gitlab.io"
 baseurl: ""
 
 # Build settings

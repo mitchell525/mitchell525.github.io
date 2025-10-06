@@ -1,15 +1,15 @@
-# mitchell525.github.io
+# mitchell525.gitlab.io
 
-Personal portfolio website for hosting and showcasing my mobile apps. Built with Jekyll and deployed via GitHub Pages.
+Personal portfolio website for hosting and showcasing my mobile apps. Built with Jekyll and deployed via GitLab Pages.
 
 ### Live site
-`https://mitchell525.github.io`
+`https://mitchell525.gitlab.io`
 
 ### Tech stack
 - **Jekyll 3.9.5** - Static site generator
-- **Bootstrap 4.3.1** - CSS framework via CDN
+- **Bootstrap 5.3.2** - CSS framework via CDN
 - **jQuery 3.5.1** - DOM interactions and animations
-- **Google Analytics (UA)** - Site analytics
+- **Google Analytics 4** - Site analytics
 - **Jekyll SEO Tag** - Automatic SEO optimization
 - **Jekyll Sitemap** - Automatic sitemap generation
 - **Jekyll Feed** - RSS feed generation
@@ -101,7 +101,7 @@ This approach reduces maintenance overhead and ensures consistency across all le
 - **Live Reload**: Development server with automatic browser refresh
 
 ### Deployment
-This repository is configured for GitHub Pages with Jekyll. Merges to `master` automatically trigger a Jekyll build and deploy to `https://mitchell525.github.io/`.
+This repository is configured for GitLab Pages with Jekyll. Pushes to `main` branch automatically trigger a Jekyll build and deploy to `https://mitchell525.gitlab.io/`.
 
 ### License
 See [`LICENSE`](./LICENSE).
