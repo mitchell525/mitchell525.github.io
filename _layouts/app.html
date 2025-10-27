@@ -47,11 +47,11 @@ layout: default
                 </div>
             </div>
             <div class="hero-image">
-                <div class="" style="display: flex; align-items: center; justify-content: center;">
+                <div style="display: flex; align-items: center; justify-content: center; border-radius: 12px; overflow: hidden;">
                     {% if app.screenshots.first %}
                         <img src="{{ app.screenshots.first }}" 
                              alt="{{ app.name }} screenshot" 
-                             style="width: 100%; height: auto; max-height: 500px; object-fit: contain; display: block;">
+                             style="height: auto; max-height: 500px; max-width: 100%; display: block;">
                     {% endif %}
                 </div>
             </div>
@@ -82,7 +82,7 @@ layout: default
             <div class="app-item">
                 <div class="app-item-content">
                     <div class="app-screenshots">
-                        <div class="screenshot-item">
+                        <div class="screenshot-item" data-screenshot="{{ screenshot }}">
                             <img src="{{ screenshot }}" 
                                  class="screenshot-image" 
                                  alt="{{ app.name }} screenshot {{ forloop.index }}"
@@ -95,6 +95,15 @@ layout: default
         </div>
     </div>
 </section>
+
+<!-- Screenshot Lightbox Modal -->
+<div id="screenshotModal" class="lightbox-modal" style="display: none;">
+    <div class="lightbox-overlay"></div>
+    <div class="lightbox-container">
+        <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <img id="lightboxImage" src="" alt="Screenshot" class="lightbox-image">
+    </div>
+</div>
 
 <!-- Contact and Legal -->
 <section class="apps-section">

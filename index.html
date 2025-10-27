@@ -87,7 +87,7 @@ title: "Mitch Smith: Software Engineer and Hobbyist App Developer"
                     
                     <div class="app-screenshots">
                         {% for screenshot in app.screenshots limit:3 %}
-                        <div class="screenshot-item">
+                        <div class="screenshot-item" data-screenshot="{{ screenshot }}">
                             <img src="{{ screenshot }}" alt="Screenshot for {{ app.name }}" class="screenshot-image">
                         </div>
                         {% endfor %}
@@ -98,3 +98,12 @@ title: "Mitch Smith: Software Engineer and Hobbyist App Developer"
         </div>
     </div>
 </section>
+
+<!-- Screenshot Lightbox Modal -->
+<div id="screenshotModal" class="lightbox-modal" style="display: none;">
+    <div class="lightbox-overlay"></div>
+    <div class="lightbox-container">
+        <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <img id="lightboxImage" src="" alt="Screenshot" class="lightbox-image">
+    </div>
+</div>

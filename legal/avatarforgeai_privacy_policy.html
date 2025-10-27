@@ -1,0 +1,139 @@
+---
+layout: legal
+title: "AvatarForge AI: Privacy Policy"
+---
+  <main>
+    <article>
+      <p><strong>Last updated:</strong> October 6, 2025<br>
+      <strong>Developer:</strong> Mitchell Smith<br>
+      <strong>Contact:</strong> <a href="mailto:mitchell525@gmail.com">mitchell525@gmail.com</a></p>
+
+      <section>
+        <h2>1. Overview</h2>
+        <p>AvatarForge AI is an iOS app that creates fantasy and RPG character artwork using artificial intelligence. The app is developed by Mitchell Smith and uses Google's Gemini 2.5 Flash (primary) and OpenAI's DALL-E (fallback) for AI image generation, with Firebase providing authentication, database, storage, and backend services. The app uses a subscription-based model with credit consumption tracking and automatic refunds on failed generations. By using the app you agree to this policy.</p>
+      </section>
+
+      <section>
+        <h2>2. Data We Collect</h2>
+        <ul>
+          <li><strong>Account Information</strong> - Email, user ID, and authentication data via Firebase Authentication (including Sign in with Apple).</li>
+          <li><strong>AI Prompts and Images</strong> - Text prompts (including moderated/transformed versions), AI-generated images, thumbnails, and metadata (style, timestamps, aspect ratio) stored in Firestore and Firebase Storage.</li>
+          <li><strong>Subscription and Credit Data</strong> - Subscription tier, usage counters (images generated), one-time credits, credit consumption history, renewal dates, and purchase transaction records.</li>
+          <li><strong>Generation Job Data</strong> - Job status (pending/processing/completed/failed), error messages, storage paths, and processing timestamps.</li>
+          <li><strong>Analytics and App Usage</strong> - App usage, performance metrics, and diagnostics via Firebase Analytics, Crashlytics, and Apple's standard metrics.</li>
+          <li><strong>Device and Configuration</strong> - Device information for optimization and Remote Config values (free credit amounts, feature flags, usage limits) cached locally.</li>
+          <li><strong>Purchase Information</strong> - Subscription identifiers and anonymous confirmations from Apple to validate entitlements; Apple handles all payment details.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. How We Use Your Data</h2>
+        <p>We use data to:
+          <ul>
+            <li>Generate and display AI-generated fantasy avatar images</li>
+            <li>Save your creations and sync them across your devices</li>
+            <li>Manage subscriptions, track credit consumption, and validate entitlements</li>
+            <li>Monitor and process generation jobs from submission to completion</li>
+            <li>Improve and maintain the app through analytics and error reporting</li>
+            <li>Prevent abuse and enforce usage limits</li>
+            <li>Refund credits when jobs fail as part of our error handling</li>
+          </ul>
+          We do not sell or rent your personal data.
+        </p>
+      </section>
+
+      <section>
+        <h2>4. How AI Services Work</h2>
+        <p>The app uses a dual-provider AI architecture for reliability:
+          <ul>
+            <li><strong>Primary:</strong> Google's Gemini 2.5 Flash Image API for prompt validation and image generation</li>
+            <li><strong>Fallback:</strong> OpenAI's DALL-E API when Gemini is unavailable</li>
+          </ul>
+          Prompts you submit are processed by these AI services under their respective privacy policies:
+          <ul>
+            <li>Google Gemini: <a href="https://ai.google.dev/terms">Google AI Privacy Policy</a></li>
+            <li>OpenAI: <a href="https://openai.com/policies/privacy-policy">OpenAI Privacy Policy</a></li>
+          </ul>
+          We do not share personal identifiers (email, user ID) with these AI providers during image generation. Only the prompt text and generation parameters are transmitted.
+        </p>
+      </section>
+
+      <section>
+        <h2>5. Data Security</h2>
+        <p>Your data is secured using Google Firebase services with industry-standard security measures:
+          <ul>
+            <li><strong>Authentication:</strong> Firebase Auth with encrypted Sign in with Apple integration</li>
+            <li><strong>Database:</strong> Firestore with role-based access rules and encrypted connections</li>
+            <li><strong>Storage:</strong> Firebase Storage with access controls and secure URLs</li>
+            <li><strong>Backend:</strong> Cloud Functions with input validation and rate limiting</li>
+            <li><strong>Local Caching:</strong> SwiftData for device-side metadata; image files stored in app caches (excluded from iCloud backups)</li>
+          </ul>
+          Access to your data is restricted to: (1) you (via authenticated requests) and (2) the developer (for maintenance and support). No third-party services have direct access to your personal data.
+        </p>
+      </section>
+
+      <section>
+        <h2>6. International Data Transfers</h2>
+        <p>Your data may be transferred to and processed in countries other than your own:
+          <ul>
+            <li>Firebase (Google Cloud) uses data protection safeguards for international transfers</li>
+            <li>AI providers (Gemini and DALL-E) process prompts in their respective regions under their privacy policies</li>
+          </ul>
+          By using the app, you consent to these international data transfers as described in this policy.
+        </p>
+      </section>
+
+      <section>
+        <h2>7. Data Retention & Deletion</h2>
+        <p>Data is retained while your account is active. The app implements automated cleanup processes:
+          <ul>
+            <li>Stale generation jobs are automatically expired and removed</li>
+            <li>Unused images in storage may be cleaned up based on access patterns</li>
+            <li>Transaction records are retained for audit purposes</li>
+          </ul>
+          You can request deletion of your account and all associated data by emailing <a href="mailto:mitchell525@gmail.com">mitchell525@gmail.com</a>. Deletion will include: user account, all generated images, job records, and subscription data. Limited records may be retained if required by law or for abuse prevention.
+        </p>
+      </section>
+
+      <section>
+        <h2>8. Service Discontinuation</h2>
+        <p>If the app is discontinued, all user data stored in Firebase (Firestore, Storage) will be removed from our systems within 30 days. Prior to discontinuation, we will notify users via the app. Locally cached images and metadata stored on your device will remain accessible until you delete the app or clear its cache.</p>
+      </section>
+
+      <section>
+        <h2>9. Subscriptions and Credits</h2>
+        <p>The app uses a two-tier credit system:
+          <ul>
+            <li><strong>Subscription Credits:</strong> Monthly quota-based credits that reset based on your subscription tier</li>
+            <li><strong>One-Time Credits:</strong> Credits granted at signup (free) or through purchases that never expire</li>
+          </ul>
+          Credits are consumed when generating images and automatically refunded if generation fails. Subscription validation is handled through Apple's App Store Server API; we only receive subscription identifiers and do not process payment information.
+        </p>
+      </section>
+
+      <section>
+        <h2>10. Age Requirement</h2>
+        <p>AvatarForge AI is intended for users aged 18 years and older. By using the app, you represent that you are at least 18 years old. We do not knowingly collect data from anyone under 18. If you become aware that someone under 18 has provided us with personal information, please contact us so we can take appropriate action.</p>
+      </section>
+
+      <section>
+        <h2>11. Changes</h2>
+        <p>This policy may be updated as the app evolves. The latest version will be available in the app and on the App Store listing.</p>
+      </section>
+
+      <section>
+        <h2>12. Contact</h2>
+        <p>If you have privacy questions or requests, contact: <a href="mailto:mitchell525@gmail.com">mitchell525@gmail.com</a></p>
+      </section>
+
+      <hr>
+
+      <section>
+        <h2>App Store Privacy Summary</h2>
+        <p><strong>Data Linked to You:</strong> Email address / user ID; authentication information; user-generated content (text prompts, AI-generated images, thumbnails); subscription tier and usage counters; one-time and subscription credit balances; credit consumption history; generation job status and metadata; device identifiers for subscription validation; diagnostics and app usage.</p>
+        <p><strong>Data Not Linked to You:</strong> Crash reports; performance metrics; aggregated usage statistics.</p>
+        <p><strong>Data Used to Track You:</strong> None</p>
+        <p><strong>Third-Party Services:</strong> The app uses Firebase (Google) for backend services and Google Gemini 2.5 Flash / OpenAI DALL-E for AI image generation. These services process data under their own privacy policies. No third-party tracking or advertising SDKs are used.</p>
+      </section>
+    </article>
+  </main>

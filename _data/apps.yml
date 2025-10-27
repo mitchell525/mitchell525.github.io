@@ -1,3 +1,19 @@
+- name: "AvatarForge AI"
+  slug: "avatarforgeai"
+  tagline: "AI Fantasy Character Maker"
+  description: "Turn your imagination into breathtaking fantasy artwork. Fantasy Avatar Maker generates detailed character portraits inspired by fantasy novels, tabletop RPGs, and classic fantasy art — all powered by cutting-edge AI."
+  icon: "/img/avatarforgeai/icon.png"
+  color: "#7B39EC"
+  coming_soon: true
+  ios_url: "https://apps.apple.com/us/app/id1521182800"
+  android_url: null
+  screenshots:
+    - "/img/avatarforgeai/1.png"
+    - "/img/avatarforgeai/2.png"
+    - "/img/avatarforgeai/7.png"
+  privacy_policy: "/legal/avatarforgeai_privacy_policy.html"
+  terms: "/legal/avatarforgeai_terms_and_conditions.html"
+
 - name: "Pinball Overdrive"
   slug: "pinballoverdrive"
   tagline: "A Retro Themed Pinball Game"
@@ -22,9 +38,9 @@
   ios_url: "https://apps.apple.com/us/app/pocket-trip-planner/id6741714565"
   android_url: null
   screenshots:
-    - "/img/pockettravelplanner/pocket_travel_planner_website_preview_1.png"
-    - "/img/pockettravelplanner/pocket_travel_planner_website_preview_2.png"
-    - "/img/pockettravelplanner/pocket_travel_planner_website_preview_3.png"
+    - "/img/pockettravelplanner/1.png"
+    - "/img/pockettravelplanner/2.png"
+    - "/img/pockettravelplanner/3.png"
   privacy_policy: "/legal/pocket_trip_planner_privacy_policy.html"
   terms: "/legal/pocket_trip_planner_terms_and_conditions.html"
 
