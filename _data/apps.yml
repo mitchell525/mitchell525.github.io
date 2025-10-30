@@ -13,6 +13,11 @@
     - "/img/avatarforgeai/7.png"
   privacy_policy: "/legal/avatarforgeai_privacy_policy.html"
   terms: "/legal/avatarforgeai_terms_and_conditions.html"
+  support_pages:
+    - name: "FAQ"
+      url: "/support/avatarforgeai_faq.html"
+    - name: "Subscription Support"
+      url: "/support/avatarforgeai_subscription_support.html"
 
 - name: "Pinball Overdrive"
   slug: "pinballoverdrive"

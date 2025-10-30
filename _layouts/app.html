@@ -130,6 +130,28 @@ layout: default
                 </div>
             </div>
             
+            {% if app.support_pages %}
+            <div class="app-item">
+                <div class="app-item-content">
+                    <div class="app-header">
+                        <div class="app-info">
+                            <h3 class="app-name">Support & Help</h3>
+                            <p class="app-tagline">Get help with common issues and troubleshooting</p>
+                            <div class="app-actions">
+                                <div class="store-buttons">
+                                    {% for support_page in app.support_pages %}
+                                    <a href="{{ support_page.url }}" class="store-button" target="_blank" rel="noopener">
+                                        <span style="background: var(--color-background-primary); color: var(--color-text-primary); padding: 0.5rem 1rem; border-radius: var(--radius-medium); border: 1px solid var(--color-separator); text-decoration: none; font-weight: 500;">💬 {{ support_page.name }}</span>
+                                    </a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            
             <div class="app-item">
                 <div class="app-item-content">
                     <div class="app-header">

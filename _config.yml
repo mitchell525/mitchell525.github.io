@@ -22,6 +22,12 @@ defaults:
     values:
       layout: "legal"
       permalink: /:path/:basename.html
+  - scope:
+      path: "support"
+      type: "pages"
+    values:
+      layout: "support"
+      permalink: /:path/:basename.html
 
 # Development settings
 livereload: true
