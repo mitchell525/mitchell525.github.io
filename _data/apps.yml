@@ -1,7 +1,7 @@
 - name: "AvatarForge AI"
   slug: "avatarforgeai"
   tagline: "AI Fantasy Character Maker"
-  description: "Turn your imagination into breathtaking fantasy artwork. Fantasy Avatar Maker generates detailed character portraits inspired by fantasy novels, tabletop RPGs, and classic fantasy art — all powered by cutting-edge AI."
+  description: "Bring your fantasy heroes, villains, and creatures to life. AvatarForge AI transforms simple descriptions into breathtaking fantasy portraits inspired by fantasy novels, tabletop RPGs, and classic fantasy art. Built for iOS with a fast, reliable generation pipeline, it's the easiest way to visualize the characters in your imagination."
   icon: "/img/avatarforgeai/icon.png"
   color: "#7B39EC"
   coming_soon: true
