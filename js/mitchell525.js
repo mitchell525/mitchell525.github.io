@@ -68,6 +68,16 @@
                 'ad_storage': 'denied', // We don't use ads
                 'functionality_storage': analyticsAllowed ? 'granted' : 'denied'
             });
+            
+            // If consent is granted, send a page view event
+            // This ensures page views are tracked even if the initial page load was blocked
+            if (analyticsAllowed) {
+                gtag('event', 'page_view', {
+                    'page_title': document.title,
+                    'page_location': window.location.href,
+                    'page_path': window.location.pathname
+                });
+            }
         }
     }
     
@@ -167,7 +177,20 @@
         } else {
             // User has already given consent, update analytics accordingly
             const analyticsAllowed = getCookie(COOKIE_ANALYTICS_KEY) === 'true';
-            updateAnalyticsConsent(analyticsAllowed);
+            // Wait a bit to ensure gtag is fully loaded before updating consent
+            if (typeof gtag === 'undefined') {
+                // If gtag isn't loaded yet, wait for it
+                const checkGtag = setInterval(() => {
+                    if (typeof gtag !== 'undefined') {
+                        clearInterval(checkGtag);
+                        updateAnalyticsConsent(analyticsAllowed);
+                    }
+                }, 100);
+                // Timeout after 5 seconds
+                setTimeout(() => clearInterval(checkGtag), 5000);
+            } else {
+                updateAnalyticsConsent(analyticsAllowed);
+            }
         }
     }
     

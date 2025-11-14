@@ -53,11 +53,29 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         
-        // Set default consent state (denied until user consents)
+        // Check for existing consent cookie
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+        
+        // Check if user has already given consent
+        const hasConsent = getCookie('cookie_consent') !== null;
+        const analyticsAllowed = getCookie('cookie_analytics') === 'true';
+        
+        // Set consent state based on existing cookies (if any)
+        // If user has previously consented, grant consent immediately
+        // Otherwise, default to denied until user consents
         gtag('consent', 'default', {
-            'analytics_storage': 'denied',
+            'analytics_storage': (hasConsent && analyticsAllowed) ? 'granted' : 'denied',
             'ad_storage': 'denied',
-            'functionality_storage': 'denied'
+            'functionality_storage': (hasConsent && analyticsAllowed) ? 'granted' : 'denied'
         });
         
         gtag('js', new Date());
