@@ -1,5 +1,22 @@
+- name: "Digital CD Changer"
+  slug: "cdchanger"
+  tagline: "Album player for CarPlay"
+  description: "Digital CD Changer brings back the simplicity of loading albums and pressing play. Build custom CD magazines from your Music library and browse or start playback from iPhone or CarPlay—focused, album-first listening without playlists or clutter. Requires Music library access; CarPlay requires a compatible vehicle or receiver."
+  icon: "/img/cdchanger/icon.png"
+  color: "#CC5500"
+  coming_soon: true
+  ios_url: null
+  android_url: null
+  screenshots:
+    - "/img/cdchanger/cd_changer1.png"
+    - "/img/cdchanger/cd_changer2.png"
+    - "/img/cdchanger/cd_changer3.png"
+  privacy_policy: "/legal/cdchanger_privacy_policy.html"
+  terms: "/legal/cdchanger_terms_and_conditions.html"
+
 - name: "AvatarForge AI"
   slug: "avatarforgeai"
+  hidden_from_home: true
   tagline: "AI Fantasy Character Maker"
   description: "Bring your fantasy heroes, villains, and creatures to life. AvatarForge AI transforms simple descriptions into breathtaking fantasy portraits inspired by fantasy novels, tabletop RPGs, and classic fantasy art. Built for iOS with a fast, reliable generation pipeline, it's the easiest way to visualize the characters in your imagination."
   icon: "/img/avatarforgeai/icon.png"

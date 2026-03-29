@@ -16,8 +16,8 @@ if ! command -v bundle &> /dev/null; then
     exit 1
 fi
 
-# Install dependencies if needed
-if [ ! -d "vendor/bundle" ]; then
+# Install or update dependencies if bundle is incomplete (e.g. after Ruby/OS upgrade)
+if ! bundle check &>/dev/null; then
     echo "📦 Installing dependencies..."
     bundle install
 fi

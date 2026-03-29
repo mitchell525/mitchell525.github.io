@@ -43,6 +43,7 @@ title: "Mitch Smith: Software Engineer and Hobbyist App Developer"
 
         <div class="apps-list">
             {% for app in site.data.apps %}
+            {% unless app.hidden_from_home %}
             <div class="app-item" data-app-color="{{ app.color }}">
                 <div class="app-item-content">
                     <div class="app-header">
@@ -94,6 +95,7 @@ title: "Mitch Smith: Software Engineer and Hobbyist App Developer"
                     </div>
                 </div>
             </div>
+            {% endunless %}
             {% endfor %}
         </div>
     </div>
