@@ -13,6 +13,9 @@
     - "/img/cdchanger/cd_changer3.png"
   privacy_policy: "/legal/cdchanger_privacy_policy.html"
   terms: "/legal/cdchanger_terms_and_conditions.html"
+  support_pages:
+    - name: "Support"
+      url: "/support/cdchanger_support.html"
 
 - name: "AvatarForge AI"
   slug: "avatarforgeai"
