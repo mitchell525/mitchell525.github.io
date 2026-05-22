@@ -4,8 +4,7 @@
   description: "Digital CD Changer brings back the simplicity of loading albums and pressing play. Build custom CD magazines from your Music library and browse or start playback from iPhone or CarPlay—focused, album-first listening without playlists or clutter. Requires Music library access; CarPlay requires a compatible vehicle or receiver."
   icon: "/img/cdchanger/icon.png"
   color: "#CC5500"
-  coming_soon: true
-  ios_url: null
+  ios_url: "https://apps.apple.com/us/app/id6760621270"
   android_url: null
   screenshots:
     - "/img/cdchanger/cd_changer1.png"
