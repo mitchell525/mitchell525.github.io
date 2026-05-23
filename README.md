@@ -42,7 +42,9 @@ npm run clean  # Clean the build directory
 - **`_config.yml`**: Jekyll configuration and site settings
 - **`_data/apps.yml`**: Centralized app data (metadata, URLs, screenshots)
 - **`_apps/`**: Jekyll collection containing app pages (Markdown files)
-- **`_layouts/`**: Jekyll layouts (`default.html`, `app.html`, `legal.html`, `support.html`)
+- **`_posts/`**: Blog posts (Markdown with front matter)
+- **`blog/`**: Blog index page at `/blog/`
+- **`_layouts/`**: Jekyll layouts (`default.html`, `app.html`, `legal.html`, `support.html`, `post.html`)
 - **`_includes/`**: Reusable HTML fragments (`navbar.html`, `footer.html`, `cookie-banner.html`)
 - **`pages/`**: Static content pages (`about.html`, `legal.html`)
 - **`support/`**: Support pages (FAQs, subscription support)
@@ -88,6 +90,34 @@ npm run clean  # Clean the build directory
 4. Add legal documents to `legal/` directory
 5. Add support pages to `support/` directory if needed (using `support.html` layout)
 
+### Adding a blog post
+1. Create a new file in `_posts/` named `YYYY-MM-DD-post-slug.md`:
+   ```markdown
+   ---
+   layout: post
+   title: "Post title"
+   date: 2026-05-21
+   tags: [ios, release]
+   excerpt: "Short summary for the blog listing and SEO."
+   image: /img/blog/my-post/header.png   # optional header image (left of title)
+   image_alt: "Optional alt text for header image"
+   app_slug: cdchanger                   # optional: use app icon from _data/apps.yml
+   screenshots:
+     - src: /img/blog/my-post/screenshot1.png
+       alt: "Screenshot description"
+       caption: "Optional caption shown below the image"
+   ---
+
+   Write your post in Markdown. Use [links](https://example.com) and inline images:
+
+   ![Alt text](/img/blog/my-post/inline.png)
+   ```
+
+2. Add images under `img/blog/` (or reuse existing app screenshots under `img/<app>/`).
+3. Optional `image` or `app_slug` shows a header icon to the left of the title (release posts can use `app_slug` to pull the app icon automatically).
+4. Optional `screenshots` front matter renders a clickable gallery at the end of the post (uses the site lightbox).
+5. Posts appear on `/blog/` and in the RSS feed at `/feed.xml`.
+
 ### Page Templates
 The site uses Jekyll layouts to eliminate HTML duplication:
 
@@ -124,6 +154,7 @@ This approach reduces maintenance overhead and ensures consistency across all pa
 - **Data Files**: Centralized app metadata in `_data/apps.yml`
 - **SEO**: Automatic meta tags, Open Graph, and Twitter Card support via Jekyll SEO Tag
 - **Sitemap**: Automatic XML sitemap generation via Jekyll Sitemap
+- **Blog**: Markdown posts in `_posts/` with listing at `/blog/` and per-post pages
 - **RSS Feed**: Automatic RSS feed at `/feed.xml` (via Jekyll Feed plugin)
 - **Live Reload**: Development server with automatic browser refresh
 - **Cookie Consent**: GDPR-compliant cookie consent banner with granular preferences

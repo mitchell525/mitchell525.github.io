@@ -1,0 +1,103 @@
+---
+layout: default
+---
+
+{% if page.image %}
+  {% assign header_image = page.image %}
+  {% assign header_image_alt = page.image_alt | default: page.title %}
+{% elsif page.app_slug %}
+  {% assign app = site.data.apps | where: "slug", page.app_slug | first %}
+  {% if app %}
+    {% assign header_image = app.icon %}
+    {% assign header_image_alt = app.name | append: " app icon" %}
+  {% endif %}
+{% endif %}
+
+<article class="blog-post">
+    <header class="blog-post-header">
+        <div class="container">
+            <div class="blog-post-header-inner">
+                <nav class="blog-breadcrumb" aria-label="Breadcrumb">
+                    <ol class="blog-breadcrumb-list">
+                        <li class="blog-breadcrumb-item">
+                            <a href="/blog/">Blog</a>
+                        </li>
+                        <li class="blog-breadcrumb-item blog-breadcrumb-current" aria-current="page">
+                            {{ page.title }}
+                        </li>
+                    </ol>
+                </nav>
+                <p class="blog-post-meta">
+                    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+                    {% if page.tags.size > 0 %}
+                    <span class="blog-post-meta-sep" aria-hidden="true">·</span>
+                    <span class="blog-post-tags-inline">
+                        {% for tag in page.tags %}
+                        <a href="/blog/#tag-{{ tag | slugify }}" class="blog-tag">{{ tag }}</a>
+                        {% endfor %}
+                    </span>
+                    {% endif %}
+                </p>
+
+                {% if header_image %}
+                <div class="blog-post-title-row">
+                    <div class="blog-post-icon">
+                        <img src="{{ header_image }}"
+                             class="blog-post-icon-img"
+                             alt="{{ header_image_alt }}"
+                             width="80"
+                             height="80"
+                             loading="eager">
+                    </div>
+                    <h1 class="blog-post-title">{{ page.title }}</h1>
+                </div>
+                {% else %}
+                <h1 class="blog-post-title">{{ page.title }}</h1>
+                {% endif %}
+
+                {% if page.excerpt %}
+                <p class="blog-post-lead">{{ page.excerpt }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <section class="blog-post-body">
+        <div class="container">
+            <div class="blog-post-content">
+                {{ content }}
+            </div>
+
+            {% if page.screenshots.size > 0 %}
+            <div class="blog-screenshots">
+                <h2 class="blog-screenshots-title">Screenshots</h2>
+                <div class="blog-screenshots-grid">
+                    {% for shot in page.screenshots %}
+                    <figure class="blog-screenshot-figure">
+                        <div class="screenshot-item" data-screenshot="{{ shot.src }}">
+                            <img src="{{ shot.src }}"
+                                 alt="{{ shot.alt | default: page.title }}"
+                                 class="screenshot-image"
+                                 loading="lazy">
+                        </div>
+                        {% if shot.caption %}
+                        <figcaption class="blog-screenshot-caption">{{ shot.caption }}</figcaption>
+                        {% endif %}
+                    </figure>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+</article>
+
+{% if page.screenshots.size > 0 %}
+<div id="screenshotModal" class="lightbox-modal" style="display: none;">
+    <div class="lightbox-overlay"></div>
+    <div class="lightbox-container">
+        <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <img id="lightboxImage" src="" alt="Screenshot" class="lightbox-image">
+    </div>
+</div>
+{% endif %}

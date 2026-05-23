@@ -46,6 +46,15 @@
                     </a>
                 </li>
                 <li class="nav-item" role="none">
+                    <a class="nav-link {% if page.url contains '/blog' %}active fw-semibold{% endif %}" 
+                       href="/blog/" 
+                       role="menuitem"
+                       aria-current="{% if page.url contains '/blog' %}page{% endif %}">
+                        <i class="bi bi-journal-text me-1" aria-hidden="true"></i>
+                        Blog
+                    </a>
+                </li>
+                <li class="nav-item" role="none">
                     <a class="nav-link {% if page.url contains 'legal' %}active fw-semibold{% endif %}" 
                        href="/pages/legal/" 
                        role="menuitem"

@@ -28,6 +28,11 @@ defaults:
     values:
       layout: "support"
       permalink: /:path/:basename.html
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
 
 # Development settings
 livereload: true
@@ -43,6 +48,7 @@ collections:
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-feed
 
 # Exclude from processing
 exclude:
