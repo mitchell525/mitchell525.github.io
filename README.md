@@ -86,6 +86,8 @@ npm run clean  # Clean the build directory
    ---
    ```
 
+   App page SEO (title, meta description, Open Graph image) is auto-derived from `_data/apps.yml` at build time by `_plugins/app_seo_generator.rb`. Optional per-page overrides in front matter: `title`, `description`, `image`. Optional `schema_category` in `apps.yml` (e.g. `GameApplication`) for structured data.
+
 3. Add app images to `img/appname/` directory
 4. Add legal documents to `legal/` directory
 5. Add support pages to `support/` directory if needed (using `support.html` layout)
@@ -152,7 +154,7 @@ This approach reduces maintenance overhead and ensures consistency across all pa
 ### Jekyll Features
 - **Collections**: Apps are managed as a Jekyll collection for easy iteration
 - **Data Files**: Centralized app metadata in `_data/apps.yml`
-- **SEO**: Automatic meta tags, Open Graph, and Twitter Card support via Jekyll SEO Tag
+- **SEO**: App pages auto-populate title, description, and OG image from `_data/apps.yml` via `_plugins/app_seo_generator.rb`; Jekyll SEO Tag handles meta tags, Open Graph, Twitter Cards, and canonical URLs
 - **Sitemap**: Automatic XML sitemap generation via Jekyll Sitemap
 - **Blog**: Markdown posts in `_posts/` with listing at `/blog/` and per-post pages
 - **RSS Feed**: Automatic RSS feed at `/feed.xml` (via Jekyll Feed plugin)

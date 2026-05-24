@@ -1,0 +1,21 @@
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": {{ app.name | jsonify }},
+    "description": {{ app.description | jsonify }},
+    "image": {{ app.icon | absolute_url | jsonify }},
+    "applicationCategory": {{ app.schema_category | default: "MobileApplication" | jsonify }},
+    "operatingSystem": "{% if app.android_url %}iOS, Android{% else %}iOS{% endif %}",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Mitchell Smith",
+        "url": {{ site.url | jsonify }}
+    }
+}
+</script>

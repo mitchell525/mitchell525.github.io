@@ -1,8 +1,9 @@
 # Site settings
-title: "Mitch Smith: Software Engineer and App Developer"
-description: "Mitchell (Mitch) Smith is a full time Software Engineer and father from Baltimore Maryland. In his free time he enjoys creating apps as a hobby."
+title: "Mitch Smith"
+description: "Software engineer and indie app developer from Baltimore. Mobile apps for iOS and Android — games, travel tools, and music."
 url: "https://mitchell525.gitlab.io"
 baseurl: ""
+logo: "/img/icons/material/ic_material_product_icon_192px copy 2mdpi.png"
 
 # Build settings
 markdown: kramdown

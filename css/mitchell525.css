@@ -697,6 +697,8 @@ body {
 
 .app-page-hero .hero-cta {
     margin-top: 0.75rem;
+    position: relative;
+    z-index: 2;
 }
 
 .app-page-hero .store-buttons {
@@ -762,6 +764,19 @@ body {
     padding: 2.5rem 0 2.75rem;
     background: linear-gradient(180deg, #010103 0%, var(--color-background-secondary) 42%);
     border-bottom: 1px solid var(--color-separator);
+}
+
+.app-about-section {
+    padding: 2rem 0 3rem;
+}
+
+.app-about-section .section-header {
+    margin-bottom: 1.5rem;
+}
+
+.app-about-content {
+    max-width: 720px;
+    margin: 0 auto;
 }
 
 .app-screenshot-gallery-label {
@@ -1057,10 +1072,18 @@ body {
 }
 
 .store-button {
-    display: inline-block;
-    transition: transform 0.2s ease;
-    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    padding: 6px;
     margin-bottom: 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .store-button:hover {
@@ -1068,10 +1091,14 @@ body {
 }
 
 .store-badge {
+    display: block;
     height: 40px;
     width: auto;
     box-shadow: var(--shadow-small);
     transition: box-shadow 0.2s ease;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .store-button:hover .store-badge {
@@ -1549,10 +1576,18 @@ body {
 }
 
 .store-button {
-    display: inline-block;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    padding: 6px;
     margin-bottom: 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .store-button:hover {
@@ -1561,10 +1596,14 @@ body {
 }
 
 .store-badge {
+    display: block;
     height: 40px;
     width: auto;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.2s ease;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .store-button:hover .store-badge {
