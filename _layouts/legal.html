@@ -2,12 +2,91 @@
 layout: default
 ---
 
-<div class="container" style="padding-top: 25px;">
-    <div class="row">
-        <div class="col-sm">
-            <h2>{{ page.title }}</h2>
-            <hr />
-            {{ content }}
+{% assign legal_app = nil %}
+{% assign page_url_normalized = page.url | relative_url %}
+{% for app in site.data.apps %}
+  {% assign privacy_url = app.privacy_policy | relative_url %}
+  {% assign terms_url = app.terms | relative_url %}
+  {% if privacy_url == page_url_normalized or terms_url == page_url_normalized %}
+    {% assign legal_app = app %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+{% assign legal_accent = legal_app.color | default: "#007AFF" %}
+{% assign is_privacy_page = false %}
+{% assign is_terms_page = false %}
+{% if legal_app %}
+  {% assign privacy_url = legal_app.privacy_policy | relative_url %}
+  {% assign terms_url = legal_app.terms | relative_url %}
+  {% if privacy_url == page_url_normalized %}
+    {% assign is_privacy_page = true %}
+  {% endif %}
+  {% if terms_url == page_url_normalized %}
+    {% assign is_terms_page = true %}
+  {% endif %}
+{% endif %}
+
+<article class="legal-page">
+    <header class="blog-post-header legal-page-header" style="--blog-post-accent: {{ legal_accent }};">
+        <nav class="blog-breadcrumb blog-post-breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="blog-breadcrumb-list">
+                    <li class="blog-breadcrumb-item">
+                        <a href="/">Portfolio</a>
+                    </li>
+                    {% if legal_app %}
+                    <li class="blog-breadcrumb-item">
+                        <a href="/{{ legal_app.slug }}/">{{ legal_app.name }}</a>
+                    </li>
+                    {% else %}
+                    <li class="blog-breadcrumb-item">
+                        <a href="/pages/legal.html">Legal</a>
+                    </li>
+                    {% endif %}
+                    <li class="blog-breadcrumb-item blog-breadcrumb-current" aria-current="page">
+                        {{ page.title }}
+                    </li>
+                </ol>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="blog-post-header-inner">
+                <div class="blog-post-hero-copy">
+                    {% if legal_app %}
+                    <div class="blog-post-icon">
+                        <img src="{{ legal_app.icon }}"
+                             class="blog-post-icon-img"
+                             alt="{{ legal_app.name }} app icon"
+                             width="80"
+                             height="80"
+                             loading="eager">
+                    </div>
+                    {% endif %}
+                    <h1 class="blog-post-title">{{ page.title }}</h1>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    </header>
+
+    <section class="blog-post-body legal-page-body">
+        <div class="container">
+            <div class="blog-post-content legal-page-content">
+                {{ content }}
+            </div>
+
+            {% if legal_app %}
+            <nav class="legal-doc-nav" aria-label="Related documents">
+                <a href="/{{ legal_app.slug }}/" class="legal-doc-nav-link">
+                    View {{ legal_app.name }}
+                </a>
+                {% if is_privacy_page and legal_app.terms %}
+                <a href="{{ legal_app.terms | relative_url }}" class="legal-doc-nav-link">Terms and Conditions</a>
+                {% elsif is_terms_page and legal_app.privacy_policy %}
+                <a href="{{ legal_app.privacy_policy | relative_url }}" class="legal-doc-nav-link">Privacy Policy</a>
+                {% endif %}
+            </nav>
+            {% endif %}
+        </div>
+    </section>
+</article>

@@ -87,7 +87,7 @@ Follow-up items from the app setup review (beyond the SEO work already completed
 
 ---
 
-### [ ] Migrate standalone legal pages to shared layout
+### [x] Migrate standalone legal pages to shared layout
 **Issue:** `legal/pocket_trip_planner_privacy_policy.html` and `legal/pocket_trip_planner_terms_and_conditions.html` bypass the shared layout.
 
 - No navbar, cookie banner, or consistent SEO

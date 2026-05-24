@@ -142,11 +142,9 @@ layout: default
                             <h3 class="app-name">Support & Help</h3>
                             <p class="app-tagline">Get help with common issues and troubleshooting</p>
                             <div class="app-actions">
-                                <div class="store-buttons">
+                                <div class="doc-link-buttons">
                                     {% for support_page in app.support_pages %}
-                                    <a href="{{ support_page.url }}" class="store-button">
-                                        <span style="background: var(--color-background-primary); color: var(--color-text-primary); padding: 0.5rem 1rem; border-radius: var(--radius-medium); border: 1px solid var(--color-separator); text-decoration: none; font-weight: 500;">💬 {{ support_page.name }}</span>
-                                    </a>
+                                    <a href="{{ support_page.url }}" class="doc-link-button">{{ support_page.name }}</a>
                                     {% endfor %}
                                 </div>
                             </div>
@@ -163,13 +161,9 @@ layout: default
                             <h3 class="app-name">Legal Documents</h3>
                             <p class="app-tagline">Review our privacy policy and terms of use</p>
                             <div class="app-actions">
-                                <div class="store-buttons">
-                                    <a href="{{ app.privacy_policy }}" class="store-button">
-                                        <span style="background: var(--color-background-primary); color: var(--color-text-primary); padding: 0.5rem 1rem; border-radius: var(--radius-medium); border: 1px solid var(--color-separator); text-decoration: none; font-weight: 500;">🔒 Privacy Policy</span>
-                                    </a>
-                                    <a href="{{ app.terms }}" class="store-button">
-                                        <span style="background: var(--color-background-primary); color: var(--color-text-primary); padding: 0.5rem 1rem; border-radius: var(--radius-medium); border: 1px solid var(--color-separator); text-decoration: none; font-weight: 500;">📋 Terms of Use</span>
-                                    </a>
+                                <div class="doc-link-buttons">
+                                    <a href="{{ app.privacy_policy }}" class="doc-link-button">Privacy Policy</a>
+                                    <a href="{{ app.terms }}" class="doc-link-button">Terms of Use</a>
                                 </div>
                             </div>
                         </div>

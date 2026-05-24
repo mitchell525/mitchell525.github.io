@@ -2025,14 +2025,16 @@ body {
 @media (prefers-reduced-motion: reduce) {
     .app-icon,
     .store-button,
+    .doc-link-button,
     .screenshot-item,
     .contact-button,
     .legal-link {
         transition: none;
     }
-    
+
     .app-icon:hover,
     .store-button:hover,
+    .doc-link-button:hover,
     .screenshot-item:hover,
     .contact-button:hover,
     .legal-link:hover {
@@ -2344,31 +2346,54 @@ body {
     border-radius: var(--radius-large);
 }
 
-/* Legal buttons responsive styling */
-.app-actions .store-buttons {
+/* Privacy, terms, and support text buttons (not store badges) */
+.doc-link-buttons {
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.75rem;
+    align-items: center;
 }
 
-.app-actions .store-button span {
-    white-space: nowrap;
-    font-size: 1rem;
-    padding: 0.6rem 1.2rem !important;
+.doc-link-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1.125rem;
+    font-family: var(--font-family-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--color-text-primary);
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-separator);
+    border-radius: var(--radius-medium);
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.doc-link-button:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+.doc-link-button:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
 }
 
 @media (max-width: 480px) {
-    .app-actions .store-buttons {
+    .doc-link-buttons {
         flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    .app-actions .store-button {
+        align-items: stretch;
         width: 100%;
     }
-    
-    .app-actions .store-button span {
+
+    .doc-link-button {
         width: 100%;
         text-align: center;
-        display: block;
     }
 }
 
@@ -2443,18 +2468,10 @@ body {
     font-weight: 600;
     text-transform: lowercase;
     letter-spacing: 0.02em;
-    color: var(--color-primary);
-    background: rgba(0, 122, 255, 0.1);
     padding: 0.25rem 0.6rem;
     border-radius: var(--radius-small);
     text-decoration: none;
-    transition: background 0.2s ease, color 0.2s ease;
-}
-
-a.blog-tag:hover {
-    background: rgba(0, 122, 255, 0.2);
-    color: var(--color-primary);
-    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .blog-index-list {
@@ -2519,19 +2536,6 @@ a.blog-tag:hover {
 .blog-post-body .blog-post-meta-sep {
     color: var(--color-text-tertiary);
     opacity: 0.5;
-}
-
-.blog-post-body .blog-tag {
-    color: var(--color-primary);
-    background: rgba(0, 122, 255, 0.1);
-    border: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-}
-
-.blog-post-body a.blog-tag:hover {
-    color: var(--color-primary);
-    background: rgba(0, 122, 255, 0.2);
 }
 
 .blog-list-excerpt {
@@ -2727,11 +2731,18 @@ a.blog-tag:hover {
     color: rgba(255, 255, 255, 0.28);
 }
 
+.blog-post-header .blog-post-tags-inline,
+.blog-list-meta .blog-post-tags-inline {
+    gap: 0.5rem;
+}
+
 .blog-post-header .blog-post-tags-inline {
     justify-content: center;
 }
 
-.blog-post-header .blog-tag {
+/* Frosted tags (post header is canonical; index list matches on dark, adapted on light) */
+.blog-post-header .blog-tag,
+.blog-list-meta .blog-tag {
     color: rgba(255, 255, 255, 0.86);
     background: rgba(255, 255, 255, 0.09);
     border: 1px solid rgba(255, 255, 255, 0.12);
@@ -2739,9 +2750,26 @@ a.blog-tag:hover {
     -webkit-backdrop-filter: blur(10px);
 }
 
-.blog-post-header a.blog-tag:hover {
+.blog-post-header a.blog-tag:hover,
+.blog-list-meta a.blog-tag:hover {
     color: white;
     background: rgba(255, 255, 255, 0.16);
+    text-decoration: none;
+}
+
+/* Blog index tags sit on a light body in light mode — same shape, readable contrast */
+@media (prefers-color-scheme: light) {
+    .blog-list-meta .blog-tag {
+        color: rgba(28, 28, 30, 0.78);
+        background: rgba(255, 255, 255, 0.65);
+        border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .blog-list-meta a.blog-tag:hover {
+        color: var(--color-text-primary);
+        background: rgba(255, 255, 255, 0.92);
+        border-color: rgba(0, 0, 0, 0.14);
+    }
 }
 
 .blog-post-title {
@@ -2768,6 +2796,41 @@ a.blog-tag:hover {
 
 .blog-post-body {
     padding: 2.5rem 0 4rem;
+}
+
+.legal-page-header {
+    padding-bottom: 3.25rem;
+}
+
+.legal-page-content main {
+    display: contents;
+}
+
+.legal-page-body .container {
+    max-width: 100%;
+}
+
+.legal-doc-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1.5rem 0.5rem 0;
+    border-top: 1px solid var(--color-separator);
+}
+
+.legal-doc-nav-link {
+    font-family: var(--font-family-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.legal-doc-nav-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 .blog-post-content {
