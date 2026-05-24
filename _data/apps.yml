@@ -56,7 +56,7 @@
   slug: "pockettripplanner"
   tagline: "Simple Trip Planning Made Easy"
   description: "Pocket Trip Planner is a simple, free, and nonintrusive app designed to help you plan every aspect of your journey with ease. From organizing itineraries to packing lists and countdowns, Pocket Trip Planner keeps your trip details all in one place. Whether you're planning a weekend getaway or an epic adventure, Pocket Trip Planner makes trip planning easy!"
-  icon: "/img/pockettravelplanner/icon.png"
+  icon: "/img/pockettravelplanner/pocket_travel_planner_icon.png"
   color: "#101D48"
   ios_url: "https://apps.apple.com/us/app/pocket-trip-planner/id6741714565"
   android_url: null

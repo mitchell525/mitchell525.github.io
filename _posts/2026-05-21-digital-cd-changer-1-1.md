@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Digital CD Changer 1.1 — albums a few taps away"
+title: "Digital CD Changer albums a few taps away"
 date: 2026-05-21
 app_slug: cdchanger
 tags: [ios, carplay, music, side-project]

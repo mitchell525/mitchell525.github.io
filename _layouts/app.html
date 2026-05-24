@@ -5,7 +5,7 @@ layout: default
 {% assign app = site.data.apps | where: "slug", page.slug | first %}
 
 <!-- Hero Section -->
-<section class="hero-section" style="background: linear-gradient(135deg, {{ app.color }} 0%, {{ app.color }}dd 100%);">
+<section class="hero-section app-page-hero" style="--hero-accent: {{ app.color }};">
     <div class="container">
         <div class="hero-content">
             <div class="hero-text">
@@ -47,17 +47,39 @@ layout: default
                 </div>
             </div>
             <div class="hero-image">
-                <div style="display: flex; align-items: center; justify-content: center; border-radius: 12px; overflow: hidden;">
+                <div class="app-hero-device-frame">
                     {% if app.screenshots.first %}
                         <img src="{{ app.screenshots.first }}" 
                              alt="{{ app.name }} screenshot" 
-                             style="height: auto; max-height: 500px; max-width: 100%; display: block;">
+                             class="app-hero-screenshot">
                     {% endif %}
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+{% if app.screenshots.size > 0 %}
+<section class="app-screenshot-gallery" aria-label="{{ app.name }} screenshots">
+    <div class="container">
+        <h2 class="app-screenshot-gallery-label">Screenshots</h2>
+        <div class="app-screenshot-scroll app-screenshot-scroll--fitted"
+             data-screenshot-count="{{ app.screenshots.size }}"
+             tabindex="0">
+            {% for screenshot in app.screenshots %}
+            <figure class="app-screenshot-slide">
+                <div class="screenshot-item" data-screenshot="{{ screenshot }}">
+                    <img src="{{ screenshot }}"
+                         class="screenshot-image"
+                         alt="{{ app.name }} screenshot {{ forloop.index }}"
+                         loading="lazy">
+                </div>
+            </figure>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
 
 <!-- App Description -->
 <!-- <section class="apps-section">
@@ -69,32 +91,6 @@ layout: default
     </div>
 </section> -->
 
-<!-- Screenshots Gallery -->
-<section class="apps-section">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Screenshots</h2>
-            <p class="section-subtitle">See {{ app.name }} in action</p>
-        </div>
-
-        <div class="apps-list">
-            {% for screenshot in app.screenshots %}
-            <div class="app-item">
-                <div class="app-item-content">
-                    <div class="app-screenshots">
-                        <div class="screenshot-item" data-screenshot="{{ screenshot }}">
-                            <img src="{{ screenshot }}" 
-                                 class="screenshot-image" 
-                                 alt="{{ app.name }} screenshot {{ forloop.index }}"
-                                 loading="lazy">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
 
 <!-- Screenshot Lightbox Modal -->
 <div id="screenshotModal" class="lightbox-modal" style="display: none;">

@@ -2,45 +2,38 @@
 layout: default
 ---
 
+{% assign blog_post_accent = site.data.apps | where: "slug", page.app_slug | first %}
+{% assign blog_post_accent_color = blog_post_accent.color | default: "#007AFF" %}
+
 {% if page.image %}
   {% assign header_image = page.image %}
   {% assign header_image_alt = page.image_alt | default: page.title %}
-{% elsif page.app_slug %}
-  {% assign app = site.data.apps | where: "slug", page.app_slug | first %}
-  {% if app %}
-    {% assign header_image = app.icon %}
-    {% assign header_image_alt = app.name | append: " app icon" %}
+{% elsif blog_post_accent %}
+  {% if blog_post_accent %}
+    {% assign header_image = blog_post_accent.icon %}
+    {% assign header_image_alt = blog_post_accent.name | append: " app icon" %}
   {% endif %}
 {% endif %}
 
 <article class="blog-post">
-    <header class="blog-post-header">
+    <header class="blog-post-header" style="--blog-post-accent: {{ blog_post_accent_color }};">
+        <nav class="blog-breadcrumb blog-post-breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="blog-breadcrumb-list">
+                    <li class="blog-breadcrumb-item">
+                        <a href="/blog/">Blog</a>
+                    </li>
+                    <li class="blog-breadcrumb-item blog-breadcrumb-current" aria-current="page">
+                        {{ page.title }}
+                    </li>
+                </ol>
+            </div>
+        </nav>
+
         <div class="container">
             <div class="blog-post-header-inner">
-                <nav class="blog-breadcrumb" aria-label="Breadcrumb">
-                    <ol class="blog-breadcrumb-list">
-                        <li class="blog-breadcrumb-item">
-                            <a href="/blog/">Blog</a>
-                        </li>
-                        <li class="blog-breadcrumb-item blog-breadcrumb-current" aria-current="page">
-                            {{ page.title }}
-                        </li>
-                    </ol>
-                </nav>
-                <p class="blog-post-meta">
-                    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
-                    {% if page.tags.size > 0 %}
-                    <span class="blog-post-meta-sep" aria-hidden="true">·</span>
-                    <span class="blog-post-tags-inline">
-                        {% for tag in page.tags %}
-                        <a href="/blog/#tag-{{ tag | slugify }}" class="blog-tag">{{ tag }}</a>
-                        {% endfor %}
-                    </span>
-                    {% endif %}
-                </p>
-
-                {% if header_image %}
-                <div class="blog-post-title-row">
+                <div class="blog-post-hero-copy">
+                    {% if header_image %}
                     <div class="blog-post-icon">
                         <img src="{{ header_image }}"
                              class="blog-post-icon-img"
@@ -49,15 +42,26 @@ layout: default
                              height="80"
                              loading="eager">
                     </div>
-                    <h1 class="blog-post-title">{{ page.title }}</h1>
-                </div>
-                {% else %}
-                <h1 class="blog-post-title">{{ page.title }}</h1>
-                {% endif %}
+                    {% endif %}
 
-                {% if page.excerpt %}
-                <p class="blog-post-lead">{{ page.excerpt }}</p>
-                {% endif %}
+                    <h1 class="blog-post-title">{{ page.title }}</h1>
+
+                    {% if page.excerpt %}
+                    <p class="blog-post-lead">{{ page.excerpt }}</p>
+                    {% endif %}
+
+                    <p class="blog-post-meta">
+                        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+                        {% if page.tags.size > 0 %}
+                        <span class="blog-post-meta-sep" aria-hidden="true">·</span>
+                        <span class="blog-post-tags-inline">
+                            {% for tag in page.tags %}
+                            <a href="/blog/#tag-{{ tag | slugify }}" class="blog-tag">{{ tag }}</a>
+                            {% endfor %}
+                        </span>
+                        {% endif %}
+                    </p>
+                </div>
             </div>
         </div>
     </header>

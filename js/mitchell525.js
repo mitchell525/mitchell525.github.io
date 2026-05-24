@@ -210,6 +210,112 @@
     };
 })();
 
+// Dynamic hero mesh interaction
+(function() {
+    'use strict';
+
+    function initDynamicHeroMeshes() {
+        const heroes = document.querySelectorAll('.blog-post-header, .app-page-hero');
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!heroes.length || reducedMotion) return;
+
+        heroes.forEach(function(hero) {
+            let frameId = null;
+            let latestEvent = null;
+
+            function setHeroPosition(clientX, clientY) {
+                const rect = hero.getBoundingClientRect();
+                const x = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+                const y = Math.max(0, Math.min(1, (clientY - rect.top) / rect.height));
+                const shiftX = (x - 0.5) * 34;
+                const shiftY = (y - 0.5) * 24;
+
+                hero.style.setProperty('--hero-x', (x * 100).toFixed(2) + '%');
+                hero.style.setProperty('--hero-y', (y * 100).toFixed(2) + '%');
+                hero.style.setProperty('--hero-shift-x', shiftX.toFixed(2) + 'px');
+                hero.style.setProperty('--hero-shift-y', shiftY.toFixed(2) + 'px');
+                hero.style.setProperty('--hero-shift-x-alt', (shiftX * -0.6).toFixed(2) + 'px');
+                hero.style.setProperty('--hero-shift-y-alt', (shiftY * -0.6).toFixed(2) + 'px');
+            }
+
+            function scheduleUpdate(event) {
+                latestEvent = event;
+
+                if (frameId !== null) return;
+
+                frameId = window.requestAnimationFrame(function() {
+                    if (latestEvent) {
+                        setHeroPosition(latestEvent.clientX, latestEvent.clientY);
+                    }
+
+                    frameId = null;
+                });
+            }
+
+            function resetHeroPosition() {
+                hero.style.setProperty('--hero-x', '50%');
+                hero.style.setProperty('--hero-y', '42%');
+                hero.style.setProperty('--hero-shift-x', '0px');
+                hero.style.setProperty('--hero-shift-y', '0px');
+                hero.style.setProperty('--hero-shift-x-alt', '0px');
+                hero.style.setProperty('--hero-shift-y-alt', '0px');
+            }
+
+            hero.addEventListener('pointermove', scheduleUpdate);
+            hero.addEventListener('pointerleave', resetHeroPosition);
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initDynamicHeroMeshes);
+    } else {
+        initDynamicHeroMeshes();
+    }
+})();
+
+// App screenshot gallery layout modes
+(function() {
+    'use strict';
+
+    function updateScreenshotGalleryMode(scroll) {
+        const overflows = scroll.scrollWidth > scroll.clientWidth + 1;
+        scroll.classList.toggle('app-screenshot-scroll--scrollable', overflows);
+        scroll.classList.toggle('app-screenshot-scroll--fitted', !overflows);
+    }
+
+    function initScreenshotGalleries() {
+        const galleries = document.querySelectorAll('.app-screenshot-scroll');
+
+        galleries.forEach(function(scroll) {
+            function refreshMode() {
+                updateScreenshotGalleryMode(scroll);
+            }
+
+            refreshMode();
+
+            if (typeof ResizeObserver !== 'undefined') {
+                const observer = new ResizeObserver(refreshMode);
+                observer.observe(scroll);
+            } else {
+                window.addEventListener('resize', refreshMode);
+            }
+
+            scroll.querySelectorAll('img').forEach(function(img) {
+                if (!img.complete) {
+                    img.addEventListener('load', refreshMode);
+                }
+            });
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScreenshotGalleries);
+    } else {
+        initScreenshotGalleries();
+    }
+})();
+
 // Screenshot Lightbox Functionality
 (function() {
     'use strict';
