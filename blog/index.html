@@ -3,79 +3,72 @@ layout: default
 title: Blog
 ---
 
-<section class="hero-section blog-hero">
-    <div class="container">
-        <div class="section-header">
-            <h1 class="section-title">Blog</h1>
-            <p class="section-subtitle">Release notes, side projects, and things I care about</p>
+<article class="blog-index">
+    <header class="blog-post-header blog-index-header" style="--blog-post-accent: #007AFF;">
+        <div class="container">
+            <div class="blog-post-header-inner">
+                <div class="blog-post-hero-copy">
+                    <h1 class="blog-post-title">Blog</h1>
+                    <p class="blog-post-lead">Release notes, side projects, and things I care about</p>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </header>
 
-<section class="apps-section blog-index-section">
-    <div class="container">
-        {% if site.posts.size > 0 %}
-        <div class="blog-post-list">
-            {% for post in site.posts %}
-            {% assign card_image = nil %}
-            {% assign card_image_alt = nil %}
-            {% if post.image %}
-              {% assign card_image = post.image %}
-              {% assign card_image_alt = post.image_alt | default: post.title %}
-            {% elsif post.app_slug %}
-              {% assign card_app = site.data.apps | where: "slug", post.app_slug | first %}
-              {% if card_app %}
-                {% assign card_image = card_app.icon %}
-                {% assign card_image_alt = card_app.name | append: " app icon" %}
-              {% endif %}
-            {% endif %}
-            <article class="blog-card app-item" id="{% if post.tags.first %}tag-{{ post.tags.first | slugify }}{% endif %}">
-                <div class="app-item-content">
-                    <header class="blog-card-header">
-                        <time class="blog-card-date" datetime="{{ post.date | date_to_xmlschema }}">
-                            {{ post.date | date: "%B %-d, %Y" }}
-                        </time>
-                        {% if post.tags.size > 0 %}
-                        <div class="blog-card-tags">
-                            {% for tag in post.tags %}
-                            <span class="blog-tag">{{ tag }}</span>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                    </header>
-                    {% if card_image %}
-                    <div class="blog-card-title-row">
+    <section class="blog-post-body blog-index-body">
+        <div class="container">
+            {% if site.posts.size > 0 %}
+            <div class="blog-index-list">
+                {% for post in site.posts %}
+                {% assign card_image = nil %}
+                {% assign card_image_alt = nil %}
+                {% if post.image %}
+                  {% assign card_image = post.image %}
+                  {% assign card_image_alt = post.image_alt | default: post.title %}
+                {% elsif post.app_slug %}
+                  {% assign card_app = site.data.apps | where: "slug", post.app_slug | first %}
+                  {% if card_app %}
+                    {% assign card_image = card_app.icon %}
+                    {% assign card_image_alt = card_app.name | append: " app icon" %}
+                  {% endif %}
+                {% endif %}
+                <article class="blog-list-item" id="{% if post.tags.first %}tag-{{ post.tags.first | slugify }}{% endif %}">
+                    <div class="blog-list-item-inner">
+                        {% if card_image %}
                         <div class="blog-post-icon">
                             <img src="{{ card_image }}"
-                                 class="blog-card-icon-img"
+                                 class="blog-post-icon-img"
                                  alt="{{ card_image_alt }}"
-                                 width="56"
-                                 height="56"
+                                 width="64"
+                                 height="64"
                                  loading="lazy">
                         </div>
-                        <h2 class="blog-card-title">
-                            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                        </h2>
+                        {% endif %}
+                        <div class="blog-list-item-copy">
+                            <h2 class="blog-list-item-title">
+                                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                            </h2>
+                            <p class="blog-post-meta blog-list-meta">
+                                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+                                {% if post.tags.size > 0 %}
+                                <span class="blog-post-meta-sep" aria-hidden="true">·</span>
+                                <span class="blog-post-tags-inline">
+                                    {% for tag in post.tags %}
+                                    <a href="/blog/#tag-{{ tag | slugify }}" class="blog-tag">{{ tag }}</a>
+                                    {% endfor %}
+                                </span>
+                                {% endif %}
+                            </p>
+                            {% assign preview = post.excerpt | default: post.content | strip_html | truncatewords: 40 %}
+                            <p class="blog-list-excerpt">{{ preview }}</p>
+                        </div>
                     </div>
-                    {% else %}
-                    <h2 class="blog-card-title">
-                        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                    </h2>
-                    {% endif %}
-                    {% assign preview = post.excerpt | default: post.content | strip_html | truncatewords: 40 %}
-                    <p class="blog-card-excerpt">{{ preview }}</p>
-                    <div class="blog-card-actions">
-                        <a href="{{ post.url | relative_url }}" class="cta-button blog-read-more">
-                            <span>Read more</span>
-                            <i class="bi bi-arrow-right" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-            </article>
-            {% endfor %}
+                </article>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="blog-empty">No posts yet. Check back soon.</p>
+            {% endif %}
         </div>
-        {% else %}
-        <p class="blog-empty">No posts yet. Check back soon.</p>
-        {% endif %}
-    </div>
-</section>
+    </section>
+</article>

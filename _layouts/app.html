@@ -6,6 +6,18 @@ layout: default
 
 <!-- Hero Section -->
 <section class="hero-section app-page-hero" style="--hero-accent: {{ app.color }};">
+    <nav class="blog-breadcrumb blog-post-breadcrumb" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="blog-breadcrumb-list">
+                <li class="blog-breadcrumb-item">
+                    <a href="/">Portfolio</a>
+                </li>
+                <li class="blog-breadcrumb-item blog-breadcrumb-current" aria-current="page">
+                    {{ app.name }}
+                </li>
+            </ol>
+        </div>
+    </nav>
     <div class="container">
         <div class="hero-content">
             <div class="hero-text">
@@ -175,4 +187,5 @@ layout: default
     </div>
 </section>
 
+{% include app-breadcrumb-schema.html %}
 {% include app-schema.html %}

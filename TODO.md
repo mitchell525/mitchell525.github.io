@@ -27,7 +27,7 @@ Follow-up items from the app setup review (beyond the SEO work already completed
 
 ---
 
-### [ ] Add breadcrumb navigation to app pages
+### [x] Add breadcrumb navigation to app pages
 **Issue:** Blog posts have breadcrumbs (`Blog → Post title`); app pages do not.
 
 - Add a trail like `Portfolio → {App Name}` for UX and crawl structure
