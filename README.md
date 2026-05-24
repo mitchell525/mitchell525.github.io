@@ -62,6 +62,8 @@ npm run clean  # Clean the build directory
      description: "App description"
      icon: "/img/appname/icon.png"
      color: "#HEXCOLOR"
+     schema_category: "GameApplication"  # Schema.org category, e.g. GameApplication, UtilitiesApplication, TravelApplication
+     pricing_model: "free"               # free (AdMob games) | freemium (optional IAP) | subscription
      coming_soon: false  # Optional: set to true for apps not yet released
      legacy: false        # Optional: set to true for older/legacy apps
      ios_url: "https://apps.apple.com/..."
@@ -86,7 +88,7 @@ npm run clean  # Clean the build directory
    ---
    ```
 
-   App page SEO (title, meta description, Open Graph image) is auto-derived from `_data/apps.yml` at build time by `_plugins/app_seo_generator.rb`. Optional per-page overrides in front matter: `title`, `description`, `image`. Optional `schema_category` in `apps.yml` (e.g. `GameApplication`) for structured data.
+   App page SEO (title, meta description, Open Graph image) is auto-derived from `_data/apps.yml` at build time by `_plugins/app_seo_generator.rb`. Optional per-page overrides in front matter: `title`, `description`, `image`. Structured data uses `schema_category` and `pricing_model` from `apps.yml` for SoftwareApplication JSON-LD.
 
 3. Add app images to `img/appname/` directory
 4. Add legal documents to `legal/` directory

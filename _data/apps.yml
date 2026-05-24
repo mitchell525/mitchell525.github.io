@@ -4,6 +4,8 @@
   description: "Album-first listening for iPhone and CarPlay. Build custom CD magazines from your Music library and press play."
   icon: "/img/cdchanger/icon.png"
   color: "#3A60AD"
+  schema_category: "UtilitiesApplication"
+  pricing_model: "freemium"
   ios_url: "https://apps.apple.com/us/app/id6760621270"
   android_url: null
   screenshots:
@@ -23,6 +25,8 @@
   description: "Bring your fantasy heroes, villains, and creatures to life. AvatarForge AI transforms simple descriptions into breathtaking fantasy portraits inspired by fantasy novels, tabletop RPGs, and classic fantasy art. Built for iOS with a fast, reliable generation pipeline, it's the easiest way to visualize the characters in your imagination."
   icon: "/img/avatarforgeai/icon.png"
   color: "#7B39EC"
+  schema_category: "DesignApplication"
+  pricing_model: "subscription"
   ios_url: "https://apps.apple.com/us/app/id6752224785"
   android_url: null
   screenshots:
@@ -43,6 +47,8 @@
   description: "Retro pinball with explosive hazards, randomized levels, and offline high-score runs. Rack up multipliers and bonus pinballs to top the leaderboard."
   icon: "/img/pinballoverdrive/icon.png"
   color: "#45545B"
+  schema_category: "GameApplication"
+  pricing_model: "free"
   ios_url: "https://apps.apple.com/us/app/id1521182800"
   android_url: "https://play.google.com/store/apps/details?id=com.smith.mitchell.PinballOverdrive&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
   screenshots:
@@ -58,6 +64,8 @@
   description: "Ad-free trip planning for itineraries, packing lists, budgets, and countdowns—all in one place. Built for weekend getaways and big family vacations."
   icon: "/img/pockettravelplanner/pocket_travel_planner_icon.png"
   color: "#101D48"
+  schema_category: "TravelApplication"
+  pricing_model: "freemium"
   ios_url: "https://apps.apple.com/us/app/pocket-trip-planner/id6741714565"
   android_url: null
   screenshots:
@@ -73,6 +81,8 @@
   description: "Turn your travels into vintage-style stickers and journals. Design custom keepsakes, record trip stories, and build a collection of every adventure."
   icon: "/img/tripstickers/trip_stickers_icon.png"
   color: "#2E8B57"
+  schema_category: "DesignApplication"
+  pricing_model: "freemium"
   ios_url: "https://apps.apple.com/us/app/trip-stickers-travel-memories/id6751296937"
   android_url: null
   screenshots:
@@ -88,6 +98,8 @@
   description: "2D pinball meets endless brick breaker action. Survive faster waves, grab power-ups, unlock skins, and chase high scores offline."
   icon: "/img/pinfinitesmash/icon.png"
   color: "#871C4C"
+  schema_category: "GameApplication"
+  pricing_model: "free"
   ios_url: "https://apps.apple.com/us/app/pinfinite-smash/id1643559563"
   android_url: "https://play.google.com/store/apps/details?id=com.mitchell525.pinfinitesmash"
   screenshots:
@@ -103,6 +115,8 @@
   description: "Defend space with retro pinball action against endless enemy waves. Randomized formations, boss fights, and offline high-score challenges."
   icon: "/img/pinballdefenseforce/icon.png"
   color: "#C759A2"
+  schema_category: "GameApplication"
+  pricing_model: "free"
   ios_url: "https://apps.apple.com/us/app/pinball-defense-force/id1606264904"
   android_url: "https://play.google.com/store/apps/details?id=com.mitchellsmith.pinballdefenseforce"
   screenshots:
@@ -119,6 +133,8 @@
   description: "Tap and Teleport is a 3D reaction-based survival game. You control a lone wizard with the power of teleportation! Use this power to dodge a variety of hazards: fireballs, archers, soldiers, lancers, and even fellow mages. Challenge yourself to survive and collect orbs for points and power-ups. Utilize your reaction skills to survive as you challenge your high-score."
   icon: "/img/tapandteleport/icon.png"
   color: "#F4A261"
+  schema_category: "GameApplication"
+  pricing_model: "free"
   ios_url: "https://apps.apple.com/us/app/tap-and-teleport/id1554488238"
   android_url: "https://play.google.com/store/apps/details?id=com.smith.mitchell.tapandteleport"
   legacy: true
@@ -135,6 +151,8 @@
   description: "Launch your way into Surge Blast! This hyper casual game allows you to release and match bubbles of different colors to score points. Match five bubbles of the same color to score points and survive as long as possible! But watch out! Every eight bubbles, an increasingly difficult blast of different colors will try to disrupt your efforts!"
   icon: "/img/surgeblast/icon.png"
   color: "#30A092"
+  schema_category: "GameApplication"
+  pricing_model: "free"
   ios_url: "https://apps.apple.com/us/app/surge-blast/id1547094707"
   android_url: "https://play.google.com/store/apps/details?id=com.MitchellSmith.SurgeBlast"
   legacy: true
@@ -151,6 +169,8 @@
   description: "Jump into Bounce and Bound, a free, retro-themed puzzle game inspired by the arcade era! Work your way through 36 challenging levels. Strategically drop bouncing balls to hit three goals and move onto the next level! But watch out! Various moving, bouncing, and exploding hazards make finding the correct time and location to drop a challenge."
   icon: "/img/bounceandbound/icon.png"
   color: "#33A8FF"
+  schema_category: "GameApplication"
+  pricing_model: "free"
   ios_url: "https://apps.apple.com/us/app/bounce-and-bound/id1511395743"
   android_url: "https://play.google.com/store/apps/details?id=com.MitchellSmith.BounceAndBound"
   legacy: true
@@ -167,6 +187,8 @@
   description: "A ultra casual color hopping game. Help Dizz the Dizzy Frog leap from lily pad to lily pad! If you're successful, Dizz changes colors and new lily pads appear in endless randomized patterns; the fun never stops! The more accurate your jump, the more points you gain! Play over and over again to build your high score!"
   icon: "/img/dizzyfrog/icon.png"
   color: "#E9795D"
+  schema_category: "GameApplication"
+  pricing_model: "free"
   ios_url: "https://apps.apple.com/us/app/dizzy-frog/id1524972714"
   android_url: "https://play.google.com/store/apps/details?id=com.smith.dizzyfrog"
   legacy: true
@@ -183,6 +205,8 @@
   description: "Shift and Shatter is a quick-paced color matching game. There are six different game modes to choose from, each featuring fun, retro styles inspired by the arcade era. Match shapes by color. But be careful; make sure to avoid bombs and the walls! Challenge yourself to improve your reflexes and beat your high score!"
   icon: "/img/shiftandshatter/icon.png"
   color: "#C759A2"
+  schema_category: "GameApplication"
+  pricing_model: "free"
   ios_url: "https://apps.apple.com/us/app/shift-and-shatter/id1508746469"
   android_url: "https://play.google.com/store/apps/details?id=com.smith.mitchell.shiftandshatter"
   legacy: true

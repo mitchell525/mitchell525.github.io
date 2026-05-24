@@ -139,7 +139,7 @@ layout: default
                             <div class="app-actions">
                                 <div class="store-buttons">
                                     {% for support_page in app.support_pages %}
-                                    <a href="{{ support_page.url }}" class="store-button" target="_blank" rel="noopener">
+                                    <a href="{{ support_page.url }}" class="store-button">
                                         <span style="background: var(--color-background-primary); color: var(--color-text-primary); padding: 0.5rem 1rem; border-radius: var(--radius-medium); border: 1px solid var(--color-separator); text-decoration: none; font-weight: 500;">💬 {{ support_page.name }}</span>
                                     </a>
                                     {% endfor %}
@@ -159,10 +159,10 @@ layout: default
                             <p class="app-tagline">Review our privacy policy and terms of use</p>
                             <div class="app-actions">
                                 <div class="store-buttons">
-                                    <a href="{{ app.privacy_policy }}" class="store-button" target="_blank" rel="noopener">
+                                    <a href="{{ app.privacy_policy }}" class="store-button">
                                         <span style="background: var(--color-background-primary); color: var(--color-text-primary); padding: 0.5rem 1rem; border-radius: var(--radius-medium); border: 1px solid var(--color-separator); text-decoration: none; font-weight: 500;">🔒 Privacy Policy</span>
                                     </a>
-                                    <a href="{{ app.terms }}" class="store-button" target="_blank" rel="noopener">
+                                    <a href="{{ app.terms }}" class="store-button">
                                         <span style="background: var(--color-background-primary); color: var(--color-text-primary); padding: 0.5rem 1rem; border-radius: var(--radius-medium); border: 1px solid var(--color-separator); text-decoration: none; font-weight: 500;">📋 Terms of Use</span>
                                     </a>
                                 </div>

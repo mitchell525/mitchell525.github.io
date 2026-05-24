@@ -1,16 +1,38 @@
+{% assign pricing_model = app.pricing_model | default: "free" %}
+{% case pricing_model %}
+{% when "freemium" %}
+  {% assign offer_description = "Free download with optional in-app purchase for Pro features" %}
+{% when "subscription" %}
+  {% assign offer_description = "Free download with optional subscription for additional features" %}
+{% else %}
+  {% assign offer_description = "Free download with ads" %}
+{% endcase %}
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": {{ app.name | jsonify }},
     "description": {{ app.description | jsonify }},
+    "url": {{ page.url | absolute_url | jsonify }},
     "image": {{ app.icon | absolute_url | jsonify }},
     "applicationCategory": {{ app.schema_category | default: "MobileApplication" | jsonify }},
-    "operatingSystem": "{% if app.android_url %}iOS, Android{% else %}iOS{% endif %}",
+    "operatingSystem": {% if app.android_url %}["iOS", "Android"]{% else %}["iOS"]{% endif %},
+    "isAccessibleForFree": true,
+    {% if app.ios_url or app.android_url %}
+    "downloadUrl": [
+        {%- if app.ios_url -%}
+        {{ app.ios_url | jsonify }}{% if app.android_url %},{% endif %}
+        {%- endif -%}
+        {%- if app.android_url -%}
+        {{ app.android_url | jsonify }}
+        {%- endif -%}
+    ],
+    {% endif %}
     "offers": {
         "@type": "Offer",
         "price": "0",
-        "priceCurrency": "USD"
+        "priceCurrency": "USD",
+        "description": {{ offer_description | jsonify }}
     },
     "author": {
         "@type": "Person",
