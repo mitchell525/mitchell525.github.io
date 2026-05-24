@@ -319,85 +319,187 @@
 // Screenshot Lightbox Functionality
 (function() {
     'use strict';
-    
-    // Initialize lightbox functionality
-    function initLightbox() {
-        const modal = document.getElementById('screenshotModal');
-        const lightboxImage = document.getElementById('lightboxImage');
-        const closeBtn = document.querySelector('.lightbox-close');
-        
-        if (!modal || !lightboxImage) return;
-        
-        // Get all screenshot items (containers)
-        const screenshotItems = document.querySelectorAll('.screenshot-item');
-        
-        // Add click event to each screenshot item
-        screenshotItems.forEach(item => {
-            item.addEventListener('click', function(e) {
-                e.preventDefault();
-                const image = item.querySelector('.screenshot-image');
-                if (image) {
-                    openLightbox(image.src);
-                }
-            });
-            
-            // Add keyboard support for accessibility
-            item.setAttribute('tabindex', '0');
-            item.setAttribute('role', 'button');
-            item.setAttribute('aria-label', 'Click to enlarge screenshot');
-            
-            item.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    const image = item.querySelector('.screenshot-image');
-                    if (image) {
-                        openLightbox(image.src);
-                    }
-                }
-            });
+
+    let lastFocusedElement = null;
+    let trapFocusHandler = null;
+    let suppressBackdropClose = false;
+
+    function getModal() {
+        return document.getElementById('screenshotModal');
+    }
+
+    function isModalOpen(modal) {
+        return modal && modal.classList.contains('is-open');
+    }
+
+    function getFocusableElements(container) {
+        return Array.from(container.querySelectorAll(
+            'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )).filter(function(el) {
+            return el.getClientRects().length > 0;
         });
-        
-        // Close lightbox when clicking close button
-        if (closeBtn) {
-            closeBtn.addEventListener('click', closeLightbox);
+    }
+
+    function trapFocus(e) {
+        const modal = getModal();
+        if (!modal || !isModalOpen(modal) || e.key !== 'Tab') {
+            return;
         }
-        
-        // Close lightbox when clicking overlay
+
+        const focusable = getFocusableElements(modal);
+        if (focusable.length === 0) {
+            return;
+        }
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+        }
+    }
+
+    function openLightbox(imageSrc, imageAlt, trigger) {
+        const modal = getModal();
+        const lightboxImage = document.getElementById('lightboxImage');
+        const closeBtn = modal ? modal.querySelector('.lightbox-close') : null;
+
+        if (!modal || !lightboxImage || !imageSrc) {
+            return;
+        }
+
+        lastFocusedElement = trigger || document.activeElement;
+        lightboxImage.src = imageSrc;
+        lightboxImage.alt = imageAlt || 'Screenshot';
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+
+        trapFocusHandler = trapFocus;
+        modal.addEventListener('keydown', trapFocusHandler);
+
+        suppressBackdropClose = true;
+        window.requestAnimationFrame(function() {
+            suppressBackdropClose = false;
+            if (closeBtn) {
+                closeBtn.focus();
+            }
+        });
+    }
+
+    function closeLightbox() {
+        const modal = getModal();
+        const lightboxImage = document.getElementById('lightboxImage');
+
+        if (!modal || !isModalOpen(modal)) {
+            return;
+        }
+
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+
+        if (trapFocusHandler) {
+            modal.removeEventListener('keydown', trapFocusHandler);
+            trapFocusHandler = null;
+        }
+
+        if (lightboxImage) {
+            lightboxImage.removeAttribute('src');
+            lightboxImage.alt = '';
+        }
+
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+            lastFocusedElement.focus();
+        }
+        lastFocusedElement = null;
+    }
+
+    function openFromItem(item) {
+        const image = item.querySelector('.screenshot-image');
+        if (!image) {
+            return;
+        }
+
+        const imageSrc = image.currentSrc || image.getAttribute('src');
+        if (!imageSrc) {
+            return;
+        }
+
+        openLightbox(imageSrc, image.alt, item);
+    }
+
+    function enhanceScreenshotItem(item) {
+        const image = item.querySelector('.screenshot-image');
+        const altText = image && image.alt ? image.alt.trim() : '';
+
+        if (!item.hasAttribute('tabindex')) {
+            item.setAttribute('tabindex', '0');
+        }
+        item.setAttribute('role', 'button');
+        item.setAttribute('aria-label', altText ? 'View larger: ' + altText : 'View larger screenshot');
+    }
+
+    function initLightbox() {
+        const modal = getModal();
+        const closeBtn = modal ? modal.querySelector('.lightbox-close') : null;
+
+        if (!modal) {
+            return;
+        }
+
+        document.querySelectorAll('.screenshot-item').forEach(enhanceScreenshotItem);
+
+        document.addEventListener('click', function(e) {
+            const item = e.target.closest('.screenshot-item');
+            if (!item || !getModal()) {
+                return;
+            }
+
+            e.preventDefault();
+            openFromItem(item);
+        });
+
+        document.addEventListener('keydown', function(e) {
+            const item = e.target.closest('.screenshot-item');
+            if (!item || !getModal()) {
+                return;
+            }
+
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openFromItem(item);
+            }
+        });
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                closeLightbox();
+            });
+        }
+
         modal.addEventListener('click', function(e) {
+            if (suppressBackdropClose) {
+                return;
+            }
+
             if (e.target === modal || e.target.classList.contains('lightbox-overlay')) {
                 closeLightbox();
             }
         });
-        
-        // Close lightbox with Escape key
+
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && modal.style.display !== 'none') {
+            if (e.key === 'Escape' && isModalOpen(getModal())) {
                 closeLightbox();
             }
         });
     }
-    
-    function openLightbox(imageSrc) {
-        const modal = document.getElementById('screenshotModal');
-        const lightboxImage = document.getElementById('lightboxImage');
-        
-        if (!modal || !lightboxImage) return;
-        
-        lightboxImage.src = imageSrc;
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Prevent body scroll
-    }
-    
-    function closeLightbox() {
-        const modal = document.getElementById('screenshotModal');
-        
-        if (!modal) return;
-        
-        modal.style.display = 'none';
-        document.body.style.overflow = ''; // Restore body scroll
-    }
-    
-    // Initialize when DOM is ready
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initLightbox);
     } else {

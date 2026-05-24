@@ -48,7 +48,7 @@ Follow-up items from the app setup review (beyond the SEO work already completed
 
 ---
 
-### [ ] Upgrade screenshot lightbox accessibility
+### [x] Upgrade screenshot lightbox accessibility
 **Issue:** Lightbox works but lacks patterns expected for accessible modals.
 
 - Add `aria-modal="true"` and `role="dialog"`

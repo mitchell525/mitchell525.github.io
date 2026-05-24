@@ -1704,10 +1704,19 @@ body {
     width: 100%;
     height: 100%;
     z-index: 9999;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     animation: fadeIn 0.3s ease-in-out;
+}
+
+.lightbox-modal.is-open {
+    display: flex;
+}
+
+.lightbox-close:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 3px;
 }
 
 .lightbox-overlay {
@@ -1791,6 +1800,13 @@ body {
     to {
         transform: scale(1);
         opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lightbox-modal,
+    .lightbox-image {
+        animation: none;
     }
 }
 
