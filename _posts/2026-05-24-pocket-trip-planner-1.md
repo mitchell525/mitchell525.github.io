@@ -6,16 +6,16 @@ app_slug: pockettripplanner
 tags: [ios, travel, swiftui, side-project, apple-intelligence]
 excerpt: "Version 1.6 makes it easier to keep confirmations and itineraries in one place; Pro adds private on-device import from text, PDFs, and photos."
 screenshots:
-  - src: /img/pockettripplanner/trip_list.png
+  - src: /img/blog/pockettripplanner/pockettripplanner_post1.jpg
     alt: "Pocket Trip Planner trip list"
     caption: "Trips, countdowns, and quick access in one list"
-  - src: /img/pockettripplanner/daily_planning.png
+  - src: /img/blog/pockettripplanner/pockettripplanner_post2.jpg
     alt: "Daily planning view with events"
     caption: "Build your days without clutter"
-  - src: /img/pockettripplanner/trip_files.png
+  - src: /img/blog/pockettripplanner/pockettripplanner_post3.jpg
     alt: "Trip Files vault with confirmations and PDFs"
     caption: "Keep confirmations and screenshots with the trip"
-  - src: /img/pockettripplanner/import_review.png
+  - src: /img/blog/pockettripplanner/pockettripplanner_post4.jpg
     alt: "Review imported events before saving"
     caption: "Review every import before it hits your itinerary"
 ---
