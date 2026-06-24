@@ -171,50 +171,39 @@
     text-decoration: underline;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .cookie-banner {
-        padding: 15px;
-    }
-    
-    .cookie-banner-content {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 15px;
-    }
-    
-    .cookie-banner-text h5 {
-        font-size: 1rem;
-    }
-    
-    .cookie-banner-text p {
-        font-size: 0.85rem;
-    }
-    
-    .cookie-banner-buttons {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    
-    .cookie-banner-buttons .btn {
-        font-size: 0.8rem;
-        padding: 6px 12px;
-    }
+.cookie-banner-decline {
+    color: var(--color-text-tertiary) !important;
+    font-weight: 400;
 }
 
-@media (max-width: 480px) {
-    .cookie-banner {
-        padding: 12px;
-    }
-    
-    .cookie-banner-buttons {
-        flex-direction: column;
-        gap: 8px;
-    }
-    
-    .cookie-banner-buttons .btn {
-        width: 100%;
-    }
+.cookie-banner-decline:hover {
+    color: var(--color-text-secondary) !important;
+}
+
+/* Cookie settings modal */
+#cookieSettingsModal .modal-content {
+    background: var(--color-background-primary);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-separator);
+}
+
+#cookieSettingsModal .modal-header,
+#cookieSettingsModal .modal-footer {
+    border-color: var(--color-separator);
+}
+
+#cookieSettingsModal .modal-title {
+    color: var(--color-text-primary);
+}
+
+#cookieSettingsModal .cookie-settings-intro {
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+}
+
+#cookieSettingsModal .cookie-settings-note {
+    color: var(--color-text-tertiary);
+    margin-bottom: 0;
 }
 
 /* Cookie settings modal enhancements */
@@ -265,20 +254,9 @@
     outline: none;
 }
 
-#cookieSettingsModal .form-check-input:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    background-color: var(--color-background-secondary);
-    border-color: var(--color-separator);
-}
-
-#cookieSettingsModal .form-check-input:disabled:checked {
-    background-color: var(--color-text-tertiary);
-    border-color: var(--color-text-tertiary);
-}
-
 #cookieSettingsModal .form-check-label {
     font-weight: 500;
+    color: var(--color-text-primary);
     cursor: pointer;
     line-height: 1.4;
     flex: 1;
@@ -286,13 +264,70 @@
 }
 
 #cookieSettingsModal .form-check-label:hover {
-    color: var(--color-text-secondary);
+    color: var(--color-text-primary);
 }
 
-#cookieSettingsModal .text-muted {
+#cookieSettingsModal .text-muted,
+#cookieSettingsModal .form-check-label small {
+    color: var(--color-text-secondary) !important;
     font-size: 0.85rem;
     margin-top: 5px;
     line-height: 1.3;
+}
+
+@media (prefers-color-scheme: light) {
+    #cookieSettingsModal .form-check {
+        background-color: #F2F2F7;
+        border-color: #C6C6C8;
+    }
+
+    #cookieSettingsModal .form-check:hover {
+        background-color: #E5E5EA;
+    }
+}
+@media (max-width: 768px) {
+    .cookie-banner {
+        padding: 15px;
+    }
+    
+    .cookie-banner-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    
+    .cookie-banner-text h5 {
+        font-size: 1rem;
+    }
+    
+    .cookie-banner-text p {
+        font-size: 0.85rem;
+    }
+    
+    .cookie-banner-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .cookie-banner-buttons .btn {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cookie-banner {
+        padding: 12px;
+    }
+    
+    .cookie-banner-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .cookie-banner-buttons .btn {
+        width: 100%;
+    }
 }
 
 /* Modern Navbar Enhancements - Apple HIG Inspired */

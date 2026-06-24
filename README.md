@@ -10,7 +10,7 @@ Personal portfolio website for hosting and showcasing my mobile apps. Built with
 - **Bootstrap 5.3.2** - CSS framework via CDN
 - **Bootstrap Icons 1.11.3** - Icon library
 - **Vanilla JavaScript** - DOM interactions and cookie consent management
-- **Google Analytics 4** - Site analytics with cookie consent
+- **Google Analytics 4** - Site analytics with Consent Mode v2 (cookieless by default, optional opt-in)
 - **Jekyll SEO Tag** - Automatic SEO optimization
 - **Jekyll Sitemap** - Automatic sitemap generation
 - **Jekyll Feed** - RSS feed generation (configured in Gemfile)
@@ -146,7 +146,7 @@ title: "App Name: FAQ"
 All templates automatically provide:
 - Common HTML structure (DOCTYPE, head, meta tags)
 - Bootstrap CSS and Bootstrap Icons
-- Google Analytics tracking with cookie consent
+- Google Analytics 4 with Consent Mode v2 (cookieless default, optional opt-in)
 - Navigation and footer
 - Cookie consent banner
 - Responsive container layout
@@ -161,7 +161,7 @@ This approach reduces maintenance overhead and ensures consistency across all pa
 - **Blog**: Markdown posts in `_posts/` with listing at `/blog/` and per-post pages
 - **RSS Feed**: Automatic RSS feed at `/feed.xml` (via Jekyll Feed plugin)
 - **Live Reload**: Development server with automatic browser refresh
-- **Cookie Consent**: GDPR-compliant cookie consent banner with granular preferences
+- **Cookie Consent**: Google Consent Mode v2 — anonymous cookieless traffic measurement runs by default; analytics cookies require explicit opt-in via the banner or footer "Cookie preferences" link
 - **Screenshot Lightbox**: Interactive lightbox for viewing app screenshots
 
 ### Deployment

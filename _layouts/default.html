@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Security headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://code.jquery.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self' https://cdn.jsdelivr.net data:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://code.jquery.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; font-src 'self' https://cdn.jsdelivr.net data:;">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
 
     <!-- Modern meta tags -->
@@ -59,30 +59,20 @@
         const hasConsent = getCookie('cookie_consent') !== null;
         const analyticsAllowed = getCookie('cookie_analytics') === 'true';
         
-        // Set consent state based on existing cookies (if any)
-        // If user has previously consented, grant consent immediately
-        // Otherwise, default to denied until user consents
+        // Consent Mode v2: cookieless pings when denied; full tracking only after opt-in
         gtag('consent', 'default', {
             'analytics_storage': (hasConsent && analyticsAllowed) ? 'granted' : 'denied',
             'ad_storage': 'denied',
-            'functionality_storage': (hasConsent && analyticsAllowed) ? 'granted' : 'denied'
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'functionality_storage': (hasConsent && analyticsAllowed) ? 'granted' : 'denied',
+            'security_storage': 'granted'
         });
         
         gtag('js', new Date());
         gtag('config', '{{ site.google_analytics }}', {
-            // Enhanced measurement for better tracking
             send_page_view: true,
-            // Privacy-friendly settings
-            anonymize_ip: true,
-            allow_google_signals: false,
-            // Enhanced measurement features
-            enhanced_measurements: {
-                scrolls: true,
-                outbound_clicks: true,
-                site_search: true,
-                video_engagement: true,
-                file_downloads: true
-            }
+            allow_google_signals: false
         });
     </script>
 </head>

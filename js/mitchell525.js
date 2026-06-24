@@ -60,17 +60,19 @@
         }
     }
     
-    // Update Google Analytics consent
+    // Update Google Analytics consent (Consent Mode v2)
     function updateAnalyticsConsent(analyticsAllowed) {
         if (typeof gtag !== 'undefined') {
             gtag('consent', 'update', {
                 'analytics_storage': analyticsAllowed ? 'granted' : 'denied',
-                'ad_storage': 'denied', // We don't use ads
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
                 'functionality_storage': analyticsAllowed ? 'granted' : 'denied'
             });
             
             // If consent is granted, send a page view event
-            // This ensures page views are tracked even if the initial page load was blocked
+            // This ensures page views are tracked even if the initial page load was cookieless
             if (analyticsAllowed) {
                 gtag('event', 'page_view', {
                     'page_title': document.title,
@@ -81,7 +83,35 @@
         }
     }
     
-    // Accept all cookies
+    // Sync modal checkboxes from stored cookie preferences
+    function syncCookieSettingsUI() {
+        const analyticsCheckbox = document.getElementById('analytics-cookies');
+        const functionalCheckbox = document.getElementById('functional-cookies');
+        const storedAnalytics = getCookie(COOKIE_ANALYTICS_KEY) === 'true';
+        const storedFunctional = getCookie(COOKIE_FUNCTIONAL_KEY) === 'true';
+
+        if (analyticsCheckbox) {
+            analyticsCheckbox.checked = hasConsent() ? storedAnalytics : false;
+        }
+        if (functionalCheckbox) {
+            functionalCheckbox.checked = hasConsent() ? storedFunctional : false;
+        }
+    }
+
+    // Open cookie settings modal (footer link or banner)
+    function openCookieSettings() {
+        const modalEl = document.getElementById('cookieSettingsModal');
+        if (!modalEl || typeof bootstrap === 'undefined') {
+            showCookieBanner();
+            return;
+        }
+
+        syncCookieSettingsUI();
+        const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+        modal.show();
+    }
+    
+    // Enable analytics cookies (opt-in)
     function acceptAllCookies() {
         setCookie(COOKIE_CONSENT_KEY, 'accepted', 365);
         setCookie(COOKIE_ANALYTICS_KEY, 'true', 365);
@@ -99,8 +129,10 @@
         }
     }
     
-    // Decline all cookies
+    // Continue without analytics cookies (cookieless measurement still active)
     function declineAllCookies() {
+        const wasAnalyticsAllowed = getCookie(COOKIE_ANALYTICS_KEY) === 'true';
+
         setCookie(COOKIE_CONSENT_KEY, 'declined', 365);
         setCookie(COOKIE_ANALYTICS_KEY, 'false', 365);
         setCookie(COOKIE_FUNCTIONAL_KEY, 'false', 365);
@@ -108,8 +140,7 @@
         updateAnalyticsConsent(false);
         hideCookieBanner();
         
-        // Track consent declined (if analytics was previously allowed)
-        if (typeof gtag !== 'undefined' && getCookie(COOKIE_ANALYTICS_KEY) === 'true') {
+        if (typeof gtag !== 'undefined' && wasAnalyticsAllowed) {
             gtag('event', 'cookie_consent', {
                 'event_category': 'privacy',
                 'event_label': 'declined_all'
@@ -161,14 +192,19 @@
         }
         
         if (settingsBtn) {
-            settingsBtn.addEventListener('click', function() {
-                const modal = new bootstrap.Modal(document.getElementById('cookieSettingsModal'));
-                modal.show();
-            });
+            settingsBtn.addEventListener('click', openCookieSettings);
         }
         
         if (saveBtn) {
             saveBtn.addEventListener('click', saveCookiePreferences);
+        }
+
+        const footerSettingsLink = document.getElementById('open-cookie-settings');
+        if (footerSettingsLink) {
+            footerSettingsLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                openCookieSettings();
+            });
         }
         
         // Check if we need to show the banner
@@ -201,11 +237,12 @@
         initCookieConsent();
     }
     
-    // Expose functions globally for debugging
+    // Expose functions globally for debugging and footer link
     window.cookieConsent = {
         acceptAll: acceptAllCookies,
         declineAll: declineAllCookies,
         showBanner: showCookieBanner,
+        openSettings: openCookieSettings,
         hasConsent: hasConsent
     };
 })();
