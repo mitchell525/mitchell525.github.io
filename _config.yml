@@ -1,7 +1,7 @@
 # Site settings
 title: "Mitch Smith"
 description: "Software engineer and indie app developer from Baltimore. Mobile apps for iOS and Android — games, travel tools, and music."
-url: "https://mitchell525.gitlab.io"
+url: "https://mitchell525.github.io"
 baseurl: ""
 logo: "/img/icons/material/ic_material_product_icon_192px copy 2mdpi.png"
 
@@ -56,6 +56,10 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - TODO.md
+  - style.md
+  - FIXES.md
+  - CLAUDE.md
   - vendor/
 
 # SEO settings

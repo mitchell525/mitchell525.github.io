@@ -1,9 +1,9 @@
-# mitchell525.gitlab.io
+# mitchell525.github.io
 
-Personal portfolio website for hosting and showcasing my mobile apps. Built with Jekyll and deployed via GitLab Pages.
+Personal portfolio website for hosting and showcasing my mobile apps. Built with Jekyll and deployed via GitHub Pages.
 
 ### Live site
-`https://mitchell525.gitlab.io`
+`https://mitchell525.github.io`
 
 ### Tech stack
 - **Jekyll 3.9.5** - Static site generator
@@ -45,13 +45,16 @@ npm run clean  # Clean the build directory
 - **`_posts/`**: Blog posts (Markdown with front matter)
 - **`blog/`**: Blog index page at `/blog/`
 - **`_layouts/`**: Jekyll layouts (`default.html`, `app.html`, `legal.html`, `support.html`, `post.html`)
-- **`_includes/`**: Reusable HTML fragments (`navbar.html`, `footer.html`, `cookie-banner.html`)
+- **`_includes/`**: Reusable HTML fragments (`navbar.html`, `footer.html`, `cookie-banner.html`, `lightbox-modal.html`, `app-schema.html`, `app-breadcrumb-schema.html`, `seo-vars.html`)
+- **`_plugins/app_seo_generator.rb`**: Custom Jekyll plugin that derives SEO title/description/image for app pages from `_data/apps.yml` — see the note under "Deployment" below, its behavior in production is unconfirmed.
 - **`pages/`**: Static content pages (`about.html`, `legal.html`)
 - **`support/`**: Support pages (FAQs, subscription support)
-- **`css/mitchell525.css`**: Global styles
+- **`css/mitchell525.css`**: Global styles (plain CSS, no preprocessor)
 - **`js/mitchell525.js`**: Cookie consent management and screenshot lightbox functionality
-- **`img/`**: Shared images (icons, store badges, previews)
+- **`img/`**: Shared images (icons, store badges, previews, per-app screenshots)
 - **`legal/`**: Legal documents (privacy policies, terms)
+
+See `FIXES.md` for known issues in this layout (dead pages, leftover folders, naming inconsistencies) that haven't been cleaned up yet.
 
 ### Adding a new app
 1. Add app metadata to `_data/apps.yml`:
@@ -156,7 +159,7 @@ This approach reduces maintenance overhead and ensures consistency across all pa
 ### Jekyll Features
 - **Collections**: Apps are managed as a Jekyll collection for easy iteration
 - **Data Files**: Centralized app metadata in `_data/apps.yml`
-- **SEO**: App pages auto-populate title, description, and OG image from `_data/apps.yml` via `_plugins/app_seo_generator.rb`; Jekyll SEO Tag handles meta tags, Open Graph, Twitter Cards, and canonical URLs
+- **SEO**: App pages auto-populate title, description, and OG image from `_data/apps.yml` via `_plugins/app_seo_generator.rb` (local builds only — see the plugin note under Deployment); Jekyll SEO Tag handles meta tags, Open Graph, Twitter Cards, and canonical URLs
 - **Sitemap**: Automatic XML sitemap generation via Jekyll Sitemap
 - **Blog**: Markdown posts in `_posts/` with listing at `/blog/` and per-post pages
 - **RSS Feed**: Automatic RSS feed at `/feed.xml` (via Jekyll Feed plugin)
@@ -165,13 +168,11 @@ This approach reduces maintenance overhead and ensures consistency across all pa
 - **Screenshot Lightbox**: Interactive lightbox for viewing app screenshots
 
 ### Deployment
-This repository is configured for GitLab Pages with Jekyll. The `.gitlab-ci.yml` file defines the build pipeline. Pushes to `main` branch automatically trigger a Jekyll build and deploy to `https://mitchell525.gitlab.io/`.
+This site is served by **GitHub Pages** from the `master` branch at `https://mitchell525.github.io/` — pushing to `master` deploys automatically.
 
-The CI pipeline:
-1. Uses Ruby 3.1 image
-2. Installs Bundler and dependencies
-3. Builds the Jekyll site to `public/` directory
-4. Deploys to GitLab Pages
+**Known open question:** GitHub Pages' classic "deploy from a branch" build runs Jekyll in *safe mode*, which does not execute custom plugins. This repo has one custom plugin, `_plugins/app_seo_generator.rb`, that derives app-page SEO metadata. Whether it actually runs on the live GitHub Pages build (vs. only in local `bundle exec jekyll build`) has not been confirmed — check the repo's Settings → Pages build type, or diff the live HTML `<head>` of an app page against a local build. See `FIXES.md`.
+
+There is also a `.gitlab-ci.yml` in this repo left over from an earlier GitLab Pages setup. It is not used by the current GitHub Pages deployment and its `_config.yml`/branch assumptions are stale — see `FIXES.md`.
 
 ### License
 See [`LICENSE`](./LICENSE).

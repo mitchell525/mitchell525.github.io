@@ -1,5 +1,7 @@
 # Design Philosophy & Style Guide
 
+> Verified against `css/mitchell525.css` on 2026-09-05. Color, spacing, radius, shadow, and breakpoint values below match the stylesheet's `:root` variables and media queries. A few claims that didn't hold up (exact hover-scale range, enforced touch-target size, BEM naming) have been corrected inline below.
+
 ## Overview
 
 This portfolio website follows Apple's Human Interface Guidelines (HIG) as its foundational design philosophy, creating a clean, accessible, and user-focused experience that showcases mobile apps with professional elegance.
@@ -148,9 +150,9 @@ This portfolio website follows Apple's Human Interface Guidelines (HIG) as its f
 ## Interaction Design
 
 ### Hover Effects
-- **Subtle Elevation**: Cards lift slightly (translateY(-2px to -4px))
+- **Subtle Elevation**: Cards lift slightly (translateY(-2px), some elements -4px)
 - **Color Transitions**: Smooth color changes on interactive elements
-- **Scale Effects**: Gentle scaling (scale(1.02 to 1.05)) for emphasis
+- **Scale Effects**: Gentle scaling (scale(1.02)) for emphasis — every hover-scale rule in `css/mitchell525.css` uses 1.02, not a range
 - **Duration**: 0.2s to 0.3s transitions for smooth feel
 
 ### Focus States
@@ -176,7 +178,7 @@ This portfolio website follows Apple's Human Interface Guidelines (HIG) as its f
 ### Mobile-First Approach
 - **Base Styles**: Designed for mobile devices
 - **Progressive Enhancement**: Enhanced for larger screens
-- **Touch Targets**: Minimum 44px touch targets
+- **Touch Targets**: Apple HIG recommends a 44px minimum, but this is not currently enforced anywhere in `css/mitchell525.css` (no `min-height`/`min-width` touch-target rules exist) — treat as an aspirational target, not a shipped guarantee
 - **Readability**: Optimized text sizes for mobile reading
 
 ## Accessibility Standards
@@ -210,8 +212,8 @@ This portfolio website follows Apple's Human Interface Guidelines (HIG) as its f
 ## Maintenance Guidelines
 
 ### Code Organization
-- **Component-Based**: Styles organized by component
-- **Consistent Naming**: BEM-inspired naming convention
+- **Component-Based**: Styles are grouped by component/section in `css/mitchell525.css`, but the file is one flat stylesheet (no CSS modules or file splitting)
+- **Naming**: Naming is inconsistent in practice — most components use plain semantic class names (`.app-item`, `.hero-section`), a couple use true BEM modifiers (`.app-screenshot-scroll--fitted`/`--scrollable`), and a handful of legacy Bootstrap-era classes still use an `ms_`/`ms-` prefix (`.ms_row`, `.ms-footer`, `.ms-legal`). New components should prefer plain semantic names; don't assume a strict BEM convention is enforced.
 - **Documentation**: Clear comments for complex styles
 - **Version Control**: Proper versioning for design changes
 
