@@ -62,28 +62,30 @@ Follow-up items from the app setup review (beyond the SEO work already completed
 
 ## Medium impact
 
-### [ ] Fix `og:type` on app pages
-**Issue:** App pages can still emit `og:type=article` in social previews because Jekyll infers file dates on collection documents, even though JSON-LD is set to `WebPage`.
+### [x] Fix per-app SEO metadata not rendering in production
+**Issue (2026-09-05 audit, confirmed live):** `_plugins/app_seo_generator.rb` never ran on GitHub Pages' safe-mode build, so every app page's `<title>`, meta description, and `og:image`/`twitter:image` silently fell back to broken/duplicate values in production, even though local `jekyll serve` (which does run custom plugins) looked correct.
 
-- Ensure app pages classify as website/product pages in Open Graph output
-- May require stripping or overriding `date` earlier in the build (extend `_plugins/app_seo_generator.rb`)
+- Deleted `_plugins/app_seo_generator.rb`; replaced with static `title`/`description`/`image` front matter on each `_apps/*.md` file (mirrored from `_data/apps.yml`) — safe-mode compatible since jekyll-seo-tag reads these straight from front matter.
+- Added a `_config.yml` `defaults:` entry scoped to the `apps` collection setting `seo: { type: "WebPage" }`, fixing the spurious `BlogPosting` JSON-LD type jekyll-seo-tag was emitting.
 
-**Files:** `_plugins/app_seo_generator.rb`
+**Files:** `_apps/*.md`, `_config.yml`, `_includes/seo-vars.html`
 
 ---
 
-### [ ] Decide indexing policy for hidden and legacy apps
-**Issue:** Indexing strategy is inconsistent.
+### [ ] Residual `og:type` gap on app pages
+**Issue:** jekyll-seo-tag's `og:type` meta tag is driven by a separate, hardcoded `page.date` truthiness check in its own template — unrelated to the `seo.type` front matter that fixes the JSON-LD `@type` above. Jekyll's `Document#date` auto-populates from the build timestamp when no `date` front-matter key exists, and suppressing that fully requires a `pre_render` hook (a custom plugin), which safe mode won't run.
 
-- **AvatarForge** is `hidden_from_home: true` but still live and indexable at `/avatarforgeai/`
-- **Legacy apps** are not on the homepage but still have full landing pages
+- Verify actual `og:type` output post-fix (`bundle exec jekyll build --safe`, grep `_site/<slug>/index.html`) before assuming it's still wrong.
+- If still wrong, treat as an accepted limitation of safe-mode Jekyll rather than something to hack around with duplicate `<meta>` tags — low severity (affects only the OG type hint in social scrapers, not search indexing).
 
-**Decision needed — pick one approach:**
-1. Keep everything indexable (max discoverability for old apps)
-2. Add `noindex` for hidden/legacy pages
-3. Link legacy apps from a "Legacy apps" section on the homepage for internal linking
+**Files:** n/a (Jekyll/gem internals, no safe-mode fix available)
 
-**Files:** `_data/apps.yml`, `_plugins/app_seo_generator.rb`, `index.html`
+---
+
+### [x] Decide indexing policy for hidden and legacy apps
+**Resolved (2026-09-05):** Added `robots: "noindex, follow"` front matter to `avatarforgeai.md` (hidden from home) and the 5 legacy game pages (`bounceandbound`, `dizzyfrog`, `shiftandshatter`, `surgeblast`, `tapandteleport`) — all six had zero markdown body content, so they were thin/duplicate-content pages fully indexable at their own URLs. `,follow` preserves link equity while removing them from search results. `_layouts/default.html` renders `<meta name="robots">` from `page.robots` when set.
+
+**Files:** `_apps/avatarforgeai.md`, `_apps/bounceandbound.md`, `_apps/dizzyfrog.md`, `_apps/shiftandshatter.md`, `_apps/surgeblast.md`, `_apps/tapandteleport.md`, `_layouts/default.html`, `_config.yml`
 
 ---
 
@@ -171,4 +173,4 @@ Follow-up items from the app setup review (beyond the SEO work already completed
 - Basic lightbox keyboard support (Enter / Space / Escape)
 - `focus-visible` styles in CSS
 - Centralized app data in `_data/apps.yml`
-- App page SEO auto-derived via `_plugins/app_seo_generator.rb`
+- App page SEO metadata via static front matter on `_apps/*.md` (mirrored from `_data/apps.yml`)

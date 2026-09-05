@@ -3,6 +3,7 @@ layout: post
 title: "Digital CD Changer albums a few taps away"
 date: 2026-05-21
 app_slug: cdchanger
+image: /img/cdchanger/cd_changer1.png
 tags: [ios, carplay, music, side-project]
 excerpt: "Version 1.1 brings album-first listening back to the car—free on the App Store, with CarPlay and a simple six-disc magazine to start."
 screenshots:

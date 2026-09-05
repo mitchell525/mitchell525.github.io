@@ -23,17 +23,27 @@ defaults:
     values:
       layout: "legal"
       permalink: /:path/:basename.html
+      robots: "noindex, follow"
+      sitemap: false
   - scope:
       path: "support"
       type: "pages"
     values:
       layout: "support"
       permalink: /:path/:basename.html
+      robots: "noindex, follow"
+      sitemap: false
   - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
+  - scope:
+      path: ""
+      type: "apps"
+    values:
+      seo:
+        type: "WebPage"
 
 # Development settings
 livereload: true

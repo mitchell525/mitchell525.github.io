@@ -101,5 +101,42 @@ title: "Mitch Smith — Software Engineer & App Developer"
     </div>
 </section>
 
+<!-- Blog Section -->
+{% assign recent_posts = site.posts | limit: 3 %}
+{% if recent_posts.size > 0 %}
+<section id="blog" class="apps-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">From the Blog</h2>
+            <p class="section-subtitle">Release notes and updates on what I'm building</p>
+        </div>
+
+        <div class="blog-index-list">
+            {% for post in recent_posts %}
+            <article class="blog-list-item">
+                <div class="blog-list-item-inner">
+                    <div class="blog-list-item-copy">
+                        <h3 class="blog-list-item-title">
+                            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                        </h3>
+                        <p class="blog-post-meta blog-list-meta">
+                            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+                        </p>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+
+        <div class="hero-cta">
+            <a href="/blog/" class="cta-button">
+                <span>Read the Blog</span>
+                <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
 <!-- Screenshot Lightbox Modal -->
 {% include lightbox-modal.html %}

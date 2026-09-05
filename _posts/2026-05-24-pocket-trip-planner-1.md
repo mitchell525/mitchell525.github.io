@@ -3,6 +3,7 @@ layout: post
 title: "Pocket Trip Planner 1.6 — what's new"
 date: 2026-05-24
 app_slug: pockettripplanner
+image: /img/blog/pockettripplanner/pockettripplanner_post1.jpg
 tags: [ios, travel, swiftui, side-project, apple-intelligence]
 excerpt: "Version 1.6 makes it easier to keep confirmations and itineraries in one place; Pro adds private on-device import from text, PDFs, and photos."
 screenshots:

@@ -1,4 +1,6 @@
 {% comment %}
-  SEO variables for app and blog pages are injected at build time by
-  _plugins/app_seo_generator.rb from _data/apps.yml.
+  Per-app SEO title/description/image are static front matter on each
+  _apps/*.md file (mirrored from _data/apps.yml), not plugin-generated —
+  GitHub Pages' safe-mode build does not run custom _plugins/, so any
+  dynamic derivation here would silently no-op in production.
 {% endcomment %}

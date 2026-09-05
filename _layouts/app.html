@@ -109,6 +109,33 @@ layout: default
 
 {% include lightbox-modal.html %}
 
+{% assign app_posts = site.posts | where: "app_slug", page.slug %}
+{% if app_posts.size > 0 %}
+<section class="apps-section app-related-posts" aria-labelledby="app-related-posts-heading">
+    <div class="container">
+        <div class="section-header">
+            <h2 id="app-related-posts-heading" class="section-title">From the Blog</h2>
+        </div>
+        <div class="blog-index-list">
+            {% for post in app_posts %}
+            <article class="blog-list-item">
+                <div class="blog-list-item-inner">
+                    <div class="blog-list-item-copy">
+                        <h3 class="blog-list-item-title">
+                            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                        </h3>
+                        <p class="blog-post-meta blog-list-meta">
+                            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+                        </p>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
 <!-- Contact and Legal -->
 <section class="apps-section">
     <div class="container">
