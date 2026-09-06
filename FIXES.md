@@ -88,20 +88,18 @@ served straight to the browser, all at once, with no dimensions declared.
 
 ## Priority 2 — Crawling & indexing
 
-- [ ] **IDX-2 — High: Redirect stub has a relative canonical, isn't in the sitemap allowlist correctly**
-  `pockettravelplanner/index.html` is still a client-side meta-refresh to
-  `/pockettripplanner/`, and its canonical is still relative:
-  ```html
-  <link rel="canonical" href="/pockettripplanner/">
-  ```
-  It has no `sitemap: false` front matter, so `jekyll-sitemap` still lists
-  this redirect stub as its own URL.
-
-  Action: add `sitemap: false` to the front matter, change the canonical to
-  the absolute form (`https://mitchell525.github.io/pockettripplanner/`) to
-  match every other page, and consider swapping the meta-refresh for the
-  `jekyll-redirect-from` plugin (GitHub Pages whitelists it) for a real
-  redirect page.
+- [x] **IDX-2 — High: Redirect stub has a relative canonical, isn't in the sitemap allowlist correctly** — Fixed.
+  Added `sitemap: false` to `pockettravelplanner/index.html`'s front matter
+  (confirmed with `bundle exec jekyll build` — `grep -c pockettravelplanner
+  _site/sitemap.xml` now returns 0) and changed the canonical to the
+  absolute form (`https://mitchell525.github.io/pockettripplanner/`) to
+  match every other page. Left the meta-refresh mechanism as-is rather than
+  swapping in `jekyll-redirect-from` — that would add a new Gemfile
+  dependency, and this repo's custom plugin behavior on the live GitHub
+  Pages safe-mode build is already flagged as unconfirmed elsewhere in this
+  file, so a new plugin's live behavior would need the same live-build
+  verification before relying on it. **Worth a follow-up if you want a real
+  redirect, but not done here.**
 
 - [ ] **IDX-3 — High: Internal links go through a 301 (missing trailing slash)**
   Still unfixed. `index.html` line 55: app-card titles link to
