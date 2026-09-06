@@ -12,18 +12,16 @@
     {% endif %}
 
     <!-- Security headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://code.jquery.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; font-src 'self' https://cdn.jsdelivr.net data:;">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; font-src 'self' https://cdn.jsdelivr.net data:;">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <!-- Modern meta tags -->
     <meta name="theme-color" content="#f8f8f8">
     <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/material/ic_material_product_icon_192px copy 2mdpi.png">
-    
+
     <!-- Performance optimizations -->
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="dns-prefetch" href="//code.jquery.com">
-    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 
     <!-- SEO and meta descriptors -->
     {% include seo-vars.html %}

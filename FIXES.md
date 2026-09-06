@@ -213,20 +213,19 @@ served straight to the browser, all at once, with no dimensions declared.
   Also worth pasting a homepage/app-page URL into the Facebook and Twitter
   card debuggers once deployed, per the verification checklist below.
 
-- [ ] **HEAD-2 — Advisory: security meta tags do less than they appear to**
-  Still unfixed in `_layouts/default.html`:
-  - Line 16, `<meta http-equiv="X-XSS-Protection" content="1; mode=block">`
-    — no effect via meta tag; browsers removed the feature. Delete.
-  - Line 15 CSP still allowlists `code.jquery.com` and `cdnjs.cloudflare.com`
-    in `script-src`, and lines 25–26 still `dns-prefetch` both — neither is
-    actually loaded by any page (only `googletagmanager.com` and
-    `cdn.jsdelivr.net` are). Remove both from the CSP and the prefetch hints.
-  - No `<meta name="referrer" content="strict-origin-when-cross-origin">`
-    anywhere — one of the few security policies that does work via meta tag
-    on GitHub Pages. Add it.
-  - Longer-term: the inline Google Analytics bootstrap is still inline in
-    `<head>` (lines 46–81), which is why `script-src 'unsafe-inline'` is
-    still needed. Moving it to `/js/` would let that be dropped eventually.
+- [x] **HEAD-2 — Advisory: security meta tags do less than they appear to** — Mostly fixed.
+  In `_layouts/default.html`: deleted the no-op
+  `X-XSS-Protection` meta tag; removed `code.jquery.com` and
+  `cdnjs.cloudflare.com` from the CSP `script-src` and dropped their
+  `dns-prefetch` hints (confirmed via repo-wide grep that neither host is
+  actually referenced by any page); added
+  `<meta name="referrer" content="strict-origin-when-cross-origin">`.
+  **Not done** (explicitly called out as longer-term in the original
+  finding): the inline Google Analytics bootstrap in `<head>` still needs
+  `script-src 'unsafe-inline'` — moving it to `/js/` to drop that directive
+  is a separate, more invasive change and wasn't attempted here. **Verify:**
+  built and confirmed the CSP/referrer meta tags render as expected on the
+  homepage.
 
 - [ ] **HEAD-3 — Advisory: filenames with spaces on brand assets; wrong touch-icon size**
   Still unfixed. `ic_material_product_icon_192px copy 2mdpi.png` is still
