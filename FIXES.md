@@ -76,13 +76,13 @@ served straight to the browser, all at once, with no dimensions declared.
   check with `grep -n 'width=' _site/cdchanger/index.html` (done locally —
   512×512 icon, 739×1600 screenshots all present).
 
-- [ ] **IMG-4 — High: Fix the lightbox's empty `src`**
-  `_includes/lightbox-modal.html` line 6 still ships:
-  ```html
-  <img id="lightboxImage" src="" alt="" class="lightbox-image">
-  ```
-  Remove the `src`/`alt` attributes entirely from the markup; have
-  `js/mitchell525.js`'s lightbox-open handler set both when it opens an image.
+- [x] **IMG-4 — High: Fix the lightbox's empty `src`** — Fixed. Removed the
+  empty `src=""`/`alt=""` attributes from `_includes/lightbox-modal.html`.
+  `js/mitchell525.js`'s `openLightbox`/`closeLightbox` (already present)
+  set `.src`/`.alt` on open and `removeAttribute('src')` on close, so no JS
+  change was needed. **Verify:** open a screenshot lightbox on an app page
+  and confirm the image loads/closes cleanly (not re-tested in a real
+  browser here — build succeeds and the JS logic was already attribute-safe).
 
 ---
 
