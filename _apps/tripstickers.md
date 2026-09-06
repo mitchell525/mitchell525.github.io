@@ -3,7 +3,7 @@ layout: app
 slug: tripstickers
 title: "Trip Stickers — Design Custom Travel Stickers"
 description: "Turn your travels into vintage-style stickers and journals. Design custom keepsakes, record trip stories, and build a collection of every adventure."
-image: "/img/tripstickers/trip_stickers_preview_1.png"
+image: "/img/tripstickers/trip_stickers_preview_1.webp"
 ---
 
 Bring your adventures to life with Trip Stickers – the app that turns your travels into collectible stickers and journals. Inspired by the timeless style of vintage travel posters, Trip Stickers lets you capture memories in a creative way.

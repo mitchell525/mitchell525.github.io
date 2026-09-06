@@ -3,7 +3,7 @@ layout: app
 slug: pinfinitesmash
 title: "Pinfinite Smash — 2D Pinball Meets Brick Breaker"
 description: "2D pinball meets endless brick breaker action. Survive faster waves, grab power-ups, unlock skins, and chase high scores offline."
-image: "/img/pinfinitesmash/website_preview_pinfinite_smash_1.png"
+image: "/img/pinfinitesmash/website_preview_pinfinite_smash_1.webp"
 ---
 
 Pinfinite Smash is a 2D pinball game combined with an endless brick breaker.

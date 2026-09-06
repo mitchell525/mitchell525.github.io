@@ -3,22 +3,22 @@ layout: post
 title: "Pocket Trip Planner 1.7 — the Mac app catches up"
 date: 2026-09-05
 app_slug: pockettripplanner
-image: /img/blog/pockettripplanner/pockettripplanner_mac1.jpg
+image: /img/blog/pockettripplanner/pockettripplanner_mac1.webp
 tags: [ios, mac, macos, travel, swiftui, side-project]
 excerpt: "Version 1.7 turns Mac support from 'it launches' into a real Mac app — menu bar commands, keyboard shortcuts, right-click menus, and drag-and-drop, all built on the same SwiftUI code as iPhone and iPad."
 screenshots:
-  - src: /img/blog/pockettripplanner/pockettripplanner_mac1.jpg
-    alt: "Pocket Trip Planner running on Mac with sidebar navigation"
+  - src: /img/blog/pockettripplanner/pockettripplanner_mac1.webp
+    alt: "Pocket Trip Planner running on Mac"
     caption: "The same trip planner, now built for a mouse and keyboard"
-  - src: /img/blog/pockettripplanner/pockettripplanner_mac2.jpg
-    alt: "Mac menu bar with New Trip, Find, and Settings commands"
-    caption: "Real menu bar commands — ⌘N, ⌘F, ⌘,"
-  - src: /img/blog/pockettripplanner/pockettripplanner_mac3.jpg
-    alt: "Right-click context menu on a trip budget row"
-    caption: "Right-click anywhere you could swipe on iPhone"
-  - src: /img/blog/pockettripplanner/pockettripplanner_mac4.jpg
-    alt: "Dragging a PDF confirmation into Trip Files on Mac"
-    caption: "Drag a confirmation PDF straight in from Finder"
+  - src: /img/blog/pockettripplanner/pockettripplanner_mac2.webp
+    alt: "Create your own packing list on the Mac"
+    caption: "Create your own packing list on the Mac"
+  - src: /img/blog/pockettripplanner/pockettripplanner_mac3.webp
+    alt: "Create and track your trip budgets"
+    caption: "Create and track your trip budgets"
+  - src: /img/blog/pockettripplanner/pockettripplanner_mac4.webp
+    alt: "Plan each event on each day"
+    caption: "Plan each event on each day"
 ---
 
 I'll be honest about something: Pocket Trip Planner has technically run on Mac for a while now. "Technically" is doing a lot of work in that sentence. It launched, the trip list showed up, you could tap around with a mouse pretending it was a finger — and that was about it. No keyboard shortcuts. No right-click. Hit Return in a text field and nothing would happen, because nothing was listening for it. It was an iPhone app that happened to open on a Mac, not a Mac app.
