@@ -3,7 +3,7 @@ title: "Mitch Smith"
 description: "Software engineer and indie app developer from Baltimore. Mobile apps for iOS and Android — games, travel tools, and music."
 url: "https://mitchell525.github.io"
 baseurl: ""
-logo: "/img/icons/material/ic_material_product_icon_192px copy 2mdpi.png"
+logo: "/img/icons/material/icon-192.png"
 
 # Build settings
 markdown: kramdown

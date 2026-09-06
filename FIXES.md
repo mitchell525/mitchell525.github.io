@@ -227,16 +227,21 @@ served straight to the browser, all at once, with no dimensions declared.
   built and confirmed the CSP/referrer meta tags render as expected on the
   homepage.
 
-- [ ] **HEAD-3 — Advisory: filenames with spaces on brand assets; wrong touch-icon size**
-  Still unfixed. `ic_material_product_icon_192px copy 2mdpi.png` is still
-  referenced unencoded for both `<link rel="icon">` and `apple-touch-icon` in
-  `_layouts/default.html`, and the touch icon is still the 192px file
-  declared with `sizes="180x180"`. `site.webmanifest` still doesn't exist.
-
-  Action: rename to `icon-192.png` / generate a real 180×180
-  `apple-touch-icon-180.png`, update the three references (favicon link,
-  apple-touch-icon link, JSON-LD publisher logo in `_config.yml`'s `logo:`),
-  add a small `site.webmanifest`.
+- [x] **HEAD-3 — Advisory: filenames with spaces on brand assets; wrong touch-icon size** — Fixed.
+  Generated `img/icons/material/icon-192.png` (real 192×192, downscaled
+  from the 769×769 `...4xxxhdpi.png` source — the old "2mdpi" file this
+  replaces was actually only 144×144 despite its name) and a real 180×180
+  `apple-touch-icon-180.png`, both from the same high-res source so neither
+  was upscaled. Removed the old `ic_material_product_icon_192px copy
+  2mdpi.png` (git-tracked deletion, recoverable via history). Updated the
+  three references: favicon link and `apple-touch-icon` link in
+  `_layouts/default.html`, and the JSON-LD publisher `logo:` in
+  `_config.yml`. Added `site.webmanifest` (referencing `icon-192.png`) and
+  linked it with `<link rel="manifest">`. Left the navbar's own logo image
+  (`...4xxxhdpi.png`, still has a space in its filename) untouched — it
+  wasn't one of the three references called out here, and renaming it is a
+  separate cleanup. **Verify:** built and confirmed all three references
+  plus `/site.webmanifest` render correctly.
 
 - [ ] **HEAD-4 — Advisory: Atom feed exists but isn't linked; footer year is stale**
   Still unfixed. No `{% feed_meta %}` tag anywhere in `_layouts/default.html`
