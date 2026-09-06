@@ -115,12 +115,14 @@ served straight to the browser, all at once, with no dimensions declared.
   `grep -rhoE 'href="/(pages/[a-z]+|blog|[a-z0-9]+)"' _site` — confirmed
   empty (no more no-slash internal hrefs in the built output).
 
-- [ ] **IDX-4 — High: Four pages share one identical `<meta name="description">`**
-  Still unfixed — `index.html`, `blog/index.html`, `pages/about.html`,
-  `pages/legal.html` all have no `description:` front matter, so all four
-  fall back to the same site-wide default in `_config.yml`. The app pages
-  already do this correctly (each has a unique `description:` in front
-  matter) — copy that pattern onto these four.
+- [x] **IDX-4 — High: Four pages share one identical `<meta name="description">`** — Fixed.
+  Added a unique `description:` front-matter field to `index.html`,
+  `blog/index.html`, `pages/about.html`, and `pages/legal.html`, matching
+  the pattern already used on app pages. **Verify:** built and confirmed
+  each of `/`, `/blog/`, `/pages/about/`, `/pages/legal/` now renders a
+  distinct `<meta name="description">` — worth also reading the copy back
+  to make sure the wording matches how you'd want each page described in
+  search results.
 
 - [ ] **IDX-5 — Advisory: no `robots.txt` source file at all; no custom 404**
   Escalated from the original finding — there is currently **no `robots.txt`
