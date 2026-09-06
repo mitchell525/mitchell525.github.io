@@ -25,6 +25,7 @@
 - name: "AvatarForge AI"
   slug: "avatarforgeai"
   hidden_from_home: true
+  legacy: true
   tagline: "AI Fantasy Character Maker"
   description: "Bring your fantasy heroes, villains, and creatures to life. AvatarForge AI transforms simple descriptions into breathtaking fantasy portraits inspired by fantasy novels, tabletop RPGs, and classic fantasy art. Built for iOS with a fast, reliable generation pipeline, it's the easiest way to visualize the characters in your imagination."
   icon: "/img/avatarforgeai/icon.webp"
@@ -33,7 +34,7 @@
   color: "#7B39EC"
   schema_category: "DesignApplication"
   pricing_model: "subscription"
-  ios_url: "https://apps.apple.com/us/app/id6752224785"
+  ios_url: null
   android_url: null
   screenshots:
     - "/img/avatarforgeai/1.webp"
@@ -60,7 +61,9 @@
   schema_category: "GameApplication"
   pricing_model: "free"
   ios_url: "https://apps.apple.com/us/app/id1521182800"
-  android_url: "https://play.google.com/store/apps/details?id=com.smith.mitchell.PinballOverdrive&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
+  android_url: null
+  rating_value: "4.6"
+  rating_count: "46"
   screenshots:
     - "/img/pinballoverdrive/website_preview_screenshots_pinball_overdrive_1.webp"
     - "/img/pinballoverdrive/website_preview_screenshots_pinball_overdrive_2.webp"
@@ -123,7 +126,9 @@
   schema_category: "GameApplication"
   pricing_model: "free"
   ios_url: "https://apps.apple.com/us/app/pinfinite-smash/id1643559563"
-  android_url: "https://play.google.com/store/apps/details?id=com.mitchell525.pinfinitesmash"
+  android_url: null
+  rating_value: "4.3"
+  rating_count: "10"
   screenshots:
     - "/img/pinfinitesmash/website_preview_pinfinite_smash_1.webp"
     - "/img/pinfinitesmash/website_preview_pinfinite_smash_2.webp"
@@ -144,7 +149,9 @@
   schema_category: "GameApplication"
   pricing_model: "free"
   ios_url: "https://apps.apple.com/us/app/pinball-defense-force/id1606264904"
-  android_url: "https://play.google.com/store/apps/details?id=com.mitchellsmith.pinballdefenseforce"
+  android_url: null
+  rating_value: "4.8"
+  rating_count: "13"
   screenshots:
     - "/img/pinballdefenseforce/website_preview_screenshots_pinball_defense_1.webp"
     - "/img/pinballdefenseforce/website_preview_screenshots_pinball_defense_2.webp"
@@ -165,8 +172,8 @@
   color: "#F4A261"
   schema_category: "GameApplication"
   pricing_model: "free"
-  ios_url: "https://apps.apple.com/us/app/tap-and-teleport/id1554488238"
-  android_url: "https://play.google.com/store/apps/details?id=com.smith.mitchell.tapandteleport"
+  ios_url: null
+  android_url: null
   legacy: true
   screenshots:
     - "/img/tapandteleport/website_preview_screenshots_tap_and_teleport_1.webp"
@@ -187,8 +194,8 @@
   color: "#30A092"
   schema_category: "GameApplication"
   pricing_model: "free"
-  ios_url: "https://apps.apple.com/us/app/surge-blast/id1547094707"
-  android_url: "https://play.google.com/store/apps/details?id=com.MitchellSmith.SurgeBlast"
+  ios_url: null
+  android_url: null
   legacy: true
   screenshots:
     - "/img/surgeblast/website_preview_screenshots_surge_blast_1.webp"
@@ -209,8 +216,8 @@
   color: "#33A8FF"
   schema_category: "GameApplication"
   pricing_model: "free"
-  ios_url: "https://apps.apple.com/us/app/bounce-and-bound/id1511395743"
-  android_url: "https://play.google.com/store/apps/details?id=com.MitchellSmith.BounceAndBound"
+  ios_url: null
+  android_url: null
   legacy: true
   screenshots:
     - "/img/bounceandbound/website_preview_screenshots_bounce_bound_1.webp"
@@ -232,7 +239,7 @@
   schema_category: "GameApplication"
   pricing_model: "free"
   ios_url: "https://apps.apple.com/us/app/dizzy-frog/id1524972714"
-  android_url: "https://play.google.com/store/apps/details?id=com.smith.dizzyfrog"
+  android_url: null
   legacy: true
   screenshots:
     - "/img/dizzyfrog/website_preview_screenshots_dizzy_frog_1.webp"
@@ -253,8 +260,8 @@
   color: "#C759A2"
   schema_category: "GameApplication"
   pricing_model: "free"
-  ios_url: "https://apps.apple.com/us/app/shift-and-shatter/id1508746469"
-  android_url: "https://play.google.com/store/apps/details?id=com.smith.mitchell.shiftandshatter"
+  ios_url: null
+  android_url: null
   legacy: true
   screenshots:
     - "/img/shiftandshatter/website_preview_screenshots_shift_shatter_1.webp"

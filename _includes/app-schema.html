@@ -16,7 +16,9 @@
     "url": {{ page.url | absolute_url | jsonify }},
     "image": {{ app.icon | absolute_url | jsonify }},
     "applicationCategory": {{ app.schema_category | default: "MobileApplication" | jsonify }},
-    "operatingSystem": {% if app.android_url %}["iOS", "Android"]{% else %}["iOS"]{% endif %},
+    {% if app.ios_url or app.android_url %}
+    "operatingSystem": [{% if app.ios_url %}"iOS"{% endif %}{% if app.ios_url and app.android_url %}, {% endif %}{% if app.android_url %}"Android"{% endif %}],
+    {% endif %}
     "isAccessibleForFree": true,
     {% if app.ios_url or app.android_url %}
     "downloadUrl": [
@@ -34,6 +36,13 @@
         "priceCurrency": "USD",
         "description": {{ offer_description | jsonify }}
     },
+    {% if app.rating_value and app.rating_count %}
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": {{ app.rating_value | jsonify }},
+        "ratingCount": {{ app.rating_count | jsonify }}
+    },
+    {% endif %}
     "author": {
         "@type": "Person",
         "name": "Mitchell Smith",

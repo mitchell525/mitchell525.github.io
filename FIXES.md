@@ -163,22 +163,38 @@ served straight to the browser, all at once, with no dimensions declared.
 
 ## Priority 4 — App structured data
 
-- [ ] **APP-1 — High: No `aggregateRating` in any `SoftwareApplication` JSON-LD**
-  Still unfixed. `_includes/app-schema.html` has well-formed `name`,
-  `offers`, `applicationCategory`, `operatingSystem`, `downloadUrl` — no
-  `aggregateRating` on any of the 12 apps.
+- [x] **APP-1 — High: No `aggregateRating` in any `SoftwareApplication` JSON-LD**
+  Fixed. Pulled real, currently-live numbers from each app's public App
+  Store listing (not App Store Connect/Play Console — no login access to
+  those; the star rating and rating count Apple displays on the public
+  listing page are the same underlying numbers and don't require auth) on
+  2026-09-06. Added `rating_value`/`rating_count` fields to `_data/apps.yml`
+  for the three apps with a rating sample worth publishing, and made
+  `_includes/app-schema.html` emit `aggregateRating` only when both fields
+  are present:
+  - `pinballoverdrive` — 4.6, 46 ratings
+  - `pinfinitesmash` — 4.3, 10 ratings
+  - `pinballdefenseforce` — 4.8, 13 ratings
 
-  Action: for each app page's JSON-LD block, add real numbers pulled from
-  App Store Connect / Play Console — do not estimate or invent figures:
-  ```json
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.6",
-    "ratingCount": "128"
-  }
-  ```
-  Skip an app entirely if it doesn't have enough ratings yet rather than
-  inventing a number.
+  Deliberately **not** added for the other 9 apps:
+  - `pockettripplanner` (5.0/2), `tripstickers` (5.0/2), `dizzyfrog` (5.0/3)
+    — Apple does display these publicly, but a 2–3 rating sample is too
+    thin to be a meaningful `aggregateRating` and risks reading as
+    manipulated to Google; skipped per this item's own "skip rather than
+    invent" guidance, treating "enough ratings" as the bar rather than
+    "any number Apple happens to show."
+  - `cdchanger` — App Store explicitly states it hasn't received enough
+    ratings to display an overview; no number exists to pull.
+  - `avatarforgeai`, `tapandteleport`, `surgeblast`, `bounceandbound`,
+    `shiftandshatter` — no longer have a live App Store listing at all (see
+    new **LINK-1** below); nothing to pull.
+
+  **Verify:** `bundle exec jekyll build` then confirmed via a small script
+  parsing each `_site/<slug>/index.html`'s JSON-LD that the three apps above
+  render a well-formed `aggregateRating` block with these exact values and
+  that all 12 app pages' `SoftwareApplication` JSON-LD still parses cleanly
+  (no syntax breakage from the new conditional). Worth re-pulling these
+  numbers periodically — they'll drift as new ratings come in.
 
 - [x] **APP-3 — Advisory: page titles overflow the SERP; homepage repeats the site name** — Fixed.
   | Page | New title (front matter) |
@@ -195,6 +211,56 @@ served straight to the browser, all at once, with no dimensions declared.
   `Pocket Trip Planner — Simple Trip Planning \| Mitch Smith` (71) — all
   shorter than before, though the two app titles are still on the long
   side; worth a look if you want them tighter still.
+
+---
+
+## Priority 0 — Broken store links (discovered and resolved 2026-09-06)
+
+- [x] **LINK-1 — Critical: every `android_url` in `apps.yml` 404s; 5 apps are gone from the App Store entirely**
+  Fixed 2026-09-06, per explicit direction: the Android links are confirmed
+  gone from Google Play (not a temporary blip), so all 8 `android_url`
+  values were set to `null` in `_data/apps.yml`
+  (`pinballoverdrive`, `pinfinitesmash`, `pinballdefenseforce`, `dizzyfrog`,
+  `tapandteleport`, `surgeblast`, `bounceandbound`, `shiftandshatter`).
+  Both `index.html` and `_layouts/app.html` already gate the "Get it on
+  Google Play" badge on `{% if app.android_url %}`, and
+  `_includes/app-schema.html` gates `operatingSystem`/`downloadUrl`'s
+  Android entry the same way, so nulling the field was enough — no template
+  changes needed. `avatarforgeai` (iOS listing also gone) was marked
+  `legacy: true` in `_data/apps.yml`, matching the other four delisted
+  games; both `index.html` and `_layouts/app.html` wrap the entire
+  store-buttons block in `{% unless app.legacy %}`, so this fully hides its
+  (dead) download button without needing to touch `ios_url`.
+
+  **Verify:** `bundle exec jekyll build`, confirmed
+  `grep -rl "google-play-badge" _site/` returns nothing site-wide,
+  `avatarforgeai/index.html` renders zero `store-button` elements, and
+  `pinballoverdrive`'s JSON-LD now reports `"operatingSystem": ["iOS"]` with
+  a `downloadUrl` containing only the App Store link. All 12 app pages'
+  `SoftwareApplication` JSON-LD still parses cleanly.
+
+  **Follow-up (also done 2026-09-06):** the residual dead `ios_url`s were
+  cleaned up too. Nulled `ios_url` in `_data/apps.yml` for the four apps
+  confirmed 404 on iOS as well as Android — `avatarforgeai`,
+  `tapandteleport`, `surgeblast`, `bounceandbound`, `shiftandshatter` —
+  leaving `dizzyfrog` alone since its iOS listing is still live
+  (4.6★/3 ratings). This exposed a latent bug in
+  `_includes/app-schema.html`: `operatingSystem` was hardcoded to always
+  include `"iOS"` regardless of whether `app.ios_url` was actually set (it
+  only branched on `android_url`), which would have kept asserting an iOS
+  release for these five apps even with both URLs null. Fixed
+  `operatingSystem` to build from `app.ios_url`/`app.android_url` the same
+  way `downloadUrl` already did, and to omit the field entirely (like
+  `downloadUrl` already does) when neither URL is set.
+
+  **Verify:** rebuilt and confirmed via a script parsing every
+  `_site/<slug>/index.html`'s JSON-LD that `avatarforgeai`, `bounceandbound`,
+  `shiftandshatter`, `surgeblast`, and `tapandteleport` now omit both
+  `operatingSystem` and `downloadUrl` entirely; the other 7 apps (including
+  `dizzyfrog`, iOS-only) are unaffected and still report
+  `"operatingSystem": ["iOS"]` with their real App Store `downloadUrl`. All
+  12 pages' JSON-LD still parses, and all five delisted apps render zero
+  `store-button` elements on their page (legacy flag already handled that).
 
 ---
 
