@@ -1,7 +1,7 @@
 ---
 layout: app
 slug: pinballdefenseforce
-title: "Pinball Defense Force — Classic 2D Pinball Defense Game"
+title: "Pinball Defense Force — 2D Pinball Defense Game"
 description: "Defend space with retro pinball action against endless enemy waves. Randomized formations, boss fights, and offline high-score challenges."
 image: "/img/pinballdefenseforce/website_preview_screenshots_pinball_defense_1.webp"
 ---

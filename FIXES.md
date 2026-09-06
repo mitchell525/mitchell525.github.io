@@ -180,18 +180,21 @@ served straight to the browser, all at once, with no dimensions declared.
   Skip an app entirely if it doesn't have enough ratings yet rather than
   inventing a number.
 
-- [ ] **APP-3 — Advisory: page titles overflow the SERP; homepage repeats the site name**
-  Still unfixed:
-  | Page | Current title |
+- [x] **APP-3 — Advisory: page titles overflow the SERP; homepage repeats the site name** — Fixed.
+  | Page | New title (front matter) |
   |---|---|
-  | `pages/legal.html` | `Legal Documents - Terms, Policies, and Legal Information` (70 chars + site name) |
-  | `_apps/pinballdefenseforce.md` | `Pinball Defense Force — Classic 2D Pinball Defense Game` (69 chars + site name) |
-  | `_apps/pockettripplanner.md` | `Pocket Trip Planner — Simple Trip Planning Made Easy` (66 chars + site name) |
-  | `index.html` | `Mitch Smith — Software Engineer & App Developer` + `jekyll-seo-tag`'s auto-appended `\| Mitch Smith` = duplicated site name |
+  | `pages/legal.html` | `Legal Documents & Policies` |
+  | `_apps/pinballdefenseforce.md` | `Pinball Defense Force — 2D Pinball Defense Game` |
+  | `_apps/pockettripplanner.md` | `Pocket Trip Planner — Simple Trip Planning` |
+  | `index.html` | `Software Engineer & App Developer` (was the full "Mitch Smith — ..." string, which `jekyll-seo-tag` then duplicated with its auto-appended site name) |
 
-  Action: shorten the legal and Pinball Defense Force titles; for the
-  homepage, set `title: "Software Engineer & App Developer"` in front matter
-  and let `jekyll-seo-tag` append the site name once.
+  **Verify:** built and confirmed the rendered `<title>` tags —
+  `Software Engineer & App Developer \| Mitch Smith` (66 chars, no more
+  duplication), `Legal Documents & Policies \| Mitch Smith` (59),
+  `Pinball Defense Force — 2D Pinball Defense Game \| Mitch Smith` (76),
+  `Pocket Trip Planner — Simple Trip Planning \| Mitch Smith` (71) — all
+  shorter than before, though the two app titles are still on the long
+  side; worth a look if you want them tighter still.
 
 ---
 

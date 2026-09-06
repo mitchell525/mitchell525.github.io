@@ -1,7 +1,7 @@
 ---
 layout: app
 slug: pockettripplanner
-title: "Pocket Trip Planner — Simple Trip Planning Made Easy"
+title: "Pocket Trip Planner — Simple Trip Planning"
 description: "Ad-free trip planning for itineraries, packing lists, budgets, and countdowns—all in one place. Built for weekend getaways and big family vacations."
 image: "/img/pockettripplanner/1.webp"
 ---
