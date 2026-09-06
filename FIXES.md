@@ -12,18 +12,16 @@ Confirmed live (via direct `curl` of production HTML) that `_plugins/app_seo_gen
 - **Residual gap:** `og:type` itself is driven by a separate hardcoded `page.date` check in jekyll-seo-tag's template that can't be fully fixed without a real plugin; tracked as an accepted limitation in `TODO.md`.
 - **Files:** `_apps/*.md`, `_config.yml`, `_includes/seo-vars.html` (plugin deleted)
 
-### 2. `.gitlab-ci.yml` is dead config from a prior GitLab Pages setup
-Describes a pipeline (`only: [main]`) that can't fire on this repo (no `main` branch exists; only `master`, plus stale `jekyll`/`revert`/`chat-gptupdates`). The real deployment is GitHub Pages from `master`.
-- **Action:** delete `.gitlab-ci.yml` unless there's an actual GitLab mirror somewhere this local clone doesn't know about (confirm with the user before deleting).
+### 2. ~~`.gitlab-ci.yml` is dead config from a prior GitLab Pages setup~~ — FIXED 2026-09-06
+Confirmed with the user there's no GitLab mirror; deleted `.gitlab-ci.yml`.
 - **Files:** `.gitlab-ci.yml`
 
 ---
 
 ## Medium severity
 
-### 3. `vendor/bundle/`, `.bundle/config`, and `.DS_Store` files are committed despite being gitignored
-`.gitignore` lists `vendor/`, `.bundle/`, and `.DS_Store`, but all are tracked in git (`vendor/bundle/` alone is ~25MB / 2,625 files). This bloats the repo (`.git` is 127MB) and ships regenerable/OS-junk files in every clone.
-- **Action:** `git rm -r --cached vendor .bundle` and remove the 5 tracked `.DS_Store` files, then commit. (Not done here — this is a repo-wide history/size change, not a doc fix.)
+### 3. ~~`vendor/bundle/`, `.bundle/config`, and `.DS_Store` files are committed despite being gitignored~~ — FIXED 2026-09-06
+Ran `git rm -r --cached vendor .bundle` plus the 5 tracked `.DS_Store` files and committed. Files remain on disk (still covered by the existing `.gitignore` entries) but are no longer tracked, so future commits won't carry them. Note: this untracks going forward — it does not rewrite existing git history, so past commits/`.git` size are unchanged.
 - **Files:** `vendor/bundle/`, `.bundle/config`, `./.DS_Store`, `design/.DS_Store`, `img/.DS_Store`, `img/icons/.DS_Store`, `img/previews/.DS_Store`
 
 ### 4. ~~`pockettravelplanner` → `pockettripplanner` rename left inconsistent naming~~ — FIXED 2026-09-05
@@ -44,9 +42,8 @@ Now redirects to `/pages/legal/` (the real legal index) instead of `/`.
 
 ## Low severity
 
-### 8. Stale git branches
-`jekyll`, `revert`, `chat-gptupdates` haven't been touched since 2025 and predate the Jekyll migration landing on `master` (the `jekyll` branch even contains its own now-obsolete `jekyll-migration-plan.md`). `master` is the only actively developed branch.
-- **Action:** confirm none are needed for reference, then delete.
+### 8. ~~Stale git branches~~ — FIXED 2026-09-06
+Confirmed with the user and deleted `jekyll`, `revert`, `chat-gptupdates` (all local-only; no matching `origin/*` refs existed to delete). `chat-gptupdates` predated the Jekyll migration (pre-Jekyll static HTML, old `pockettravelplanner` naming, no Jekyll structure) and wasn't fully merged, so it required a force-delete after confirming its contents were obsolete.
 - **Files:** n/a (git branches, not files)
 
 ### 9. Icon filenames contain spaces
