@@ -243,14 +243,13 @@ served straight to the browser, all at once, with no dimensions declared.
   separate cleanup. **Verify:** built and confirmed all three references
   plus `/site.webmanifest` render correctly.
 
-- [ ] **HEAD-4 — Advisory: Atom feed exists but isn't linked; footer year is stale**
-  Still unfixed. No `{% feed_meta %}` tag anywhere in `_layouts/default.html`
-  (jekyll-feed is in the plugins list but its auto-discovery tag was never
-  added). `_includes/footer.html` still hardcodes `&copy; 2025` while today
-  is 2026-09-06.
-
-  Action: add `{% feed_meta %}` inside `<head>`. Change the footer to
+- [x] **HEAD-4 — Advisory: Atom feed exists but isn't linked; footer year is stale** — Fixed.
+  Added `{% feed_meta %}` inside `<head>` in `_layouts/default.html`.
+  Changed the footer copyright to
   `&copy; {{ site.time | date: "%Y" }} Mitchell Smith. All rights reserved.`
+  **Verify:** built and confirmed the built homepage now has a
+  `<link type="application/atom+xml" rel="alternate" href=".../feed.xml">`
+  tag and the footer renders "© 2026" (today's build date).
 
 ---
 
