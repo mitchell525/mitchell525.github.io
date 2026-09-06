@@ -101,16 +101,19 @@ served straight to the browser, all at once, with no dimensions declared.
   verification before relying on it. **Worth a follow-up if you want a real
   redirect, but not done here.**
 
-- [ ] **IDX-3 — High: Internal links go through a 301 (missing trailing slash)**
-  Still unfixed. `index.html` line 55: app-card titles link to
-  `/{{ app.slug }}` (no trailing slash) while the footer correctly links to
-  `/{{ app.slug }}/`. Same for `/pages/legal`, `/pages/about` in both navbar
-  active-state checks and footer links — GitHub Pages 301s the no-slash form
-  to the slash form on every one of these.
-
-  Action: use `{{ app.url | relative_url }}` (collection `.url` already
-  includes the trailing slash) or hand-append `/` consistently everywhere a
-  slug/path is templated into an `href`.
+- [x] **IDX-3 — High: Internal links go through a 301 (missing trailing slash)** — Fixed.
+  `index.html` app-card titles now link to `/{{ app.slug }}/`, and
+  `_includes/footer.html`'s `/pages/legal`/`/pages/about` links now carry
+  the trailing slash (the navbar's `contains` active-state checks weren't
+  actually broken — those are substring checks on `page.url`, not hrefs, and
+  the navbar's own hrefs already had trailing slashes). Also fixed one more
+  instance of the same bug not called out here: `_layouts/legal.html`'s
+  breadcrumb fallback linked to the literal `/pages/legal.html`, which
+  doesn't exist under this site's `permalink: pretty` config (the page
+  actually serves at `/pages/legal/`) — changed to `/pages/legal/`.
+  **Verify:** `bundle exec jekyll build` then
+  `grep -rhoE 'href="/(pages/[a-z]+|blog|[a-z0-9]+)"' _site` — confirmed
+  empty (no more no-slash internal hrefs in the built output).
 
 - [ ] **IDX-4 — High: Four pages share one identical `<meta name="description">`**
   Still unfixed — `index.html`, `blog/index.html`, `pages/about.html`,
