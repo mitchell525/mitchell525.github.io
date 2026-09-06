@@ -48,7 +48,7 @@ title: "Mitch Smith — Software Engineer & App Developer"
                 <div class="app-item-content">
                     <div class="app-header">
                         <div class="app-icon-container">
-                            <img src="{{ app.icon }}" alt="{{ app.name }} logo" class="app-icon">
+                            <img src="{{ app.icon }}" alt="{{ app.name }} logo" class="app-icon" loading="lazy" decoding="async">
                         </div>
                         <div class="app-info">
                             <h3 class="app-name">
@@ -89,7 +89,7 @@ title: "Mitch Smith — Software Engineer & App Developer"
                     <div class="app-screenshots">
                         {% for screenshot in app.screenshots limit:3 %}
                         <div class="screenshot-item" data-screenshot="{{ screenshot }}">
-                            <img src="{{ screenshot }}" alt="Screenshot for {{ app.name }}" class="screenshot-image">
+                            <img src="{{ screenshot }}" alt="Screenshot for {{ app.name }}" class="screenshot-image" loading="lazy" decoding="async">
                         </div>
                         {% endfor %}
                     </div>
