@@ -1054,6 +1054,7 @@ body {
 }
 
 .app-name a {
+    display: inline-block;
     font-family: var(--font-family-primary);
     font-size: 1.75rem;
     font-weight: 700;
@@ -1062,6 +1063,8 @@ body {
     text-decoration: none;
     transition: color 0.2s ease;
     letter-spacing: -0.01em;
+    padding: 0.25rem 0;
+    margin: -0.25rem 0;
 }
 
 .app-name a:hover {
@@ -1176,6 +1179,20 @@ body {
     padding: 0.75rem 1.5rem;
     border-radius: var(--radius-large);
     box-shadow: var(--shadow-small);
+}
+
+.unavailable-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-separator);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-large);
+}
+
+.unavailable-badge .badge-text {
+    color: var(--color-text-tertiary);
 }
 
 .badge-text {
@@ -1679,6 +1696,19 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 20px;
     padding: 0.75rem 1.5rem;
+}
+
+.unavailable-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 0.75rem 1.5rem;
+}
+
+.unavailable-badge .badge-text {
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .badge-text {
