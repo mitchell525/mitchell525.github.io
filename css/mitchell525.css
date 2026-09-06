@@ -444,6 +444,26 @@
     border-radius: var(--radius-small);
 }
 
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 2000;
+    padding: 0.75rem 1.25rem;
+    background: var(--color-primary);
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: var(--radius-small);
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 1rem;
+    outline: 2px solid var(--color-background-primary);
+    outline-offset: 2px;
+}
+
 /* Apple HIG-Inspired Landing Page Styles */
 
 /* Base Body Styling */
@@ -2259,6 +2279,13 @@ body {
     font-weight: 500;
     transition: color 0.3s ease;
     padding: 0.5rem 0;
+}
+
+button.footer-link {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
 }
 
 .footer-link:hover {

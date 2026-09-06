@@ -26,39 +26,35 @@
         
         <!-- Navigation links -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" role="menubar">
-                <li class="nav-item" role="none">
-                    <a class="nav-link {% if page.url == '/' %}active fw-semibold{% endif %}" 
-                       href="/" 
-                       role="menuitem"
-                       aria-current="{% if page.url == '/' %}page{% endif %}">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link {% if page.url == '/' %}active fw-semibold{% endif %}"
+                       href="/"
+                       aria-current="{% if page.url == '/' %}page{% else %}false{% endif %}">
                         <i class="bi bi-grid-3x3-gap me-1" aria-hidden="true"></i>
                         Portfolio
                     </a>
                 </li>
-                <li class="nav-item" role="none">
-                    <a class="nav-link {% if page.url contains 'about' %}active fw-semibold{% endif %}" 
-                       href="/pages/about/" 
-                       role="menuitem"
-                       aria-current="{% if page.url contains 'about' %}page{% endif %}">
+                <li class="nav-item">
+                    <a class="nav-link {% if page.url contains 'about' %}active fw-semibold{% endif %}"
+                       href="/pages/about/"
+                       aria-current="{% if page.url contains 'about' %}page{% else %}false{% endif %}">
                         <i class="bi bi-person me-1" aria-hidden="true"></i>
                         About
                     </a>
                 </li>
-                <li class="nav-item" role="none">
-                    <a class="nav-link {% if page.url contains '/blog' %}active fw-semibold{% endif %}" 
-                       href="/blog/" 
-                       role="menuitem"
-                       aria-current="{% if page.url contains '/blog' %}page{% endif %}">
+                <li class="nav-item">
+                    <a class="nav-link {% if page.url contains '/blog' %}active fw-semibold{% endif %}"
+                       href="/blog/"
+                       aria-current="{% if page.url contains '/blog' %}page{% else %}false{% endif %}">
                         <i class="bi bi-journal-text me-1" aria-hidden="true"></i>
                         Blog
                     </a>
                 </li>
-                <li class="nav-item" role="none">
-                    <a class="nav-link {% if page.url contains 'legal' %}active fw-semibold{% endif %}" 
-                       href="/pages/legal/" 
-                       role="menuitem"
-                       aria-current="{% if page.url contains 'legal' %}page{% endif %}">
+                <li class="nav-item">
+                    <a class="nav-link {% if page.url contains 'legal' %}active fw-semibold{% endif %}"
+                       href="/pages/legal/"
+                       aria-current="{% if page.url contains 'legal' %}page{% else %}false{% endif %}">
                         <i class="bi bi-shield-check me-1" aria-hidden="true"></i>
                         Legal
                     </a>
