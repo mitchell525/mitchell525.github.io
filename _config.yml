@@ -13,6 +13,10 @@ permalink: pretty
 # Pages configuration
 defaults:
   - scope:
+      path: ""
+    values:
+      image: "/img/social/og-default.png"
+  - scope:
       path: "pages"
       type: "pages"
     values:

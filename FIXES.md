@@ -200,15 +200,18 @@ served straight to the browser, all at once, with no dimensions declared.
 
 ## Priority 5 — Head, sharing & security cleanup
 
-- [ ] **HEAD-1 — High: No `og:image` on homepage, blog, about, or legal pages**
-  Still unfixed — `_config.yml` `defaults` has no site-wide `image:`
-  fallback, and none of `index.html` / `blog/index.html` /
-  `pages/about.html` / `pages/legal.html` set one in front matter.
-
-  Action: add a site-wide fallback under `_config.yml`'s `defaults` (path
-  `""` scope), pointing at a real 1200×630 image (e.g. a grid of app icons)
-  committed at `/img/social/og-default.png`. App pages and blog posts already
-  set `image:` per-page correctly — leave those alone.
+- [x] **HEAD-1 — High: No `og:image` on homepage, blog, about, or legal pages** — Fixed.
+  Generated a real 1200×630 `img/social/og-default.png` (a grid of 8 app
+  icons over "Mitch Smith — Software Engineer & App Developer", built with
+  Pillow from the already-resized app icons — Pillow used only as a
+  scratch/one-off tool, not added as a project dependency). Added it as a
+  site-wide fallback via `_config.yml`'s `defaults` (`scope: path: ""`).
+  **Verify:** built and confirmed `/`, `/blog/`, `/pages/about/`, and
+  `/pages/legal/` now render `og:image` pointing at the new file; app pages
+  (e.g. `/cdchanger/`) keep their own per-page screenshot image, unaffected
+  by the new default (front matter takes precedence over site defaults).
+  Also worth pasting a homepage/app-page URL into the Facebook and Twitter
+  card debuggers once deployed, per the verification checklist below.
 
 - [ ] **HEAD-2 — Advisory: security meta tags do less than they appear to**
   Still unfixed in `_layouts/default.html`:
