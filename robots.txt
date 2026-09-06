@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://mitchell525.github.io/sitemap.xml

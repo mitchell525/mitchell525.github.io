@@ -124,23 +124,17 @@ served straight to the browser, all at once, with no dimensions declared.
   to make sure the wording matches how you'd want each page described in
   search results.
 
-- [ ] **IDX-5 — Advisory: no `robots.txt` source file at all; no custom 404**
-  Escalated from the original finding — there is currently **no `robots.txt`
-  in the repo** (checked `git log --all` too — nothing tracked). The
-  `Sitemap:`-only version the audit saw is presumably still being served live
-  from `origin/master`, but it doesn't exist in this working tree, so it will
-  disappear (or whatever GitHub Pages does with no source robots.txt) on the
-  next deploy unless one is added back. `/404.html` still doesn't exist.
-
-  Action:
-  ```
-  User-agent: *
-  Disallow:
-
-  Sitemap: https://mitchell525.github.io/sitemap.xml
-  ```
-  as `robots.txt` at the repo root. Add `404.html` with `permalink: /404.html`
-  in its front matter, using the site's normal layout so nav/footer render.
+- [x] **IDX-5 — Advisory: no `robots.txt` source file at all; no custom 404** — Fixed.
+  Added `robots.txt` at the repo root (allow-all + sitemap pointer, as
+  specified). Added `404.html` using `layout: default` (so nav/footer
+  render) with `permalink: /404.html`, `robots: "noindex, follow"`, and
+  `sitemap: false`. **Verify after deploy** — confirm
+  `https://mitchell525.github.io/robots.txt` and
+  `https://mitchell525.github.io/404.html` are actually served live (GitHub
+  Pages needs `404.html` at the repo root with that literal path to use it
+  as the custom error page, and this repo already overrides pretty
+  permalinks explicitly for it, but it's worth a post-deploy check that a
+  broken URL actually renders this page instead of GitHub's default 404).
 
 ---
 
