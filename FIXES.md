@@ -140,20 +140,15 @@ served straight to the browser, all at once, with no dimensions declared.
 
 ## Priority 3 — Shared layout / markup & ARIA conformance
 
-- [ ] **DOM-1 — High: Nested `<footer>` elements + unbalanced `</div>`**
-  Still unfixed. `_layouts/default.html` wraps
-  `<footer role="contentinfo">{% include footer.html %}</footer>` around
-  `_includes/footer.html`, which itself still opens with
-  `<footer class="ms-footer-modern">` — two nested `<footer>` landmarks. The
-  footer include also still closes one more `</div>` than it opens (there's a
-  stray extra `</div>` right before its closing `</footer>` tag, after
-  `.footer-bottom` is already balanced).
-
-  Action: in `_layouts/default.html`, drop the outer `<footer role="contentinfo">`
-  wrapper and just `{% include footer.html %}` directly inside `<main>`'s
-  sibling position (the include's own `<footer class="ms-footer-modern">` is
-  the real landmark — `role="contentinfo"` on it is implicit and can be
-  omitted). Delete the stray extra `</div>` in `_includes/footer.html`.
+- [x] **DOM-1 — High: Nested `<footer>` elements + unbalanced `</div>`** — Fixed.
+  `_layouts/default.html` now includes `_includes/footer.html` directly
+  (dropped the outer `<footer role="contentinfo">` wrapper), so there's a
+  single `<footer class="ms-footer-modern">` landmark. Also deleted the
+  stray extra `</div>` in `_includes/footer.html` (it was closing nothing —
+  `.container` was already closed earlier and `.footer-bottom` was already
+  balanced). **Verify:** built and confirmed `<footer` and `</footer>` each
+  appear exactly once in the built homepage, and div open/close counts
+  match (175/175).
 
 - [ ] **DOM-3 — Advisory: redundant landmark roles remain (skip link is done)**
   The skip link now exists (`<a href="#main-content" class="skip-link">Skip
