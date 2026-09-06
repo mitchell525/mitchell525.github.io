@@ -150,16 +150,14 @@ served straight to the browser, all at once, with no dimensions declared.
   appear exactly once in the built homepage, and div open/close counts
   match (175/175).
 
-- [ ] **DOM-3 — Advisory: redundant landmark roles remain (skip link is done)**
-  The skip link now exists (`<a href="#main-content" class="skip-link">Skip
-  to main content</a>` in `_layouts/default.html`, targeting `<main
-  id="main-content">`) — that part of this item is fixed. Still present:
-  `role="banner"` on `<header>`, `role="main"` on `<main>`, `role="navigation"`
-  on `<nav>` (in `_includes/navbar.html`), and `role="contentinfo"` on
-  `<footer>` — all implicit on those elements already, harmless but
-  redundant. `role="document"` on `<body>` was already removed.
-
-  Action: delete the four redundant `role` attributes.
+- [x] **DOM-3 — Advisory: redundant landmark roles remain (skip link is done)** — Fixed.
+  Removed `role="banner"` from `<header>` and `role="main"` from `<main>`
+  in `_layouts/default.html`, and `role="navigation"` from `<nav>` in
+  `_includes/navbar.html` — all implicit on those elements already.
+  `role="contentinfo"` on `<footer>` was already removed as part of DOM-1.
+  **Verify:** built and confirmed none of `role="banner"`, `role="main"`,
+  `role="navigation"`, `role="contentinfo"`, `role="document"` appear
+  anywhere in the built homepage.
 
 ---
 
