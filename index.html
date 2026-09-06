@@ -9,7 +9,7 @@ title: "Mitch Smith — Software Engineer & App Developer"
         <div class="hero-content">
             <div class="hero-text">
                 <div class="hero-icon">
-                    <img src="img/icons/ms_home_icon.png" alt="Mitch Smith MS Logo" class="brand-icon">
+                    <img src="img/icons/ms_home_icon.webp" alt="Mitch Smith MS Logo" class="brand-icon" width="512" height="512">
                 </div>
                 <h1 class="hero-title">Mitch Smith</h1>
                 <p class="hero-subtitle">Software Engineer & App Developer</p>
@@ -26,7 +26,7 @@ title: "Mitch Smith — Software Engineer & App Developer"
             </div>
             <div class="hero-image">
                 <div class="image-container">
-                    <img src="img/profile/profile_photo-01.png" alt="Picture of Mitch Smith and his daughter" class="profile-image">
+                    <img src="img/profile/profile_photo-01.webp" alt="Picture of Mitch Smith and his daughter" class="profile-image" width="1000" height="1000">
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@ title: "Mitch Smith — Software Engineer & App Developer"
                 <div class="app-item-content">
                     <div class="app-header">
                         <div class="app-icon-container">
-                            <img src="{{ app.icon }}" alt="{{ app.name }} logo" class="app-icon" loading="lazy" decoding="async">
+                            <img src="{{ app.icon }}" alt="{{ app.name }} logo" class="app-icon" width="{{ app.icon_width }}" height="{{ app.icon_height }}" loading="lazy" decoding="async">
                         </div>
                         <div class="app-info">
                             <h3 class="app-name">
@@ -89,7 +89,7 @@ title: "Mitch Smith — Software Engineer & App Developer"
                     <div class="app-screenshots">
                         {% for screenshot in app.screenshots limit:3 %}
                         <div class="screenshot-item" data-screenshot="{{ screenshot }}">
-                            <img src="{{ screenshot }}" alt="Screenshot for {{ app.name }}" class="screenshot-image" loading="lazy" decoding="async">
+                            <img src="{{ screenshot }}" alt="Screenshot for {{ app.name }}" class="screenshot-image" width="{{ app.screenshot_width }}" height="{{ app.screenshot_height }}" loading="lazy" decoding="async">
                         </div>
                         {% endfor %}
                     </div>

@@ -26,27 +26,55 @@ served straight to the browser, all at once, with no dimensions declared.
   footer (`_includes/footer.html`) brand icon. Hero profile photo, hero icon,
   and navbar logo left eager (above the fold).
 
-- [ ] **IMG-2 — Critical: Resize source images to display size, convert to WebP**
-  Still unfixed — `img/` is 60 MB, zero `.webp` files in the repo. Confirmed
-  still oversized:
-  - `img/cdchanger/icon.png` — 1024×1024, 2.5 MB, shown at ~120px
-  - `img/tapandteleport/icon.png` — 1501×1501, shown at ~120px
-  - `img/tripstickers/trip_stickers_preview_1.png` — 1320×2868, 1.7 MB, shown at ~230px
-  - `img/profile/profile_photo-01.png` — 1000×1000, 1.4 MB, shown at ~340px
+- [x] **IMG-2 — Critical: Resize source images to display size, convert to WebP**
+  Fixed. Ran a one-off `sharp` pass (installed only in a scratch dir, not
+  added to this repo's `package.json`/`node_modules` — no new build
+  dependency) over every image actually referenced from a template, `_data/apps.yml`,
+  an `_apps/*.md`/`_posts/*.md` front-matter `image:` field, or `_includes/footer.html`
+  / `pages/about.html` / `pages/legal.html`: 59 files, `img/` 71 MB → 19 MB.
+  Chose WebP-only (no `<picture>`/PNG fallback — ~99% browser support makes the
+  extra markup and duplicate files not worth it) and replaced originals outright
+  (recoverable via git history, not kept alongside).
 
-  Action: resize at build time, not in CSS. Icons → 256px, screenshots →
-  ~500px, convert to WebP with PNG fallback (`<picture>`) or WebP-only.
-  Tooling options that work on GitHub Pages (static output only): a one-off
-  `sharp`/ImageMagick pass over `/img`, committing resized/WebP derivatives
-  and updating `src` references; or the `jekyll-picture-tag` plugin (note:
-  GitHub Pages' classic build runs Jekyll in safe mode and skips non-whitelisted
-  plugins — verify this one is on the [supported list](https://pages.github.com/versions/)
-  before relying on it, same caveat as the removed `app_seo_generator.rb`).
+  Two deliberate deviations from the sizes suggested above, both because this
+  site's lightbox (`_includes/lightbox-modal.html`) displays the *same* file up
+  to `90vh`/`90vw`, and several first-in-list screenshots (e.g.
+  `cd_changer1.webp`, `avatarforgeai/1.webp`) double as `og:image` via
+  front-matter `image:` — both uses need more headroom than the raw gallery
+  thumbnail size:
+  - Icons → fit inside 512×512 (not 256) — `_apps/*.md`/`apps.yml` icon fields
+    and `img/icons/ms_home_icon.png`.
+  - Screenshots/photos (app screenshots, blog post images/screenshots, profile
+    photo) → fit inside 1600×1600, long edge — not ~500px.
 
-- [ ] **IMG-3 — High: Add explicit `width`/`height` to every `<img>`**
-  Still only the navbar logo (32×32) sets these. Same template edits as
-  IMG-1 — do together. Use real pixel dimensions of the (resized) source
-  file; let CSS scale visually with `height: auto`.
+  All resizing uses `fit: inside` + `withoutEnlargement`, so already-small
+  sources (e.g. the 450×900 game-app screenshots) were only reformatted, not
+  upscaled. `sharp` quality: 85 for icons, 82 for photos.
+
+  Left untouched (out of scope for this item): `img/appstore/*.svg` (vector,
+  not the problem), `img/icons/material/*` + the misnamed favicon file (see
+  HEAD-3), and files that aren't referenced by any page — `img/tripstickers/trip_stickers_preview_{4,5,6}.png`
+  and `img/profile/mitch_smith_icon.png` — since nothing serves them to a
+  browser today; a future dead-asset cleanup pass can decide whether to delete
+  or wire them up.
+
+- [x] **IMG-3 — High: Add explicit `width`/`height` to every `<img>`**
+  Fixed. Measured real pixel dimensions of every resized WebP with `sips`
+  and added `icon_width`/`icon_height`/`screenshot_width`/`screenshot_height`
+  fields per app in `_data/apps.yml` (dimensions vary per app — icons
+  501–512px, screenshots either 739×1600, 736×1600, or 450×900 depending on
+  source). Wired those into the `<img>` tags in `index.html`,
+  `_layouts/app.html`, and `pages/legal.html`. Added real dimensions
+  (512×512 icon, 1000×1000 profile photo) to the static brand-icon/
+  profile-image `<img>`s in `index.html`, `pages/about.html`,
+  `pages/legal.html`, and `_includes/footer.html`. Left the existing
+  `width="80"`/`width="64"` icon attributes in `_layouts/post.html`,
+  `_layouts/legal.html`, and `blog/index.html` alone — those classes set
+  explicit CSS px sizes with `object-fit: cover`, so the attribute value
+  only needs to be square (1:1), which it already is; not part of this
+  item's "still missing" list. **Verify:** `bundle exec jekyll build` + spot
+  check with `grep -n 'width=' _site/cdchanger/index.html` (done locally —
+  512×512 icon, 739×1600 screenshots all present).
 
 - [ ] **IMG-4 — High: Fix the lightbox's empty `src`**
   `_includes/lightbox-modal.html` line 6 still ships:

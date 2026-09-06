@@ -3,6 +3,8 @@
   tagline: "Album player for CarPlay"
   description: "Album-first listening for iPhone and CarPlay. Build custom CD magazines from your Music library and press play."
   icon: "/img/cdchanger/icon.webp"
+  icon_width: 512
+  icon_height: 512
   color: "#3A60AD"
   schema_category: "UtilitiesApplication"
   pricing_model: "freemium"
@@ -12,6 +14,8 @@
     - "/img/cdchanger/cd_changer1.webp"
     - "/img/cdchanger/cd_changer2.webp"
     - "/img/cdchanger/cd_changer3.webp"
+  screenshot_width: 739
+  screenshot_height: 1600
   privacy_policy: "/legal/cdchanger_privacy_policy.html"
   terms: "/legal/cdchanger_terms_and_conditions.html"
   support_pages:
@@ -24,6 +28,8 @@
   tagline: "AI Fantasy Character Maker"
   description: "Bring your fantasy heroes, villains, and creatures to life. AvatarForge AI transforms simple descriptions into breathtaking fantasy portraits inspired by fantasy novels, tabletop RPGs, and classic fantasy art. Built for iOS with a fast, reliable generation pipeline, it's the easiest way to visualize the characters in your imagination."
   icon: "/img/avatarforgeai/icon.webp"
+  icon_width: 512
+  icon_height: 512
   color: "#7B39EC"
   schema_category: "DesignApplication"
   pricing_model: "subscription"
@@ -33,6 +39,8 @@
     - "/img/avatarforgeai/1.webp"
     - "/img/avatarforgeai/2.webp"
     - "/img/avatarforgeai/7.webp"
+  screenshot_width: 739
+  screenshot_height: 1600
   privacy_policy: "/legal/avatarforgeai_privacy_policy.html"
   terms: "/legal/avatarforgeai_terms_and_conditions.html"
   support_pages:
@@ -46,6 +54,8 @@
   tagline: "A Retro Themed Pinball Game"
   description: "Retro pinball with explosive hazards, randomized levels, and offline high-score runs. Rack up multipliers and bonus pinballs to top the leaderboard."
   icon: "/img/pinballoverdrive/icon.webp"
+  icon_width: 512
+  icon_height: 512
   color: "#45545B"
   schema_category: "GameApplication"
   pricing_model: "free"
@@ -55,6 +65,8 @@
     - "/img/pinballoverdrive/website_preview_screenshots_pinball_overdrive_1.webp"
     - "/img/pinballoverdrive/website_preview_screenshots_pinball_overdrive_2.webp"
     - "/img/pinballoverdrive/website_preview_screenshots_pinball_overdrive_3.webp"
+  screenshot_width: 450
+  screenshot_height: 900
   privacy_policy: "/legal/pinball_overdrive_privacy_policy.html"
   terms: "/legal/pinball_overdrive_terms_and_conditions.html"
 
@@ -63,6 +75,8 @@
   tagline: "Simple Trip Planning Made Easy"
   description: "Ad-free trip planning for itineraries, packing lists, budgets, and countdowns—all in one place. Built for weekend getaways and big family vacations."
   icon: "/img/pockettripplanner/pocket_travel_planner_icon.webp"
+  icon_width: 256
+  icon_height: 256
   color: "#101D48"
   schema_category: "TravelApplication"
   pricing_model: "freemium"
@@ -72,6 +86,8 @@
     - "/img/pockettripplanner/1.webp"
     - "/img/pockettripplanner/2.webp"
     - "/img/pockettripplanner/3.webp"
+  screenshot_width: 739
+  screenshot_height: 1600
   privacy_policy: "/legal/pocket_trip_planner_privacy_policy.html"
   terms: "/legal/pocket_trip_planner_terms_and_conditions.html"
 
@@ -80,6 +96,8 @@
   tagline: "Design Custom Travel Stickers"
   description: "Turn your travels into vintage-style stickers and journals. Design custom keepsakes, record trip stories, and build a collection of every adventure."
   icon: "/img/tripstickers/trip_stickers_icon.webp"
+  icon_width: 512
+  icon_height: 512
   color: "#2E8B57"
   schema_category: "DesignApplication"
   pricing_model: "freemium"
@@ -89,6 +107,8 @@
     - "/img/tripstickers/trip_stickers_preview_1.webp"
     - "/img/tripstickers/trip_stickers_preview_2.webp"
     - "/img/tripstickers/trip_stickers_preview_3.webp"
+  screenshot_width: 736
+  screenshot_height: 1600
   privacy_policy: "/legal/trip_stickers_privacy_policy.html"
   terms: "/legal/trip_stickers_terms_and_conditions.html"
 
@@ -97,6 +117,8 @@
   tagline: "2D Pinball Meets Brick Breaker"
   description: "2D pinball meets endless brick breaker action. Survive faster waves, grab power-ups, unlock skins, and chase high scores offline."
   icon: "/img/pinfinitesmash/icon.webp"
+  icon_width: 512
+  icon_height: 512
   color: "#871C4C"
   schema_category: "GameApplication"
   pricing_model: "free"
@@ -106,6 +128,8 @@
     - "/img/pinfinitesmash/website_preview_pinfinite_smash_1.webp"
     - "/img/pinfinitesmash/website_preview_pinfinite_smash_2.webp"
     - "/img/pinfinitesmash/website_preview_pinfinite_smash_3.webp"
+  screenshot_width: 450
+  screenshot_height: 900
   privacy_policy: "/legal/pinfinite_smash_privacy_policy.html"
   terms: "/legal/pinfinite_smash_terms_and_conditions.html"
 
@@ -114,6 +138,8 @@
   tagline: "Classic 2D Pinball Defense Game"
   description: "Defend space with retro pinball action against endless enemy waves. Randomized formations, boss fights, and offline high-score challenges."
   icon: "/img/pinballdefenseforce/icon.webp"
+  icon_width: 512
+  icon_height: 512
   color: "#C759A2"
   schema_category: "GameApplication"
   pricing_model: "free"
@@ -123,6 +149,8 @@
     - "/img/pinballdefenseforce/website_preview_screenshots_pinball_defense_1.webp"
     - "/img/pinballdefenseforce/website_preview_screenshots_pinball_defense_2.webp"
     - "/img/pinballdefenseforce/website_preview_screenshots_pinball_defense_3.webp"
+  screenshot_width: 450
+  screenshot_height: 900
   privacy_policy: "/legal/pinball_defense_privacy_policy.html"
   terms: "/legal/pinball_defense_terms_and_conditions.html"
 
@@ -132,6 +160,8 @@
   tagline: "3D Reaction-Based Survival Game"
   description: "Tap and Teleport is a 3D reaction-based survival game. You control a lone wizard with the power of teleportation! Use this power to dodge a variety of hazards: fireballs, archers, soldiers, lancers, and even fellow mages. Challenge yourself to survive and collect orbs for points and power-ups. Utilize your reaction skills to survive as you challenge your high-score."
   icon: "/img/tapandteleport/icon.webp"
+  icon_width: 512
+  icon_height: 512
   color: "#F4A261"
   schema_category: "GameApplication"
   pricing_model: "free"
@@ -142,6 +172,8 @@
     - "/img/tapandteleport/website_preview_screenshots_tap_and_teleport_1.webp"
     - "/img/tapandteleport/website_preview_screenshots_tap_and_teleport_2.webp"
     - "/img/tapandteleport/website_preview_screenshots_tap_and_teleport_3.webp"
+  screenshot_width: 450
+  screenshot_height: 900
   privacy_policy: "/legal/tap_and_teleport_privacy_policy.html"
   terms: "/legal/tap_and_teleport_terms_and_conditions.html"
 
@@ -150,6 +182,8 @@
   tagline: "Hyper Casual Bubble Matching Game"
   description: "Launch your way into Surge Blast! This hyper casual game allows you to release and match bubbles of different colors to score points. Match five bubbles of the same color to score points and survive as long as possible! But watch out! Every eight bubbles, an increasingly difficult blast of different colors will try to disrupt your efforts!"
   icon: "/img/surgeblast/icon.webp"
+  icon_width: 501
+  icon_height: 501
   color: "#30A092"
   schema_category: "GameApplication"
   pricing_model: "free"
@@ -160,6 +194,8 @@
     - "/img/surgeblast/website_preview_screenshots_surge_blast_1.webp"
     - "/img/surgeblast/website_preview_screenshots_surge_blast_2.webp"
     - "/img/surgeblast/website_preview_screenshots_surge_blast_3.webp"
+  screenshot_width: 450
+  screenshot_height: 900
   privacy_policy: "/legal/surge_blast_privacy_policy.html"
   terms: "/legal/surge_blast_terms_and_conditions.html"
 
@@ -168,6 +204,8 @@
   tagline: "A Retro Themed Puzzle Game"
   description: "Jump into Bounce and Bound, a free, retro-themed puzzle game inspired by the arcade era! Work your way through 36 challenging levels. Strategically drop bouncing balls to hit three goals and move onto the next level! But watch out! Various moving, bouncing, and exploding hazards make finding the correct time and location to drop a challenge."
   icon: "/img/bounceandbound/icon.webp"
+  icon_width: 512
+  icon_height: 512
   color: "#33A8FF"
   schema_category: "GameApplication"
   pricing_model: "free"
@@ -178,6 +216,8 @@
     - "/img/bounceandbound/website_preview_screenshots_bounce_bound_1.webp"
     - "/img/bounceandbound/website_preview_screenshots_bounce_bound_2.webp"
     - "/img/bounceandbound/website_preview_screenshots_bounce_bound_3.webp"
+  screenshot_width: 450
+  screenshot_height: 900
   privacy_policy: "/legal/bounce_and_bound_privacy_policy.html"
   terms: "/legal/bounce_and_bound_terms_and_conditions.html"
 
@@ -186,6 +226,8 @@
   tagline: "Ultra Casual Color Hopping Game"
   description: "A ultra casual color hopping game. Help Dizz the Dizzy Frog leap from lily pad to lily pad! If you're successful, Dizz changes colors and new lily pads appear in endless randomized patterns; the fun never stops! The more accurate your jump, the more points you gain! Play over and over again to build your high score!"
   icon: "/img/dizzyfrog/icon.webp"
+  icon_width: 501
+  icon_height: 501
   color: "#E9795D"
   schema_category: "GameApplication"
   pricing_model: "free"
@@ -196,6 +238,8 @@
     - "/img/dizzyfrog/website_preview_screenshots_dizzy_frog_1.webp"
     - "/img/dizzyfrog/website_preview_screenshots_dizzy_frog_2.webp"
     - "/img/dizzyfrog/website_preview_screenshots_dizzy_frog_3.webp"
+  screenshot_width: 450
+  screenshot_height: 900
   privacy_policy: "/legal/dizzy_frog_privacy_policy.html"
   terms: "/legal/dizzy_frog_terms_and_conditions.html"
 
@@ -204,6 +248,8 @@
   tagline: "Quick-Paced Color Matching Game"
   description: "Shift and Shatter is a quick-paced color matching game. There are six different game modes to choose from, each featuring fun, retro styles inspired by the arcade era. Match shapes by color. But be careful; make sure to avoid bombs and the walls! Challenge yourself to improve your reflexes and beat your high score!"
   icon: "/img/shiftandshatter/icon.webp"
+  icon_width: 512
+  icon_height: 512
   color: "#C759A2"
   schema_category: "GameApplication"
   pricing_model: "free"
@@ -214,5 +260,7 @@
     - "/img/shiftandshatter/website_preview_screenshots_shift_shatter_1.webp"
     - "/img/shiftandshatter/website_preview_screenshots_shift_shatter_2.webp"
     - "/img/shiftandshatter/website_preview_screenshots_shift_shatter_3.webp"
+  screenshot_width: 450
+  screenshot_height: 900
   privacy_policy: "/legal/shiftandshatter_privacy_policy.html"
   terms: "/legal/shiftandshatter_terms_and_conditions.html"

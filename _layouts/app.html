@@ -22,9 +22,11 @@ layout: default
         <div class="hero-content">
             <div class="hero-text">
                 <div class="hero-icon">
-                    <img src="{{ app.icon }}" 
-                         class="brand-icon" 
-                         alt="{{ app.name }} app icon">
+                    <img src="{{ app.icon }}"
+                         class="brand-icon"
+                         alt="{{ app.name }} app icon"
+                         width="{{ app.icon_width }}"
+                         height="{{ app.icon_height }}">
                 </div>
                 <h1 class="hero-title">{{ app.name }}</h1>
                 <p class="hero-subtitle">{{ app.tagline }}</p>
@@ -61,9 +63,11 @@ layout: default
             <div class="hero-image">
                 <div class="app-hero-device-frame">
                     {% if app.screenshots.first %}
-                        <img src="{{ app.screenshots.first }}" 
-                             alt="{{ app.name }} screenshot" 
-                             class="app-hero-screenshot">
+                        <img src="{{ app.screenshots.first }}"
+                             alt="{{ app.name }} screenshot"
+                             class="app-hero-screenshot"
+                             width="{{ app.screenshot_width }}"
+                             height="{{ app.screenshot_height }}">
                     {% endif %}
                 </div>
             </div>
@@ -84,6 +88,8 @@ layout: default
                     <img src="{{ screenshot }}"
                          class="screenshot-image"
                          alt="{{ app.name }} screenshot {{ forloop.index }}"
+                         width="{{ app.screenshot_width }}"
+                         height="{{ app.screenshot_height }}"
                          loading="lazy">
                 </div>
             </figure>
