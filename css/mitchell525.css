@@ -854,6 +854,25 @@ body {
     text-wrap: balance;
 }
 
+.app-screenshot-group {
+    margin-bottom: 2.5rem;
+}
+
+.app-screenshot-group:last-child {
+    margin-bottom: 0;
+}
+
+.app-screenshot-group-label {
+    font-family: var(--font-family-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    margin: 0 0 1rem;
+}
+
 .app-screenshot-scroll {
     display: flex;
     gap: 1rem;

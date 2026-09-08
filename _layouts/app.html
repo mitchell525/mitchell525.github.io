@@ -77,7 +77,39 @@ layout: default
     </div>
 </section>
 
-{% if app.screenshots.size > 0 %}
+{% if app.screenshot_groups.size > 0 %}
+<section class="app-screenshot-gallery" aria-label="{{ app.name }} screenshots">
+    <div class="container">
+        <h2 class="app-screenshot-gallery-label">Screenshots</h2>
+        {% for group in app.screenshot_groups %}
+        <div class="app-screenshot-group">
+            {% if group.label %}
+            <h3 class="app-screenshot-group-label">{{ group.label }}</h3>
+            {% endif %}
+            <div class="app-screenshot-scroll app-screenshot-scroll--fitted"
+                 data-screenshot-count="{{ group.items.size }}"
+                 tabindex="0">
+                {% for screenshot in group.items %}
+                {% assign shot_src = screenshot.src | default: screenshot %}
+                {% assign shot_width = screenshot.width | default: app.screenshot_width %}
+                {% assign shot_height = screenshot.height | default: app.screenshot_height %}
+                <figure class="app-screenshot-slide">
+                    <div class="screenshot-item" data-screenshot="{{ shot_src }}">
+                        <img src="{{ shot_src }}"
+                             class="screenshot-image"
+                             alt="{{ app.name }} {{ group.label }} screenshot {{ forloop.index }}"
+                             width="{{ shot_width }}"
+                             height="{{ shot_height }}"
+                             loading="lazy">
+                    </div>
+                </figure>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% elsif app.screenshots.size > 0 %}
 <section class="app-screenshot-gallery" aria-label="{{ app.name }} screenshots">
     <div class="container">
         <h2 class="app-screenshot-gallery-label">Screenshots</h2>
@@ -85,13 +117,16 @@ layout: default
              data-screenshot-count="{{ app.screenshots.size }}"
              tabindex="0">
             {% for screenshot in app.screenshots %}
+            {% assign shot_src = screenshot.src | default: screenshot %}
+            {% assign shot_width = screenshot.width | default: app.screenshot_width %}
+            {% assign shot_height = screenshot.height | default: app.screenshot_height %}
             <figure class="app-screenshot-slide">
-                <div class="screenshot-item" data-screenshot="{{ screenshot }}">
-                    <img src="{{ screenshot }}"
+                <div class="screenshot-item" data-screenshot="{{ shot_src }}">
+                    <img src="{{ shot_src }}"
                          class="screenshot-image"
                          alt="{{ app.name }} screenshot {{ forloop.index }}"
-                         width="{{ app.screenshot_width }}"
-                         height="{{ app.screenshot_height }}"
+                         width="{{ shot_width }}"
+                         height="{{ shot_height }}"
                          loading="lazy">
                 </div>
             </figure>
