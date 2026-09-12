@@ -2,25 +2,35 @@
 layout: app
 slug: pinballdefenseforce
 title: "Pinball Defense Force — 2D Pinball Defense Game"
-description: "Defend space with retro pinball action against endless enemy waves. Randomized formations, boss fights, and offline high-score challenges."
+description: "Defend space with retro pinball action against endless enemy waves and epic boss fights. Grab power-ups, chain multipliers, and save your best score—offline, anytime."
 image: "/img/pinballdefenseforce/website_preview_screenshots_pinball_defense_1.webp"
 ---
 
-Pinball Defense Force is a classic 2D pinball game inspired by the arcade era!
+Defend deep space, one flipper at a time.
 
-In this retro pinball game you will face endless waves of randomized enemies as you defend space with your pinball and paddles. Come back again and again, as no two games are the same. Explore randomized enemy formations, defeat challenging bosses, take advantage of powerful upgrades, and earn score multipliers to top your high score!
+Pinball Defense Force turns classic pinball into a last stand against endless waves of enemy ships. Keep the ball in play, take down hazards and bosses, and see how far you can push your score before the waves catch up with you.
 
-Are you up to the challenge? Play Pinball Defense Force and prove you can tackle the endless waves of enemies and come out on top!
+Everything in one place:
+ - Endless randomized enemy waves—no two runs play the same
+ - Boss fights every few levels, with six different bosses to face
+ - Power-ups like magnetic pulls, accelerators, bombs, and multiball
+ - Score multipliers and bonus balls that stack the longer you survive
+ - Realistic pinball physics and simple, intuitive controls
+ - Global leaderboard through Game Center
+ - Play fully offline—no Wi-Fi needed
+ - Free to play, with your best score saved automatically
 
-Pinball Defense Force can be enjoyed casually and offline: don’t let an airplane or bus ride keep you from topping your high score!
+Built to be replayed:
+Every run shuffles the enemy formations and hazards, so no two games play out the same way. Lose your last ball and you can watch a quick ad to keep going, or start fresh and chase a new high score.
 
-Features:
-- Endless randomized enemy formations 
-- Powerful boss waves
-- Powerups
-- Realistic physics
-- Score multipliers
-- Simple and intuitive gameplay
-- Offline single player
-- Arcade aesthetic 
-- Saved highscore
+Frequently asked questions:
+
+**Is Pinball Defense Force free?** Yes. The game is free to download and play, supported by ads.
+
+**Are there any in-app purchases?** No. Pinball Defense Force has no purchases or subscriptions—just optional ads.
+
+**Does it work offline?** Yes. Play fully offline, so it's great for flights and road trips.
+
+**Is there a leaderboard?** Yes. Sign in to Game Center to compare your best score with other players.
+
+Step up and defend the line.

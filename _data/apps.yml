@@ -167,7 +167,7 @@
 - name: "Pinball Defense Force"
   slug: "pinballdefenseforce"
   tagline: "Classic 2D Pinball Defense Game"
-  description: "Defend space with retro pinball action against endless enemy waves. Randomized formations, boss fights, and offline high-score challenges."
+  description: "Defend space with retro pinball action against endless enemy waves and epic boss fights. Grab power-ups, chain multipliers, and save your best score—offline, anytime."
   icon: "/img/pinballdefenseforce/icon.webp"
   icon_width: 512
   icon_height: 512
@@ -186,6 +186,9 @@
   screenshot_height: 900
   privacy_policy: "/legal/pinball_defense_privacy_policy.html"
   terms: "/legal/pinball_defense_terms_and_conditions.html"
+  support_pages:
+    - name: "Support"
+      url: "/support/pinballdefenseforce_support.html"
 
 
 - name: "Tap and Teleport"
