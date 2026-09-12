@@ -52,14 +52,14 @@
 
 - name: "Pinball Overdrive"
   slug: "pinballoverdrive"
-  tagline: "A Retro Themed Pinball Game"
-  description: "Retro pinball with explosive hazards, randomized levels, and offline high-score runs. Rack up multipliers and bonus pinballs to top the leaderboard."
+  tagline: "Retro Neon Arcade Pinball"
+  description: "Retro neon pinball with randomized hazards, power-ups, and unlockable skins. Climb the leaderboard in the classic game or test your reflexes in Survival Mode."
   icon: "/img/pinballoverdrive/icon.webp"
   icon_width: 512
   icon_height: 512
   color: "#45545B"
   schema_category: "GameApplication"
-  pricing_model: "free"
+  pricing_model: "freemium"
   ios_url: "https://apps.apple.com/us/app/id1521182800"
   android_url: null
   rating_value: "4.6"
@@ -72,6 +72,9 @@
   screenshot_height: 900
   privacy_policy: "/legal/pinball_overdrive_privacy_policy.html"
   terms: "/legal/pinball_overdrive_terms_and_conditions.html"
+  support_pages:
+    - name: "Support"
+      url: "/support/pinballoverdrive_support.html"
 
 - name: "Pocket Trip Planner"
   slug: "pockettripplanner"
