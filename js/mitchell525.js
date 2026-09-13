@@ -543,3 +543,93 @@
         initLightbox();
     }
 })();
+// ============================================
+// App Store outbound click tracking
+// ============================================
+// Fires a GA4 `app_store_click` event whenever someone leaves for the App Store or
+// Google Play. This is the measurement that works at low volume: Apple's campaign
+// analytics need 5+ downloads in a range before they show anything, and lifetime web
+// referrals here are in single digits. Consent Mode v2 is already configured, so this
+// sends a cookieless ping when analytics cookies are declined and a full event after
+// opt-in — no extra consent handling needed.
+(function() {
+    'use strict';
+
+    const STORE_HOSTS = {
+        'apps.apple.com': 'app_store',
+        'itunes.apple.com': 'app_store',
+        'play.google.com': 'play_store'
+    };
+
+    // Numeric App Store id out of .../idNNNNNNNN (with or without a trailing query)
+    function appIdFromUrl(url) {
+        const match = url.match(/\/id(\d+)/);
+        if (match) return match[1];
+        try {
+            return new URL(url).searchParams.get('id') || '';
+        } catch (e) {
+            return '';
+        }
+    }
+
+    // Fall back to the URL slug when a link has no data-app-name (e.g. links written
+    // by hand inside a blog post body)
+    function appNameFromUrl(url) {
+        const match = url.match(/\/app\/([^/]+)\/id\d+/);
+        if (!match) return '';
+        return decodeURIComponent(match[1]).replace(/-/g, ' ');
+    }
+
+    function linkLocationFor(anchor) {
+        const explicit = anchor.getAttribute('data-link-location');
+        if (explicit) return explicit;
+        if (anchor.closest('footer')) return 'footer';
+        if (anchor.closest('.blog-post-body')) return 'blog_post';
+        if (anchor.closest('.app-page-hero')) return 'app_page_hero';
+        return 'other';
+    }
+
+    function handleClick(e) {
+        const anchor = e.target.closest('a[href]');
+        if (!anchor) return;
+
+        let host;
+        try {
+            host = new URL(anchor.href, window.location.origin).hostname;
+        } catch (err) {
+            return;
+        }
+
+        const store = STORE_HOSTS[host];
+        if (!store) return;
+
+        if (typeof gtag === 'undefined') return;
+
+        gtag('event', 'app_store_click', {
+            'store': store,
+            'app_slug': anchor.getAttribute('data-app-slug') || '',
+            'app_name': anchor.getAttribute('data-app-name') || appNameFromUrl(anchor.href),
+            'app_id': appIdFromUrl(anchor.href),
+            'link_location': linkLocationFor(anchor),
+            'source_page': window.location.pathname,
+            'link_url': anchor.href,
+            'transport_type': 'beacon'
+        });
+    }
+
+    function initStoreClickTracking() {
+        // Delegated so it covers every store link on the page, including any added later
+        document.addEventListener('click', handleClick, true);
+
+        // Middle-click and long-press "open in new tab" don't fire a click event
+        document.addEventListener('auxclick', function(e) {
+            if (e.button === 1) handleClick(e);
+        }, true);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initStoreClickTracking);
+    } else {
+        initStoreClickTracking();
+    }
+})();
