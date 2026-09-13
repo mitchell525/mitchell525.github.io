@@ -4,7 +4,7 @@ Guidance for Claude Code (or any agent) working in this repo. This is a personal
 
 ## Stack at a glance
 - Jekyll 3.9.5, kramdown, Liquid, Ruby via Bundler (see `Gemfile`/`Gemfile.lock`)
-- Bootstrap 5.3.2 + Bootstrap Icons 1.11.3, loaded via CDN — not installed locally, don't look for them in `node_modules`
+- Bootstrap 5.3.2 + Bootstrap Icons 1.13.1, loaded via CDN — not installed locally, don't look for them in `node_modules`
 - Plain CSS in `css/mitchell525.css` (3000+ lines, one file, no SCSS/preprocessor anywhere in the repo)
 - Vanilla JS in `js/mitchell525.js` (cookie consent + screenshot lightbox, no framework, no jQuery in current pages)
 - `package.json` scripts are thin wrappers around `bundle exec jekyll ...` — there is no separate JS build pipeline
