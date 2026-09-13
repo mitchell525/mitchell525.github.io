@@ -69,7 +69,9 @@ layout: default
                              alt="{{ app.name }} screenshot"
                              class="app-hero-screenshot"
                              width="{{ app.screenshot_width }}"
-                             height="{{ app.screenshot_height }}">
+                             height="{{ app.screenshot_height }}"
+                             fetchpriority="high"
+                             decoding="async">
                     {% endif %}
                 </div>
             </div>

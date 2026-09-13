@@ -1,16 +1,22 @@
 ---
 layout: default
-title: Blog
-description: "Release notes, behind-the-scenes updates, and lessons learned building iOS apps."
 ---
-
+{% assign tagged = site.posts | where_exp: "p", "p.tags contains page.tag" %}
 <article class="blog-index">
     <header class="blog-post-header blog-index-header" style="--blog-post-accent: #007AFF;">
+        <nav class="blog-breadcrumb blog-post-breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="blog-breadcrumb-list">
+                    <li class="blog-breadcrumb-item"><a href="/blog/">Blog</a></li>
+                    <li class="blog-breadcrumb-item blog-breadcrumb-current" aria-current="page">{{ page.tag }}</li>
+                </ol>
+            </div>
+        </nav>
         <div class="container">
             <div class="blog-post-header-inner">
                 <div class="blog-post-hero-copy">
-                    <h1 class="blog-post-title">Blog</h1>
-                    <p class="blog-post-lead">Release notes, side projects, and things I care about</p>
+                    <h1 class="blog-post-title">{{ page.tag }}</h1>
+                    <p class="blog-post-lead">{{ tagged.size }} post{% if tagged.size != 1 %}s{% endif %} tagged &ldquo;{{ page.tag }}&rdquo;</p>
                 </div>
             </div>
         </div>
@@ -18,9 +24,9 @@ description: "Release notes, behind-the-scenes updates, and lessons learned buil
 
     <section class="blog-post-body blog-index-body">
         <div class="container">
-            {% if site.posts.size > 0 %}
+            {% if tagged.size > 0 %}
             <div class="blog-index-list">
-                {% for post in site.posts %}
+                {% for post in tagged %}
                 {% assign card_image = nil %}
                 {% assign card_image_alt = nil %}
                 {% if post.image %}
@@ -33,7 +39,7 @@ description: "Release notes, behind-the-scenes updates, and lessons learned buil
                     {% assign card_image_alt = card_app.name | append: " app icon" %}
                   {% endif %}
                 {% endif %}
-                <article class="blog-list-item" id="{% if post.tags.first %}tag-{{ post.tags.first | slugify }}{% endif %}">
+                <article class="blog-list-item">
                     <div class="blog-list-item-inner">
                         {% if card_image %}
                         <div class="blog-post-icon">
@@ -68,8 +74,12 @@ description: "Release notes, behind-the-scenes updates, and lessons learned buil
                 {% endfor %}
             </div>
             {% else %}
-            <p class="blog-empty">No posts yet. Check back soon.</p>
+            <p class="blog-empty">No posts with this tag yet.</p>
             {% endif %}
+
+            <p class="blog-list-excerpt" style="margin-top:2rem;">
+                <a href="/blog/">&larr; All posts</a>
+            </p>
         </div>
     </section>
 </article>

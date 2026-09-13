@@ -56,7 +56,7 @@ layout: default
                         <span class="blog-post-meta-sep" aria-hidden="true">·</span>
                         <span class="blog-post-tags-inline">
                             {% for tag in page.tags %}
-                            <a href="/blog/#tag-{{ tag | slugify }}" class="blog-tag">{{ tag }}</a>
+                            <a href="/blog/tag/{{ tag | slugify }}/" class="blog-tag">{{ tag }}</a>
                             {% endfor %}
                         </span>
                         {% endif %}

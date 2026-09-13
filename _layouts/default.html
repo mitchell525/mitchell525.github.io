@@ -16,6 +16,11 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; font-src 'self' https://cdn.jsdelivr.net data:;">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
+    <!-- Smart App Banner: iOS Safari only, app pages only -->
+    {% if page.slug %}{% assign banner_app = site.data.apps | where: "slug", page.slug | first %}{% if banner_app.ios_url %}
+    <meta name="apple-itunes-app" content="app-id={{ banner_app.ios_url | split: '/id' | last | split: '?' | first }}, app-argument={{ site.url }}{{ page.url }}">
+    {% endif %}{% endif %}
+
     <!-- Modern meta tags -->
     <meta name="theme-color" content="#f8f8f8">
     <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/material/apple-touch-icon-180.png">
@@ -117,11 +122,26 @@
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Mitchell Smith",
+        "alternateName": "Mitch Smith",
         "jobTitle": "Software Engineer",
-        "description": "Full time Software Engineer and father from Baltimore Maryland. In his free time he enjoys creating apps as a hobby.",
-        "url": "{{ site.url }}",
+        "description": "Software engineer and indie app developer from Baltimore, Maryland. Builds iOS apps — games, travel tools, and music.",
+        "url": "{{ site.url }}{{ page.url }}",
+        "image": "{{ site.url }}/img/profile/profile_photo-01.webp",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Baltimore",
+            "addressRegion": "MD",
+            "addressCountry": "US"
+        },
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "University of Maryland, Baltimore County"
+        },
+        "knowsAbout": ["iOS development", "SwiftUI", "Swift", "Unity", "App development"],
         "sameAs": [
-            "https://twitter.com/mitchell525"
+            "https://twitter.com/mitchell525",
+            "https://github.com/mitchell525",
+            "https://apps.apple.com/us/developer/mitchell-smith/id1479220326"
         ]
     }
     </script>

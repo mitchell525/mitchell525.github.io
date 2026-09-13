@@ -24,7 +24,8 @@ There is no test suite and no linter configured — verify changes by building a
 - `_apps/*.md` — one file per app, front matter only (`layout: app`, `slug: ...`); most have no markdown body, all real content is driven by `apps.yml`.
 - `_layouts/` — `default.html`, `app.html`, `legal.html`, `support.html`, `post.html`.
 - `_includes/` — `navbar.html`, `footer.html`, `cookie-banner.html`, `lightbox-modal.html`, `app-schema.html`, `app-breadcrumb-schema.html`, `seo-vars.html`.
-- `_plugins/app_seo_generator.rb` — the only custom plugin; auto-derives SEO title/description/OG image for the `apps` collection from `apps.yml` and strips `date` from app docs. **Its behavior on the live GitHub Pages build is unconfirmed** — GitHub Pages' classic branch-deploy build runs Jekyll in safe mode, which skips custom plugins entirely. See `FIXES.md` item 1 before relying on or extending this plugin.
+- **There is no `_plugins/` directory.** `app_seo_generator.rb` was deleted — GitHub Pages runs Jekyll in safe mode and never executed it, so app pages silently shipped broken `<head>` metadata in production while local `jekyll serve` looked fine. **Consequence:** per-app `title`/`description`/`image` must be hand-mirrored into each `_apps/*.md` front matter; editing only `_data/apps.yml` will NOT update the `<head>`.
+- `tags/*.html` + `_layouts/tag.html` — tag archive pages at `/blog/tag/<slug>/`, pure Liquid so they work in safe mode. **Adding a new tag to a post requires adding a matching `tags/<slug>.html` file**, or the tag link will 404.
 - `_posts/*.md` — blog posts, `YYYY-MM-DD-slug.md`, minimal (2 exist so far). Listing at `blog/index.html`, RSS via `jekyll-feed`.
 - `legal/`, `support/` — one HTML file per app per policy/support page, `layout: legal` / `layout: support`.
 
