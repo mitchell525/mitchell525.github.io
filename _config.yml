@@ -51,7 +51,6 @@ defaults:
 
 # Development settings
 livereload: true
-incremental: true
 
 # Collections
 collections:
@@ -77,6 +76,14 @@ exclude:
   - vendor/
 
 # SEO settings
+# Second ownership proof for Search Console, so verification does not rest
+# solely on the GA4 tag (removing G-JQBKZ4XTC1 would otherwise un-verify the
+# property). jekyll-seo-tag renders this key as the google-site-verification
+# meta tag - do not hand-add one to _layouts/default.html, that duplicates it.
+# If ever clearing this, comment the line out rather than setting it to "":
+# an empty string is truthy in Liquid and would render content="".
+google_site_verification: "lycZkEUOXyqxe_f-oNMinGmxPNpINXCwI-GuNFjMMHE"
+
 twitter:
   username: mtsmithdesign
   card: summary_large_image

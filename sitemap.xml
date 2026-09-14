@@ -1,0 +1,40 @@
+---
+layout: null
+permalink: /sitemap.xml
+sitemap: false
+---
+{%- comment -%}
+  Hand-rolled sitemap. jekyll-sitemap skips generation when a source sitemap.xml
+  exists, so this file takes over without touching the plugin list — which matters
+  because GitHub Pages builds in safe mode and will not run custom _plugins/.
+
+  Why not the plugin's output: it derives <lastmod> from file mtime, and a GitHub
+  Pages checkout stamps every file with the build time. Every page then claimed to
+  change on every push, so the signal was worthless. Here <lastmod> is emitted only
+  from a real declared date — post dates, or an explicit last_modified_at in front
+  matter — and omitted entirely otherwise. No lastmod beats a wrong one.
+
+  Exclusions (sitemap: false) still come from _config.yml defaults: legal/, support/,
+  the redirect stubs, and the legacy game pages.
+{%- endcomment -%}
+{%- assign pages = site.pages | concat: site.apps | concat: site.posts -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for page in pages -%}
+{%- if page.sitemap == false -%}{%- continue -%}{%- endif -%}
+{%- unless page.url -%}{%- continue -%}{%- endunless -%}
+{%- comment -%} Thin tag archives: crawlable, but not advertised until they hold 2+ posts. {%- endcomment -%}
+{%- if page.tag -%}
+  {%- assign tagged = site.posts | where_exp: "p", "p.tags contains page.tag" -%}
+  {%- if tagged.size < 2 -%}{%- continue -%}{%- endif -%}
+{%- endif -%}
+  <url>
+    <loc>{{ page.url | absolute_url | xml_escape }}</loc>
+{%- if page.last_modified_at %}
+    <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
+{%- elsif page.date %}
+    <lastmod>{{ page.date | date_to_xmlschema }}</lastmod>
+{%- endif %}
+  </url>
+{%- endfor %}
+</urlset>

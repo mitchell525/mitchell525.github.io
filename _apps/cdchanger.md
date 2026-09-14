@@ -1,6 +1,7 @@
 ---
 layout: app
 slug: cdchanger
+last_modified_at: 2026-09-06T13:29:23-04:00
 title: "Digital CD Changer — Album player for CarPlay"
 description: "Album-first listening for iPhone and CarPlay. Build custom CD magazines from your Music library and press play."
 image: "/img/cdchanger/cd_changer1.webp"

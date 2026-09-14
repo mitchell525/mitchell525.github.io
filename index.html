@@ -1,5 +1,6 @@
 ---
 layout: default
+last_modified_at: 2026-09-13T12:31:49-04:00
 title: "Software Engineer & App Developer"
 description: "Portfolio of Mitch Smith, a software engineer and indie app developer from Baltimore building iOS games, travel tools, and utilities."
 ---
@@ -49,13 +50,13 @@ description: "Portfolio of Mitch Smith, a software engineer and indie app develo
                 <div class="app-item-content">
                     <div class="app-header">
                         <div class="app-icon-container">
-                            <a href="/{{ app.slug }}/" aria-label="View {{ app.name }}">
+                            <a href="/{{ app.slug }}/"{% if app.legacy %} rel="nofollow"{% endif %} aria-label="View {{ app.name }}">
                                 <img src="{{ app.icon }}" alt="{{ app.name }} logo" class="app-icon" width="{{ app.icon_width }}" height="{{ app.icon_height }}" loading="lazy" decoding="async">
                             </a>
                         </div>
                         <div class="app-info">
                             <h3 class="app-name">
-                                <a href="/{{ app.slug }}/">{{ app.name }}</a>
+                                <a href="/{{ app.slug }}/"{% if app.legacy %} rel="nofollow"{% endif %}>{{ app.name }}</a>
                             </h3>
                             <p class="app-tagline">{{ app.tagline }}</p>
                             <div class="app-actions">
