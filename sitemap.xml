@@ -23,6 +23,15 @@ sitemap: false
 {%- for page in pages -%}
 {%- if page.sitemap == false -%}{%- continue -%}{%- endif -%}
 {%- unless page.url -%}{%- continue -%}{%- endunless -%}
+{%- comment -%}
+  HTML output only. jekyll-sitemap filtered non-HTML internally; this template must
+  do it explicitly. GitHub Pages layers in a default theme that contributes
+  assets/css/style.scss to site.pages, which does not exist in a local build - so a
+  missing filter here ships a stylesheet in the sitemap on production only.
+{%- endcomment -%}
+{%- assign url_tail = page.url | slice: -1 -%}
+{%- assign url_ext = page.url | slice: -5, 5 -%}
+{%- unless url_tail == "/" or url_ext == ".html" -%}{%- continue -%}{%- endunless -%}
 {%- comment -%} Thin tag archives: crawlable, but not advertised until they hold 2+ posts. {%- endcomment -%}
 {%- if page.tag -%}
   {%- assign tagged = site.posts | where_exp: "p", "p.tags contains page.tag" -%}
