@@ -1,7 +1,7 @@
-- name: "Digital CD Changer"
+- name: "CD Changer"
   slug: "cdchanger"
-  tagline: "Album player for CarPlay"
-  description: "Album-first listening for iPhone and CarPlay. Build custom CD magazines from your Music library and press play."
+  tagline: "CarPlay Music for Your Library"
+  description: "Load the albums you want before you go. Build CD magazines from your Music library, then browse and play them from iPhone or CarPlay."
   icon: "/img/cdchanger/icon.webp"
   icon_width: 512
   icon_height: 512
@@ -11,10 +11,32 @@
   ios_url: "https://apps.apple.com/us/app/id6760621270"
   android_url: null
   screenshots:
-    - "/img/cdchanger/cd_changer1.webp"
-    - "/img/cdchanger/cd_changer2.webp"
-    - "/img/cdchanger/cd_changer3.webp"
-  screenshot_width: 739
+    - "/img/cdchanger/changer-home.webp"
+    - "/img/cdchanger/albums-grid.webp"
+    - "/img/cdchanger/artists-list.webp"
+    - "/img/cdchanger/now-playing.webp"
+  screenshot_groups:
+    - label: "iPhone"
+      items:
+        - "/img/cdchanger/changer-home.webp"
+        - "/img/cdchanger/albums-grid.webp"
+        - "/img/cdchanger/artists-list.webp"
+        - "/img/cdchanger/now-playing.webp"
+    - label: "CarPlay"
+      items:
+        - src: "/img/blog/cdchanger/carplay-discs-grid.webp"
+          width: 800
+          height: 480
+        - src: "/img/blog/cdchanger/carplay-artists-letters.webp"
+          width: 800
+          height: 480
+        - src: "/img/blog/cdchanger/carplay-artist-albums.webp"
+          width: 800
+          height: 480
+        - src: "/img/blog/cdchanger/carplay-magazine-albums.webp"
+          width: 800
+          height: 480
+  screenshot_width: 736
   screenshot_height: 1600
   privacy_policy: "/legal/cdchanger_privacy_policy.html"
   terms: "/legal/cdchanger_terms_and_conditions.html"

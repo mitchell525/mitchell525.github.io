@@ -1,31 +1,41 @@
 ---
 layout: app
 slug: cdchanger
-last_modified_at: 2026-09-06T13:29:23-04:00
-title: "Digital CD Changer — Album player for CarPlay"
-description: "Album-first listening for iPhone and CarPlay. Build custom CD magazines from your Music library and press play."
-image: "/img/cdchanger/cd_changer1.webp"
+last_modified_at: 2026-09-14T21:30:00-04:00
+title: "CD Changer — CarPlay Music for Your Library"
+description: "Load the albums you want before you go. Build CD magazines from your Music library, then browse and play them from iPhone or CarPlay."
+image: "/img/cdchanger/changer-home.webp"
 ---
-Digital CD Changer brings back the simplicity of loading albums and pressing play.
+You used to load six discs before a drive and decide once. CD Changer brings that back: pick the albums at home, and in the car they are already there.
 
-Create custom CD magazines from the albums already in your Music library, then browse and start playback from iPhone or CarPlay. It is built for people who want a focused, album-first listening experience without playlists, recommendations, or clutter.
+Everything in one place:
+ - Build CD magazines from the albums already in your Music library
+ - Start with one six-disc magazine, free
+ - Browse your library by album, with artwork large enough to scan at a glance
+ - Browse your whole library by artist, on the phone and in the car
+ - Open an album's track list before you commit to playing it
+ - Jump back into what you were listening to yesterday
+ - Play, pause, skip, shuffle, and repeat from wherever you are
+ - Control it all from CarPlay without leaving the road
 
-What you can do
-• Build CD magazines from albums in your Music library  
-• Start with one six-disc magazine included free  
-• Browse your library with large album artwork and quick visual scanning  
-• Open full album details and track lists before you play  
-• Jump back into recently played albums quickly  
-• Control playback with play, pause, next, previous, shuffle, and repeat  
-• Use a CarPlay experience designed for quick, glanceable album selection  
+In the car:
+The CarPlay side is the reason the app exists. Discs shows each magazine as a full grid of album covers, the way Apple Music lays out your own library, so a six-disc magazine is one glance and one tap. Artists lets you reach something that is not loaded into a magazine at all — pick a letter, pick the artist, pick the album. Recents puts yesterday's drive back on screen.
 
-Free and Pro
-The free experience includes one magazine with six disc slots—enough to load a starter changer and start listening right away. When your collection grows, upgrade to Pro with a one-time in-app purchase (no subscription) to unlock unlimited magazines, unlimited slots per magazine, and the full changer experience in the car.
+Free and Pro:
+The free app includes one magazine with six disc slots, which is a whole changer and enough for most drives. Pro is a one-time purchase, not a subscription, and unlocks unlimited magazines and unlimited slots in each of them.
 
-Music library support
-Digital CD Changer works with albums already in your Music library, including purchased music and Apple Music albums you have added to your library.
+Frequently asked questions:
 
-Designed for album listeners
-If you miss the days of choosing an album, letting it run, and enjoying music without endless options, Digital CD Changer is built for you.
+**Where does the music come from?** Your own Music library — music you have purchased and Apple Music albums you have added. CD Changer does not stream from a separate catalog and it does not recommend anything to you.
 
-Requires access to your Music library. CarPlay requires a compatible vehicle or receiver. Pro is an optional one-time in-app purchase; restore purchases is available in the app.
+**Do I need CarPlay to use it?** No. The iPhone app is complete on its own. CarPlay needs a compatible vehicle or receiver.
+
+**Is Pro a subscription?** No. It is a one-time in-app purchase, and Restore Purchases is in the app if you change devices.
+
+**Can I play a single song?** Not really, and that is on purpose. The album is the unit here. You can start an album from any track in its list, but there are no playlists and no shuffle-everything mode across your library.
+
+**Does it work offline?** It plays whatever your Music library can already play offline. Albums that need to be downloaded still need to be downloaded.
+
+**Is it accessible?** It supports Dynamic Type and VoiceOver throughout, and text contrast is checked against WCAG AA.
+
+Requires access to your Music library. CarPlay requires a compatible vehicle or receiver.

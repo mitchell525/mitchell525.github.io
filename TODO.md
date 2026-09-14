@@ -10,7 +10,7 @@ Follow-up items from the app setup review (beyond the SEO work already completed
 **Issue:** `_includes/app-schema.html` is missing fields that help app discovery in search.
 
 - Add App Store / Play Store URLs as `downloadUrl` (from `ios_url` / `android_url` in `apps.yml`)
-- Fix pricing: `"price": "0"` is inaccurate for apps with IAP or subscriptions (e.g. Digital CD Changer Pro, AvatarForge)
+- Fix pricing: `"price": "0"` is inaccurate for apps with IAP or subscriptions (e.g. CD Changer Pro, AvatarForge)
 - Add per-app `schema_category` in `apps.yml` (e.g. `GameApplication` for pinball games, `UtilitiesApplication` for CD Changer) instead of defaulting everything to `MobileApplication`
 
 **Files:** `_includes/app-schema.html`, `_data/apps.yml`

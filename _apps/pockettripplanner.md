@@ -1,7 +1,7 @@
 ---
 layout: app
 slug: pockettripplanner
-last_modified_at: 2026-09-07T21:16:25-04:00
+last_modified_at: 2026-09-14T21:30:00-04:00
 title: "Pocket Trip Planner — Simple Trip Planning"
 description: "Ad-free trip planning for itineraries, packing lists, budgets, and countdowns—all in one place. Built for weekend getaways and big family vacations."
 image: "/img/pockettripplanner/1.webp"
@@ -19,6 +19,7 @@ Everything in one place:
  - Keep confirmations, screenshots, and PDFs together with the rest of your trip
  - See a clean trip summary, plus notes and PDF export
  - Check what's coming up next across all your trips in one place
+ - Search across every trip — plans, transportation, and your own notes
  - Add a Home Screen widget to see your countdown at a glance
  - Save a photo or file to a trip straight from any app
  - Works on iPhone, iPad, Mac, and Apple Vision Pro
