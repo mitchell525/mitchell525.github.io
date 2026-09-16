@@ -3,8 +3,17 @@ layout: post
 title: "Pocket Trip Planner 1.7.1 - You can search your notes!"
 date: 2026-09-16
 app_slug: pockettripplanner
+image: /img/blog/pockettripplanner/pockettripplanner_notes_search.webp
+image_alt: "Two iPhone screenshots side by side - a search for Decorations matching a line inside a trip's notes, and the Hiking Trip that note belongs to"
 tags: [ios, travel, swiftui, side-project]
 excerpt: "Small release. General quality of life improvements that should have been added to begin with."
+screenshots:
+  - src: /img/blog/pockettripplanner/pockettripplanner_post5.webp
+    alt: "Search results for Decorations showing a NOTES row for Hiking Trip with the matching line from the note underneath"
+    caption: "The row says NOTES and shows the line the match actually came from"
+  - src: /img/blog/pockettripplanner/pockettripplanner_post6.webp
+    alt: "The Hiking Trip screen showing the dates, the description and the Plan This Trip list"
+    caption: "The trip that note belongs to"
 ---
 
 Most of what I actually write in Pocket Trip Planner isn't structured. The itinerary is structured and the packing list is structured and the budget is structured, and then there's the notes field, which is where the parking situation goes, and the name of the place somebody recommended, and the door code. But it wasn't searchable? Why? Dunno! But a very kind user sent me an email asking for this, so it's been added.
