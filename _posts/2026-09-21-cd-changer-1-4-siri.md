@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CD Changer 1.4 - Hey Siri, play disc 2!"
+title: "CD Changer 1.4 - Hey Siri, play disc 3!"
 date: 2026-09-21
 app_slug: cdchanger
 image: /img/blog/cdchanger/siri-suggestions.webp
@@ -21,7 +21,7 @@ screenshots:
 
 So the whole point of this app is you load six albums before you leave the house and then you don't touch your phone. Which worked great right up until I wanted a different disc while driving and the only way to get it was poking at the screen. I've spent years yelling "Hey Siri, play whatever" at Apple Music, so it kinda bugged me that my own app was the one thing in the car that wouldn't listen.
 
-This new version fixes that! You can say "Hey Siri, play Road Trip in CD Changer" or "play disc 2 in CD Changer" and it plays - screen off, phone in the cupholder, from CarPlay or the lock screen or wherever. It's in the Shortcuts app too if you want to automate it.
+This new version fixes that! You can say "Hey Siri, play Road Trip in CD Changer" or "play disc 3 in CD Changer" and it plays - screen off, phone in the cupholder, from CarPlay or the lock screen or wherever. It's in the Shortcuts app too if you want to automate it.
 
 It was a little bit of a journey getting there - standing in my driveway talking to my phone, and my wife getting annoyed at about 500 "hey siri"s so here's the dev log version in case you're trying to do the same thing in your app.
 
@@ -61,13 +61,13 @@ Also the phrases are templates, not natural language. "Play the first disc in my
 
 Round 1 worked! Siri's suggestion sheet now listed "Play My Magazine in Digital CD Changer," which was proof the snapshot was reaching the system, and also the moment I noticed every fresh install names its first magazine "My Magazine." So the phrase you'd have to say is "play my magazine in CD Changer," which is a perfectly normal English sentence that could mean anything. The default is "Magazine One" now.
 
-The bigger one was disc numbers. I wanted "play disc 2" to work in one breath and it never had a chance, because the disc number was a plain `Int` and an Int is not allowed to appear in a phrase. Only entities and enums are. The workaround is a bit silly - I made an enum with twenty cases named one through twenty, and now `"Play disc \(\.$discNumber) in \(.applicationName)"` is a legal sentence. The old two step version ("play a specific disc," then Siri asks which one) is still there for magazines past 20 slots, which I'm not sure anyone has.
+The bigger one was disc numbers. I wanted "play disc 3" to work in one breath and it never had a chance, because the disc number was a plain `Int` and an Int is not allowed to appear in a phrase. Only entities and enums are. The workaround is a bit silly - I made an enum with twenty cases named one through twenty, and now `"Play disc \(\.$discNumber) in \(.applicationName)"` is a legal sentence. The old two step version ("play a specific disc," then Siri asks which one) is still there for magazines past 20 slots, which I'm not sure anyone has.
 
-### Round 3 - disc 2 played disc 1
+### Round 3 - disc 3 played disc 1
 
-Back in the driveway. "Play disc one in CD Changer" played disc 1. "Play disc 2 in CD Changer" also played disc 1. What?!
+Back in the driveway. "Play disc one in CD Changer" played disc 1. "Play disc 3 in CD Changer" also played disc 1. What?!
 
-I spent a while convinced it was an off by one in my enum. It wasn't. The number was parsing fine, it was the *shortcut* that was losing. Three different shortcuts had phrases that all looked about the same - "Play a disc in CD Changer," "Play a disc by number in CD Changer," and "Play disc 2 in CD Changer" - and Siri picked the easiest one, the generic one with no number in it, which plays the first disc. So it looked exactly like the number being dropped. Apple's WWDC session actually warns you not to have near duplicate phrases across shortcuts, and I did not watch that session.
+I spent a while convinced it was an off by one in my enum. It wasn't. The number was parsing fine, it was the *shortcut* that was losing. Three different shortcuts had phrases that all looked about the same - "Play a disc in CD Changer," "Play a disc by number in CD Changer," and "Play disc 3 in CD Changer" - and Siri picked the easiest one, the generic one with no number in it, which plays the first disc. So it looked exactly like the number being dropped. Apple's WWDC session actually warns you not to have near duplicate phrases across shortcuts, and I did not watch that session.
 
 There's no way to tell Siri which shortcut to prefer, so the fix was just deleting every phrase that looked like another shortcut's phrase. Then I re-tested everything on the phone and in the car and it all did the right thing, including next song, pause, and playing from a locked phone, which was the whole point in the first place.
 
@@ -81,7 +81,7 @@ There's no way to tell Siri which shortcut to prefer, so the fix was just deleti
 
 ## What it still doesn't do
 
-You can't say an artist or album name to it. Siri only knows magazine names and disc numbers because that's all I taught it - artists would need the old SiriKit media intents and a whole extension target, and I'm not sure it's worth it when Apple Music already does that. You also can't say a magazine name and a disc number in the same sentence ("play disc 2 of Road Trip"), Siri only reliably takes one parameter per phrase. Otherwise same list as last time: no playlists, no iPad, no syncing between devices.
+You can't say an artist or album name to it. Siri only knows magazine names and disc numbers because that's all I taught it - artists would need the old SiriKit media intents and a whole extension target, and I'm not sure it's worth it when Apple Music already does that. You also can't say a magazine name and a disc number in the same sentence ("play disc 3 of Road Trip"), Siri only reliably takes one parameter per phrase. Otherwise same list as last time: no playlists, no iPad, no syncing between devices.
 
 ## Try it
 
