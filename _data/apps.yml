@@ -161,16 +161,16 @@
   privacy_policy: "/legal/trip_stickers_privacy_policy.html"
   terms: "/legal/trip_stickers_terms_and_conditions.html"
 
-- name: "Pinfinite Smash"
+- name: "Pinfinite Smash: Brick Breaker"
   slug: "pinfinitesmash"
-  tagline: "2D Pinball Meets Brick Breaker"
-  description: "2D pinball meets endless brick breaker action. Survive faster waves, grab power-ups, unlock skins, and chase high scores offline."
+  tagline: "Retro Pinball Arcade Action"
+  description: "Pinball flippers under a brick breaker board. Survive faster waves, grab power-ups, unlock ball skins, and chase high scores offline."
   icon: "/img/pinfinitesmash/icon.webp"
   icon_width: 512
   icon_height: 512
   color: "#871C4C"
   schema_category: "GameApplication"
-  pricing_model: "free"
+  pricing_model: "remove_ads"
   ios_url: "https://apps.apple.com/us/app/pinfinite-smash/id1643559563"
   android_url: null
   rating_value: "4.3"
@@ -186,14 +186,14 @@
 
 - name: "Pinball Defense Force"
   slug: "pinballdefenseforce"
-  tagline: "Classic 2D Pinball Defense Game"
+  tagline: "Retro Space Shooter Arcade"
   description: "Defend space with retro pinball action against endless enemy waves and epic boss fights. Grab power-ups, chain multipliers, and save your best score—offline, anytime."
   icon: "/img/pinballdefenseforce/icon.webp"
   icon_width: 512
   icon_height: 512
   color: "#C759A2"
   schema_category: "GameApplication"
-  pricing_model: "free"
+  pricing_model: "remove_ads"
   ios_url: "https://apps.apple.com/us/app/pinball-defense-force/id1606264904"
   android_url: null
   rating_value: "4.8"
@@ -211,19 +211,18 @@
       url: "/support/pinballdefenseforce_support.html"
 
 
-- name: "Tap and Teleport"
+- name: "Tap and Teleport: Magic Arena"
   slug: "tapandteleport"
-  tagline: "3D Reaction-Based Survival Game"
-  description: "Tap and Teleport is a 3D reaction-based survival game. You control a lone wizard with the power of teleportation! Use this power to dodge a variety of hazards: fireballs, archers, soldiers, lancers, and even fellow mages. Challenge yourself to survive and collect orbs for points and power-ups. Utilize your reaction skills to survive as you challenge your high-score."
+  tagline: "3D Reflex Survival Arcade"
+  description: "A lone wizard with one spell: teleport. Tap anywhere to blink clear of fireballs, archers and rival mages, collect orbs, and survive as long as you can."
   icon: "/img/tapandteleport/icon.webp"
   icon_width: 512
   icon_height: 512
   color: "#F4A261"
   schema_category: "GameApplication"
-  pricing_model: "free"
-  ios_url: null
+  pricing_model: "remove_ads"
+  ios_url: "https://apps.apple.com/us/app/id1554488238"
   android_url: null
-  legacy: true
   screenshots:
     - "/img/tapandteleport/website_preview_screenshots_tap_and_teleport_1.webp"
     - "/img/tapandteleport/website_preview_screenshots_tap_and_teleport_2.webp"
@@ -233,25 +232,24 @@
   privacy_policy: "/legal/tap_and_teleport_privacy_policy.html"
   terms: "/legal/tap_and_teleport_terms_and_conditions.html"
 
-- name: "Surge Blast"
+- name: "Surge Blast: Bubble Pop Match"
   slug: "surgeblast"
-  tagline: "Hyper Casual Bubble Matching Game"
-  description: "Launch your way into Surge Blast! This hyper casual game allows you to release and match bubbles of different colors to score points. Match five bubbles of the same color to score points and survive as long as possible! But watch out! Every eight bubbles, an increasingly difficult blast of different colors will try to disrupt your efforts!"
+  tagline: "Color Shooter Arcade Puzzle"
+  description: "Launch bubbles, match five of a color to pop them, and survive the surge that hits every eight bubbles. Quick neon rounds, high scores, fully offline."
   icon: "/img/surgeblast/icon.webp"
   icon_width: 501
   icon_height: 501
-  color: "#30A092"
+  color: "#6D2BD9"
   schema_category: "GameApplication"
-  pricing_model: "free"
-  ios_url: null
+  pricing_model: "remove_ads"
+  ios_url: "https://apps.apple.com/us/app/id1547094707"
   android_url: null
-  legacy: true
   screenshots:
-    - "/img/surgeblast/website_preview_screenshots_surge_blast_1.webp"
-    - "/img/surgeblast/website_preview_screenshots_surge_blast_2.webp"
-    - "/img/surgeblast/website_preview_screenshots_surge_blast_3.webp"
+    - "/img/surgeblast/website_preview_surge_blast_neon_1.webp"
+    - "/img/surgeblast/website_preview_surge_blast_neon_2.webp"
+    - "/img/surgeblast/website_preview_surge_blast_neon_3.webp"
   screenshot_width: 450
-  screenshot_height: 900
+  screenshot_height: 978
   privacy_policy: "/legal/surge_blast_privacy_policy.html"
   terms: "/legal/surge_blast_terms_and_conditions.html"
 
@@ -277,16 +275,16 @@
   privacy_policy: "/legal/bounce_and_bound_privacy_policy.html"
   terms: "/legal/bounce_and_bound_terms_and_conditions.html"
 
-- name: "Dizzy Frog"
+- name: "Dizzy Frog: Lily Pad Jump"
   slug: "dizzyfrog"
-  tagline: "Ultra Casual Color Hopping Game"
+  tagline: "Tap, Hop & Match the Color"
   description: "An ultra-casual color hopping game. Help Dizz leap from lily pad to lily pad—land accurately and he changes color as new pads appear in endless randomized patterns. Simple to pick up, easy to replay."
   icon: "/img/dizzyfrog/icon.webp"
   icon_width: 501
   icon_height: 501
   color: "#E9795D"
   schema_category: "GameApplication"
-  pricing_model: "free"
+  pricing_model: "remove_ads"
   ios_url: "https://apps.apple.com/us/app/dizzy-frog/id1524972714"
   android_url: null
   screenshots:
@@ -298,19 +296,18 @@
   privacy_policy: "/legal/dizzy_frog_privacy_policy.html"
   terms: "/legal/dizzy_frog_terms_and_conditions.html"
 
-- name: "Shift and Shatter"
+- name: "Shift and Shatter: Color Match"
   slug: "shiftandshatter"
-  tagline: "Quick-Paced Color Matching Game"
-  description: "Shift and Shatter is a quick-paced color matching game. There are six different game modes to choose from, each featuring fun, retro styles inspired by the arcade era. Match shapes by color. But be careful; make sure to avoid bombs and the walls! Challenge yourself to improve your reflexes and beat your high score!"
+  tagline: "Fast Shape Sort Reflex Arcade"
+  description: "Six modes of quick-paced color matching. Drag each shape into the goal of its color, dodge bombs and walls, and beat your high score offline."
   icon: "/img/shiftandshatter/icon.webp"
   icon_width: 512
   icon_height: 512
   color: "#C759A2"
   schema_category: "GameApplication"
-  pricing_model: "free"
-  ios_url: null
+  pricing_model: "remove_ads"
+  ios_url: "https://apps.apple.com/us/app/id1508746469"
   android_url: null
-  legacy: true
   screenshots:
     - "/img/shiftandshatter/website_preview_screenshots_shift_shatter_1.webp"
     - "/img/shiftandshatter/website_preview_screenshots_shift_shatter_2.webp"

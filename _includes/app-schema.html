@@ -2,6 +2,8 @@
 {% case pricing_model %}
 {% when "freemium" %}
   {% assign offer_description = "Free download with optional in-app purchase for Pro features" %}
+{% when "remove_ads" %}
+  {% assign offer_description = "Free download with ads and an optional one-time purchase to remove them" %}
 {% when "subscription" %}
   {% assign offer_description = "Free download with optional subscription for additional features" %}
 {% else %}

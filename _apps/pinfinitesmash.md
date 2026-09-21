@@ -2,9 +2,9 @@
 layout: app
 slug: pinfinitesmash
 date: 2025-10-05
-last_modified_at: 2026-09-06T13:29:23-04:00
-title: "Pinfinite Smash — 2D Pinball Meets Brick Breaker"
-description: "2D pinball meets endless brick breaker action. Survive faster waves, grab power-ups, unlock skins, and chase high scores offline."
+last_modified_at: 2026-09-21T19:55:00-04:00
+title: "Pinfinite Smash: Brick Breaker — Retro Pinball Arcade"
+description: "Pinball flippers under a brick breaker board. Survive faster waves, grab power-ups, unlock ball skins, and chase high scores offline."
 image: "/img/pinfinitesmash/website_preview_pinfinite_smash_1.webp"
 ---
 
@@ -24,4 +24,11 @@ Pinfinite Smash can be enjoyed casually and offline: don’t let an airplane or 
 - Randomized Power-ups
 - Unlockable skins
 - Realistic physics
+- Game Center leaderboard
 - Offline single player
+- Optional one-time Remove Ads purchase
+
+Remove Ads:
+The game is free with a small banner ad. If you would rather play without it, the round NO ADS button on
+the home screen opens a one-time $2.99 Remove Ads purchase that turns off every ad for good, continues
+included. It is a purchase, not a subscription, and Restore Purchases is built in.
