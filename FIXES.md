@@ -159,6 +159,28 @@ served straight to the browser, all at once, with no dimensions declared.
   `role="navigation"`, `role="contentinfo"`, `role="document"` appear
   anywhere in the built homepage.
 
+- [x] **DOM-4 — High: Shift and Shatter's terms page was titled as another app's
+  privacy policy** — Fixed 2026-09-21, found while mirroring the games' new App Store
+  listings onto the site. `legal/shiftandshatter_terms_and_conditions.html` carried
+  `title: "Jog it Log it/Shift and Shatter: Privacy Policy"` — wrong document type and
+  a second app that has not shipped in years — which rendered as the `<title>`, the
+  `<h1>` and the breadcrumb on a page the App Store record links to. The body named
+  "Shift and Shatter / Jog it Log it apps" twice, a literal `true` from the generator
+  sat between two paragraphs, and two unbalanced `</div>`s at the end closed the
+  layout's `.legal-page-content` and `.container` early, pushing the related-documents
+  nav outside them. All fixed; effective date moved 2020-04-16 → 2026-09-21 since the
+  document is materially corrected. **Verify:** built in safe mode; div open/close now
+  1/1 in the source, `<title>`/`<h1>` read "Shift and Shatter: Terms and Conditions",
+  breadcrumb resolves to the app, no "Jog it" anywhere in the built page.
+  **Two related things left alone, deliberately:**
+  - The same two stray `</div>`s are in *every* generated legal file (checked Dizzy
+    Frog, Pinball Defense Force, Pinfinite Smash) — a house-wide generator artifact,
+    worth one sweep rather than one-off edits.
+  - `legal/terms_of_use.html` is a near-copy of the same broken document (identical
+    but for one missing Game Center link), carries the same wrong title, is referenced
+    by nothing in the repo, and is reachable at `/legal/terms_of_use.html`. It should
+    probably be deleted; left standing pending a call on it.
+
 ---
 
 ## Priority 4 — App structured data
