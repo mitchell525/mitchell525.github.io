@@ -193,10 +193,45 @@ served straight to the browser, all at once, with no dimensions declared.
   is gone; sitemap unchanged at 23 on master (legal pages are `sitemap: false`). Visible text was
   diffed against `HEAD` with tags and whitespace stripped for all 27 files — **zero**
   changed, so this is structural only, no legal wording touched.
-  **Still open, deliberately:** the boilerplate in every game's terms says the app is
-  "currently available on Android & iOS" and none of them is on Android, and none of the
-  six mentions the new $2.99 Remove Ads purchase. Both are wording changes across six
-  documents and want one deliberate pass, not a markup sweep.
+  The two wording problems this sweep exposed are closed in DOM-6.
+
+- [x] **DOM-6 — Medium: the game terms described the wrong platform and no purchases at
+  all** — Fixed 2026-09-21 at Mitch's direction ("make the terms more generic … it's fine
+  to mention the remove ads thing and anything else you think better covers us"). Eight
+  files carried the generator's platform paragraph: the six relaunch games plus Bounce and
+  Bound and Pinball Overdrive.
+  - **Platform** — "The app is currently available on Android & iOS" is false on all eight
+    (none is on Android). Rewritten platform-neutral: the app "may be offered on more than
+    one platform", and the update obligation now refers to "the version of the operating
+    system you have installed" rather than naming two.
+  - **In-App Purchases** — new section on seven of the eight. The six relaunch games
+    describe **Remove Ads** (one-time, non-subscription, Apple bills and handles refunds,
+    restorable against the Apple Account, changes advertising only); Pinball Overdrive
+    describes **Pro**, which also unlocks content, and uses that app's actual *Restore
+    Purchase* label. **Bounce and Bound gets none** — it has no IAP, and a clause about a
+    purchase that does not exist is worse than silence. **The price is deliberately not
+    written into the legal text** — it says "the price shown in the App Store at the time
+    you buy", so a price change or a storefront difference cannot make the terms wrong.
+  - **Also added, since the terms were silent on all of it:** Advertising (AdMob supplies
+    the ads, third-party content is not ours, the tracking prompt); Game Center and
+    Leaderboards (optional, Apple's service, scores obtained by cheating may be removed) on
+    the seven that use it; Who Can Use the App (general audience, guardian consent below the
+    age of capacity, purchases need the account holder's permission); an "as is" warranty
+    disclaimer; a limitation of liability capped at what was actually paid; and Governing
+    Law.
+  - **Apple Game Center added to the third-party services list** on Dizzy Frog, Surge Blast
+    and Pinball Overdrive, which all use it and did not list it.
+  - Effective date moved to 2026-09-21 on all eight, since these are material changes.
+  **Verify:** built in safe mode, all built legal pages still stack-walk to 0/0, and
+  `grep Android legal/*.html` now returns nothing outside the Google Play Services link.
+  **Two calls worth a second look, flagged rather than buried:** (1) **Governing Law names
+  the State of Maryland** — inferred from the site's own "indie app developer from
+  Baltimore", not from anything Mitch said; change or drop it if that is wrong. (2) None of
+  this was written by a lawyer. It is plain-language boilerplate consistent with what was
+  already on the page, and it closes obvious gaps, but it is not reviewed advice.
+  **Still open:** Pocket Trip Planner and Trip Stickers both sell a one-time Pro upgrade and
+  their terms say nothing about purchases either — the same gap, in apps outside this pass.
+  CD Changer and AvatarForge AI already cover it.
 
 ---
 
