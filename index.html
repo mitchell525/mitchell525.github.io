@@ -67,7 +67,7 @@ description: "Portfolio of Mitch Smith, a software engineer and indie app develo
                                 {% elsif app.ios_url or app.android_url %}
                                     <div class="store-buttons">
                                         {% if app.ios_url %}
-                                            <a href="{{ app.ios_url }}" class="store-button" target="_blank" rel="noopener"
+                                            <a href="{{ app.ios_url }}?pt={{ site.app_store_pt }}&amp;ct=site&amp;mt=8" class="store-button" target="_blank" rel="noopener"
                                                data-app-slug="{{ app.slug }}" data-app-name="{{ app.name }}" data-link-location="home_card">
                                                 <img src="/img/appstore/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
                                                      alt="Download on the App Store" class="store-badge">
