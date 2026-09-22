@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Guidance for Claude Code (or any agent) working in this repo. This is a personal Jekyll portfolio/app-showcase site for Mitch Smith, ~7 years old, deployed via **GitHub Pages** at `https://mitchell525.github.io/` (push to `master` deploys automatically). For the full human-facing overview (project layout, how to add an app or blog post, page templates) see `README.md` — this file only covers what an agent needs that the README doesn't.
+Guidance for Claude Code (or any agent) working in this repo. This is a personal Jekyll portfolio/app-showcase site for Mitch Smith, ~7 years old, deployed via **GitHub Pages** at `https://mitchsmith.app/` (push to `master` deploys automatically). For the full human-facing overview (project layout, how to add an app or blog post, page templates) see `README.md` — this file only covers what an agent needs that the README doesn't.
 
 ## Stack at a glance
 - Jekyll 3.9.5, kramdown, Liquid, Ruby via Bundler (see `Gemfile`/`Gemfile.lock`)
@@ -31,6 +31,7 @@ There is no test suite and no linter configured — verify changes by building a
 - `legal/`, `support/` — one HTML file per app per policy/support page, `layout: legal` / `layout: support`.
 
 ## Things that will bite you if you assume instead of check
+- **Custom domain.** `CNAME` makes GitHub Pages serve the site at `mitchsmith.app` and 301 every `mitchell525.github.io/...` URL to the same path there — which only holds while this repo stays named `mitchell525.github.io` and `CNAME` stays. Don't rename the repo or move hosting. The games' App Store listings still name the old host as their developer website; AdMob reads `app-ads.txt` from that host, so check AdMob's app-ads.txt status after any domain change.
 - **Never future-date a post.** Jekyll's `future` defaults to `false` and `_config.yml` does not set it, so a post dated ahead of build time is excluded from the build — silently, no warning, exit 0. On a server that self-corrects at the next build; **GitHub Pages only builds on push**, so a future-dated post never appears at all unless someone happens to push again after its date. Do not use `_posts/` as a scheduling queue: keep unpublished drafts in `../social_media/drafts/` and *move* them in on the day. (Hit on 2026-09-14; full record in `../social_media/log.md`.)
 - **`_site/`** is a gitignored local build artifact from a prior `jekyll build`. It is not deployed from this clone and may be stale — never treat its contents as ground truth, rebuild first.
 - **`img/pockettravelplanner/`** vs the app's actual current slug **`pockettripplanner`** — `_data/apps.yml` still points image paths at the old `pockettravelplanner` folder name. Don't "fix" one side without checking the other; see `FIXES.md` item 4.

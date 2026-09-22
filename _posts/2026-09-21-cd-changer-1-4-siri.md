@@ -88,6 +88,6 @@ You can't say an artist or album name to it. Siri only knows magazine names and 
 CD Changer is free. You get one six disc magazine, which is a whole changer, and Pro is a one time purchase if you want more than one.
 
 - [Download on the App Store](https://apps.apple.com/us/app/id6760621270?pt=120429264&ct=blog&mt=8)
-- [CD Changer - product page](https://mitchell525.github.io/cdchanger/)
+- [CD Changer - product page](https://mitchsmith.app/cdchanger/)
 
 The screenshots below are the Shortcuts app before and after, which tells the story better than I did.

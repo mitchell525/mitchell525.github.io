@@ -49,4 +49,4 @@ If there is something that seems awkward or should exist in the app - please ema
 Pocket Trip Planner is free and ad free and doesn't want you to make an account. Pro is a one time unlock. It runs on iPhone, iPad, Mac, and Vision Pro.
 
 - [Download on the App Store](https://apps.apple.com/us/app/pocket-trip-planner/id6741714565?pt=120429264&ct=blog&mt=8)
-- [Pocket Trip Planner - product page](https://mitchell525.github.io/pockettripplanner/)
+- [Pocket Trip Planner - product page](https://mitchsmith.app/pockettripplanner/)

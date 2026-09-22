@@ -3,7 +3,7 @@
 Personal portfolio website for hosting and showcasing my mobile apps. Built with Jekyll and deployed via GitHub Pages.
 
 ### Live site
-`https://mitchell525.github.io`
+`https://mitchsmith.app`
 
 ### Tech stack
 - **Jekyll 3.9.5** - Static site generator
@@ -168,7 +168,7 @@ This approach reduces maintenance overhead and ensures consistency across all pa
 - **Screenshot Lightbox**: Interactive lightbox for viewing app screenshots
 
 ### Deployment
-This site is served by **GitHub Pages** from the `master` branch at `https://mitchell525.github.io/` — pushing to `master` deploys automatically.
+This site is served by **GitHub Pages** from the `master` branch at `https://mitchsmith.app/` — pushing to `master` deploys automatically.
 
 **Known open question:** GitHub Pages' classic "deploy from a branch" build runs Jekyll in *safe mode*, which does not execute custom plugins. This repo has one custom plugin, `_plugins/app_seo_generator.rb`, that derives app-page SEO metadata. Whether it actually runs on the live GitHub Pages build (vs. only in local `bundle exec jekyll build`) has not been confirmed — check the repo's Settings → Pages build type, or diff the live HTML `<head>` of an app page against a local build. See `FIXES.md`.
 

@@ -66,6 +66,6 @@ None of this required a separate Mac codebase or a bunch of `#if os(macOS)` bran
 Pocket Trip Planner is free to download, with Pro as an optional one-time unlock — no subscription, no account required. It now runs natively on iPhone, iPad, Mac, and Apple Vision Pro.
 
 - [Download on the App Store](https://apps.apple.com/us/app/pocket-trip-planner/id6741714565?pt=120429264&ct=blog&mt=8)
-- [Pocket Trip Planner — product page](https://mitchell525.github.io/pockettripplanner/)
+- [Pocket Trip Planner — product page](https://mitchsmith.app/pockettripplanner/)
 
 The screenshots below show the rest of the story better than I can in words.

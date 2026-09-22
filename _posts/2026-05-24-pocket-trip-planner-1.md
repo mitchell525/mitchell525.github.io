@@ -74,6 +74,6 @@ All of these helpers are **optional**. They run **on your device** using Apple I
 If you want a simple, ad-free place to plan your next trip—or you are curious what 1.6 adds for Pro—you can download Pocket Trip Planner on the App Store or read more on the product page.
 
 - [Download on the App Store](https://apps.apple.com/us/app/pocket-trip-planner/id6741714565?pt=120429264&ct=blog&mt=8)
-- [Pocket Trip Planner — product page](https://mitchell525.github.io/pockettripplanner/)
+- [Pocket Trip Planner — product page](https://mitchsmith.app/pockettripplanner/)
 
 The screenshots below show the rest of the story better than I can in words.

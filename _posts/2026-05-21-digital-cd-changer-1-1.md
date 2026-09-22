@@ -45,9 +45,9 @@ This release also adds a CD Changer menu for Pro and About (with links to the si
 
 ## Try it
 
-If you miss album-first listening—or just want your favorites a few taps away—you can download Digital CD Changer on the App Store or read more on the [product page](https://mitchell525.github.io/cdchanger/).
+If you miss album-first listening—or just want your favorites a few taps away—you can download Digital CD Changer on the App Store or read more on the [product page](https://mitchsmith.app/cdchanger/).
 
 - [Download on the App Store](https://apps.apple.com/us/app/id6760621270?pt=120429264&ct=blog&mt=8)
-- [Digital CD Changer — product page](https://mitchell525.github.io/cdchanger/)
+- [Digital CD Changer — product page](https://mitchsmith.app/cdchanger/)
 
 The screenshots below show the rest of the story better than I can in words.
