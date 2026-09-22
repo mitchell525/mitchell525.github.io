@@ -36,6 +36,9 @@
         "priceCurrency": "USD",
         "description": {{ offer_description | jsonify }}
     },
+    {% comment %} Only set rating_value/rating_count for an app whose page also shows
+       the rating to visitors: Google treats rating markup that is not visible
+       on the page as spammy structured data. {% endcomment %}
     {% if app.rating_value and app.rating_count %}
     "aggregateRating": {
         "@type": "AggregateRating",

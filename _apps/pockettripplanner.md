@@ -1,6 +1,7 @@
 ---
 layout: app
 slug: pockettripplanner
+date: 2025-10-05
 last_modified_at: 2026-09-14T21:30:00-04:00
 title: "Pocket Trip Planner — Simple Trip Planning"
 description: "Ad-free trip planning for itineraries, packing lists, budgets, and countdowns—all in one place. Built for weekend getaways and big family vacations."
@@ -9,7 +10,8 @@ image: "/img/pockettripplanner/1.webp"
 
 Planning a trip should feel exciting, not overwhelming.
 
-Everything in one place:
+### Everything in one place
+
  - Create a trip with a cover photo and a countdown to departure
  - Plan out each day with times, activities, and travel details
  - Keep flights, trains, and other travel plans organized
@@ -25,16 +27,19 @@ Everything in one place:
  - Works on iPhone, iPad, Mac, and Apple Vision Pro
  - Ad-free, no account required
 
-Built for real trips:
+### Built for real trips
+
 Pocket Trip Planner started as a way to plan a Disney World vacation without juggling five different apps, and it grew from there. It works just as well for a quick weekend getaway, a road trip with a few stops along the way, or a big family vacation with a shared budget and a folder full of confirmations. The app fits the size of the trip instead of making you fill out the same forms every time.
 
-Your data stays yours:
+### Your data stays yours
+
 Your trips are stored on your device and sync privately through your own iCloud account—there's no account to create, and no one else can see your itinerary. The optional AI features in Pro, like packing suggestions and importing a pasted itinerary, also work right on your device. Nothing about your trip is sent anywhere to make that happen.
 
-Smarter planning with Pro:
+### Smarter planning with Pro
+
 For travelers who want an extra hand, Pocket Trip Planner Pro is a one-time purchase, not a subscription. It adds smart suggestions for packing and daily plans, AI-generated trip cover photos, and the ability to import an itinerary from pasted text, a PDF, or a photo instead of typing it all in by hand. Pro also unlocks polished PDF export and extra packing list templates.
 
-Frequently asked questions:
+### Frequently asked questions
 
 **Do I need to create an account?** No. Pocket Trip Planner works without a login, and your trips stay private to your device and your own iCloud account.
 

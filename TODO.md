@@ -99,7 +99,7 @@ Follow-up items from the app setup review (beyond the SEO work already completed
 
 ---
 
-### [ ] Add a custom 404 page
+### [x] Add a custom 404 page
 **Issue:** No `404.html` exists.
 
 - Bad URLs and old redirects (e.g. `/pockettravelplanner/`) get a generic host 404
@@ -109,7 +109,7 @@ Follow-up items from the app setup review (beyond the SEO work already completed
 
 ---
 
-### [ ] Smart App Banner (optional)
+### [x] Smart App Banner (optional)
 **Issue:** iOS app landing pages do not prompt Safari users to open/install from the App Store.
 
 - Add `apple-itunes-app` meta tag on app pages with an iOS URL

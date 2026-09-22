@@ -4,6 +4,11 @@ description: "Software engineer and indie app developer from Baltimore. iOS apps
 url: "https://mitchell525.github.io"
 baseurl: ""
 logo: "/img/icons/material/icon-192.png"
+# jekyll-seo-tag puts this on every BlogPosting as its author and gives the
+# publisher block a name; without it both were missing from the JSON-LD.
+author:
+  name: "Mitchell Smith"
+  url: "https://mitchell525.github.io/about/"
 # App Store Connect provider token, appended as ?pt=…&ct=…&mt=8 on store links
 # so App Analytics can attribute installs to the site (ct=site) and blog (ct=blog).
 app_store_pt: "120429264"

@@ -1,6 +1,7 @@
 ---
 layout: app
 slug: pinfinitesmash
+date: 2025-10-05
 last_modified_at: 2026-09-06T13:29:23-04:00
 title: "Pinfinite Smash — 2D Pinball Meets Brick Breaker"
 description: "2D pinball meets endless brick breaker action. Survive faster waves, grab power-ups, unlock skins, and chase high scores offline."
@@ -15,7 +16,8 @@ Are you up to the challenge? As you top your high score, you can even unlock new
 
 Pinfinite Smash can be enjoyed casually and offline: don’t let an airplane or bus ride keep you from topping your high score!
 
-Features:
+### Features
+
 - Simple and intuitive gameplay
 - 2D pinball action
 - Endless brick breaker

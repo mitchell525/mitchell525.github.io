@@ -1,6 +1,7 @@
 ---
 layout: app
 slug: cdchanger
+date: 2026-03-29
 last_modified_at: 2026-09-14T21:30:00-04:00
 title: "CD Changer — CarPlay Music for Your Library"
 description: "Load the albums you want before you go. Build CD magazines from your Music library, then browse and play them from iPhone or CarPlay."
@@ -8,7 +9,8 @@ image: "/img/cdchanger/changer-home.webp"
 ---
 You used to load six discs before a drive and decide once. CD Changer brings that back: pick the albums at home, and in the car they are already there.
 
-Everything in one place:
+### Everything in one place
+
  - Build CD magazines from the albums already in your Music library
  - Start with one six-disc magazine, free
  - Browse your library by album, with artwork large enough to scan at a glance
@@ -18,13 +20,15 @@ Everything in one place:
  - Play, pause, skip, shuffle, and repeat from wherever you are
  - Control it all from CarPlay without leaving the road
 
-In the car:
+### In the car
+
 The CarPlay side is the reason the app exists. Discs shows each magazine as a full grid of album covers, the way Apple Music lays out your own library, so a six-disc magazine is one glance and one tap. Artists lets you reach something that is not loaded into a magazine at all — pick a letter, pick the artist, pick the album. Recents puts yesterday's drive back on screen.
 
-Free and Pro:
+### Free and Pro
+
 The free app includes one magazine with six disc slots, which is a whole changer and enough for most drives. Pro is a one-time purchase, not a subscription, and unlocks unlimited magazines and unlimited slots in each of them.
 
-Frequently asked questions:
+### Frequently asked questions
 
 **Where does the music come from?** Your own Music library — music you have purchased and Apple Music albums you have added. CD Changer does not stream from a separate catalog and it does not recommend anything to you.
 

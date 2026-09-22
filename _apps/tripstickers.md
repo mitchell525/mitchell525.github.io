@@ -1,6 +1,7 @@
 ---
 layout: app
 slug: tripstickers
+date: 2025-10-05
 last_modified_at: 2026-09-06T13:29:23-04:00
 title: "Trip Stickers — Design Custom Travel Stickers"
 description: "Turn your travels into vintage-style stickers and journals. Design custom keepsakes, record trip stories, and build a collection of every adventure."

@@ -70,16 +70,9 @@
                 'ad_personalization': 'denied',
                 'functionality_storage': analyticsAllowed ? 'granted' : 'denied'
             });
-            
-            // If consent is granted, send a page view event
-            // This ensures page views are tracked even if the initial page load was cookieless
-            if (analyticsAllowed) {
-                gtag('event', 'page_view', {
-                    'page_title': document.title,
-                    'page_location': window.location.href,
-                    'page_path': window.location.pathname
-                });
-            }
+            // No manual page_view here: the config call already sent this page's
+            // view as a cookieless ping, and a second one double-counted every
+            // visitor who opted in.
         }
     }
     
