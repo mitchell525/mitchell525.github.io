@@ -172,14 +172,31 @@ served straight to the browser, all at once, with no dimensions declared.
   document is materially corrected. **Verify:** built in safe mode; div open/close now
   1/1 in the source, `<title>`/`<h1>` read "Shift and Shatter: Terms and Conditions",
   breadcrumb resolves to the app, no "Jog it" anywhere in the built page.
-  **Two related things left alone, deliberately:**
-  - The same two stray `</div>`s are in *every* generated legal file (checked Dizzy
-    Frog, Pinball Defense Force, Pinfinite Smash) — a house-wide generator artifact,
-    worth one sweep rather than one-off edits.
-  - `legal/terms_of_use.html` is a near-copy of the same broken document (identical
-    but for one missing Game Center link), carries the same wrong title, is referenced
-    by nothing in the repo, and is reachable at `/legal/terms_of_use.html`. It should
-    probably be deleted; left standing pending a call on it.
+
+- [x] **DOM-5 — Medium: the same generator residue across every legal page** — Fixed
+  2026-09-21, immediately after DOM-4, once it was clear the Shift and Shatter page was
+  not a one-off. Audited every file in `legal/` (28 at the time) and `support/`:
+  - **Nine more files carried the same two unbalanced `</div>`s** — Bounce and Bound
+    terms, Dizzy Frog terms, Pinball Defense Force terms, Pinfinite Smash terms, Shift
+    and Shatter *privacy*, Surge Blast terms, Tap and Teleport terms, and both Trip
+    Stickers pages. Every one was the identical shape (one real `<div>` already closed,
+    two strays at the very end), confirmed by stack-walking the div tags: depth never
+    went negative before the end, so the last two were unambiguously the strays.
+  - **249 empty `<!---->` comments** across 19 files, left by the same generator.
+    Removed with the blank lines they sat on.
+  - **`legal/terms_of_use.html` deleted.** An unreferenced near-copy of the broken Shift
+    and Shatter terms (identical but for one missing Game Center link), carrying the same
+    "Jog it Log it/Shift and Shatter: Privacy Policy" title. Nothing in the repo linked
+    it. Git history keeps it if it is ever wanted back.
+  **Verify:** all 27 built legal pages now stack-walk to 0/0 with no negative depth; the
+  related-documents nav renders inside `.legal-page-content`; `_site/legal/terms_of_use.html`
+  is gone; sitemap unchanged at 23 on master (legal pages are `sitemap: false`). Visible text was
+  diffed against `HEAD` with tags and whitespace stripped for all 27 files — **zero**
+  changed, so this is structural only, no legal wording touched.
+  **Still open, deliberately:** the boilerplate in every game's terms says the app is
+  "currently available on Android & iOS" and none of them is on Android, and none of the
+  six mentions the new $2.99 Remove Ads purchase. Both are wording changes across six
+  documents and want one deliberate pass, not a markup sweep.
 
 ---
 
