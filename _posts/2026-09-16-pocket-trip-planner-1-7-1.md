@@ -42,7 +42,7 @@ Rating the app from Settings actually opens the App Store now. It used to call t
 
 ## Moral of the story
 
-If there is something that seems awkward or should exist in the app - please email me - [mitchell525@gmail.com](mailto:mitchell525@gmail.com). I'll take a look and see if I can fix/add it! Seriously, this app has just been a hobby for myself that I use when planning family vacations so I have plenty of blind spots that my own workflow just hasn't hit.
+If there is something that seems awkward or should exist in the app - please email me - [support@mitchsmith.app](mailto:support@mitchsmith.app). I'll take a look and see if I can fix/add it! Seriously, this app has just been a hobby for myself that I use when planning family vacations so I have plenty of blind spots that my own workflow just hasn't hit.
 
 ## Try it
 
