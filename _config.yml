@@ -9,6 +9,8 @@ logo: "/img/icons/material/icon-192.png"
 author:
   name: "Mitchell Smith"
   url: "https://mitchsmith.app/about/"
+  # twitter:creator falls back to author.name ("@Mitchell Smith") without this.
+  twitter: mtsmithdesign
 # App Store Connect provider token, appended as ?pt=…&ct=…&mt=8 on store links
 # so App Analytics can attribute installs to the site (ct=site) and blog (ct=blog).
 app_store_pt: "120429264"
