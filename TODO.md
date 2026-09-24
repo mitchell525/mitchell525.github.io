@@ -62,10 +62,9 @@ Follow-up items from the app setup review (beyond the SEO work already completed
 
 ## Medium impact
 
-### [ ] Bing Webmaster Tools for `mitchsmith.app`
+### [x] Bing Webmaster Tools for `mitchsmith.app`
 *(23 Sep 2026, Mitch's email note: "update the bing search console the same way we did for google now that we have a new domain.")*
-The Google side was done 22 Sep (domain property, sitemap, Change of Address; `social_media/NEXT.md`, domain move step 5). Nothing in the repo shows Bing was ever set up for the old host. One-line flag: Bing Webmaster Tools can **import sites straight from Google Search Console** (sign in with the same Google account), which brings verification and the sitemap across, so this is likely ~10 minutes of `YOU`. If a `mitchell525.github.io` site does exist in Bing, run its Site Move tool too.
-
+**Done 24 Sep 2026.** Imported `https://mitchsmith.app/` from Google Search Console (Mitch approved Bing's read-only Search Console access), so no verification step. The sitemap did not come across (Google holds it on the domain property), so `https://mitchsmith.app/sitemap.xml` was submitted by hand: accepted, "Processing". Bing has **no Site Move tool** in the current UI (the site menu offers only Delete / Verification code), so the move rests on the 301s from `mitchell525.github.io`, which Bing follows. The old `mitchell525.github.io` entry stays: verified, 5 impressions 18-22 Sep, and it's where the move shows up as those impressions shift over. Delete it once they reach zero. The account also holds `fourmagicmakers.com` (not touched).
 ---
 
 ### [x] Fix per-app SEO metadata not rendering in production
