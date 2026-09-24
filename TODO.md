@@ -62,6 +62,12 @@ Follow-up items from the app setup review (beyond the SEO work already completed
 
 ## Medium impact
 
+### [ ] Bing Webmaster Tools for `mitchsmith.app`
+*(23 Sep 2026, Mitch's email note: "update the bing search console the same way we did for google now that we have a new domain.")*
+The Google side was done 22 Sep (domain property, sitemap, Change of Address; `social_media/NEXT.md`, domain move step 5). Nothing in the repo shows Bing was ever set up for the old host. One-line flag: Bing Webmaster Tools can **import sites straight from Google Search Console** (sign in with the same Google account), which brings verification and the sitemap across, so this is likely ~10 minutes of `YOU`. If a `mitchell525.github.io` site does exist in Bing, run its Site Move tool too.
+
+---
+
 ### [x] Fix per-app SEO metadata not rendering in production
 **Issue (2026-09-05 audit, confirmed live):** `_plugins/app_seo_generator.rb` never ran on GitHub Pages' safe-mode build, so every app page's `<title>`, meta description, and `og:image`/`twitter:image` silently fell back to broken/duplicate values in production, even though local `jekyll serve` (which does run custom plugins) looked correct.
 
