@@ -16,8 +16,9 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; font-src 'self' https://cdn.jsdelivr.net data:;">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
-    <!-- Smart App Banner: iOS Safari only, app pages only -->
-    {% if page.slug %}{% assign banner_app = site.data.apps | where: "slug", page.slug | first %}{% if banner_app.ios_url %}
+    <!-- Smart App Banner: iOS Safari only, app pages and posts about an app -->
+    {% assign banner_slug = page.app_slug | default: page.slug %}
+    {% if banner_slug %}{% assign banner_app = site.data.apps | where: "slug", banner_slug | first %}{% if banner_app.ios_url %}
     <meta name="apple-itunes-app" content="app-id={{ banner_app.ios_url | split: '/id' | last | split: '?' | first }}, app-argument={{ site.url }}{{ page.url }}">
     {% endif %}{% endif %}
 
