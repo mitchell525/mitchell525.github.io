@@ -1,0 +1,7 @@
+{% comment %} "Play free on YouTube" button for an app with a live YouTube Playable.
+   Pass app= and location= (the GA4 link_location). Sized to sit beside the store badges. {% endcomment %}
+<a href="{{ include.app.playables_url }}" class="store-button" target="_blank" rel="noopener"
+   aria-label="Play {{ include.app.name }} free on YouTube"
+   data-app-slug="{{ include.app.slug }}" data-app-name="{{ include.app.name }}" data-link-location="{{ include.location }}">
+    <span class="playables-badge store-badge"><i class="bi bi-youtube" aria-hidden="true"></i><span><small>Play free on</small>YouTube</span></span>
+</a>

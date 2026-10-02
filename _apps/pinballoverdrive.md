@@ -2,7 +2,7 @@
 layout: app
 slug: pinballoverdrive
 date: 2025-10-05
-last_modified_at: 2026-09-12T13:12:39-04:00
+last_modified_at: 2026-10-02T12:00:00-04:00
 title: "Pinball Overdrive — Retro Neon Arcade Pinball"
 description: "Retro neon pinball with randomized hazards, power-ups, and unlockable skins. Climb the leaderboard in the classic game or test your reflexes in Survival Mode."
 image: "/img/pinballoverdrive/website_preview_screenshots_pinball_overdrive_1.webp"
@@ -34,6 +34,8 @@ Pinball Overdrive is free to download and play, supported by ads. A one-time Pro
 **Is Pinball Overdrive free?** Yes. The core game is free to download and play, with ads to support development.
 
 **What does the Pro upgrade include?** Pro is a one-time purchase that removes all ads and unlocks Survival Mode for good.
+
+**Can I play without downloading it?** Yes. Pinball Overdrive is a [YouTube Playable](https://www.youtube.com/playables/Ugkx2Df0GxcmJKKNyx1wxPG7zSa-Zej7lbPf), so you can play it free in your browser or the YouTube app, Survival Mode included. Your high score and unlocked skins save to your YouTube account.
 
 **Does it work offline?** Yes. Pinball Overdrive plays entirely offline, so it's great for flights and road trips.
 

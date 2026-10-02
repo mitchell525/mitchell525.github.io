@@ -106,6 +106,7 @@
   pricing_model: "freemium"
   ios_url: "https://apps.apple.com/us/app/id1521182800"
   android_url: null
+  playables_url: "https://www.youtube.com/playables/Ugkx2Df0GxcmJKKNyx1wxPG7zSa-Zej7lbPf"
   screenshots:
     - "/img/pinballoverdrive/website_preview_screenshots_pinball_overdrive_1.webp"
     - "/img/pinballoverdrive/website_preview_screenshots_pinball_overdrive_2.webp"

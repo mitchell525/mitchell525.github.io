@@ -22,6 +22,9 @@
     "operatingSystem": [{% if app.ios_url %}"iOS"{% endif %}{% if app.ios_url and app.android_url %}, {% endif %}{% if app.android_url %}"Android"{% endif %}],
     {% endif %}
     "isAccessibleForFree": true,
+    {% if app.playables_url %}
+    "sameAs": [{{ app.playables_url | jsonify }}],
+    {% endif %}
     {% if app.ios_url or app.android_url %}
     "downloadUrl": [
         {%- if app.ios_url -%}

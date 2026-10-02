@@ -38,7 +38,7 @@ layout: default
                         <div class="coming-soon-badge">
                             <span class="badge-text">Coming Soon</span>
                         </div>
-                    {% elsif app.ios_url or app.android_url %}
+                    {% elsif app.ios_url or app.android_url or app.playables_url %}
                         <div class="store-buttons">
                             {% if app.ios_url %}
                                 <a href="{{ app.ios_url }}?pt={{ site.app_store_pt }}&amp;ct=site&amp;mt=8" class="store-button" target="_blank" rel="noopener" aria-label="Download on the App Store"
@@ -56,6 +56,7 @@ layout: default
                                          class="store-badge">
                                 </a>
                             {% endif %}
+                            {% if app.playables_url %}{% include playables-button.html app=app location="app_page_hero" %}{% endif %}
                         </div>
                     {% else %}
                         <div class="unavailable-badge">

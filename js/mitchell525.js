@@ -593,7 +593,12 @@
             return;
         }
 
-        const store = STORE_HOSTS[host];
+        let store = STORE_HOSTS[host];
+        // YouTube Playables count as a store; other YouTube links (channel, Shorts) don't
+        if (!store && /(^|\.)youtube\.com$/.test(host) &&
+            new URL(anchor.href).pathname.startsWith('/playables/')) {
+            store = 'youtube_playables';
+        }
         if (!store) return;
 
         if (typeof gtag === 'undefined') return;
