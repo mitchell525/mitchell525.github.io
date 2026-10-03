@@ -1,3 +1,25 @@
+- name: "Neon Fleet: Space Survivors"
+  slug: "neonfleet"
+  coming_soon: true
+  tagline: "Roguelike Galaxy Shooter"
+  description: "Start with one ship and grow a neon armada. Drag to fly, tap to fire missile salvos, pick upgrades, and take down a capital ship at the end of every sector."
+  icon: "/img/neonfleet/icon.webp"
+  icon_width: 512
+  icon_height: 512
+  color: "#1FB8D6"
+  schema_category: "GameApplication"
+  pricing_model: "remove_ads"
+  ios_url: null
+  android_url: null
+  screenshots:
+    - "/img/neonfleet/website_preview_neonfleet_1.webp"
+    - "/img/neonfleet/website_preview_neonfleet_2.webp"
+    - "/img/neonfleet/website_preview_neonfleet_3.webp"
+  screenshot_width: 450
+  screenshot_height: 978
+  privacy_policy: "/legal/neonfleet_privacy_policy.html"
+  terms: "/legal/neonfleet_terms_and_conditions.html"
+
 - name: "Brickrise: Ball Drop Brick Breaker"
   slug: "brickrise"
   coming_soon: true
