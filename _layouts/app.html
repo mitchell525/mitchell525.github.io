@@ -3,6 +3,7 @@ layout: default
 ---
 
 {% assign app = site.data.apps | where: "slug", page.slug | first %}
+{% if app.screenshot_orientation == "landscape" %}{% assign shot_modifier = " is-landscape" %}{% else %}{% assign shot_modifier = "" %}{% endif %}
 
 <!-- Hero Section -->
 <section class="hero-section app-page-hero" style="--hero-accent: {{ app.color }};">
@@ -66,7 +67,7 @@ layout: default
                 </div>
             </div>
             <div class="hero-image">
-                <div class="app-hero-device-frame">
+                <div class="app-hero-device-frame{{ shot_modifier }}">
                     {% if app.screenshots.first %}
                         <img src="{{ app.screenshots.first }}"
                              alt="{{ app.name }} screenshot"
@@ -91,7 +92,7 @@ layout: default
             {% if group.label %}
             <h3 class="app-screenshot-group-label">{{ group.label }}</h3>
             {% endif %}
-            <div class="app-screenshot-scroll app-screenshot-scroll--fitted"
+            <div class="app-screenshot-scroll app-screenshot-scroll--fitted{{ shot_modifier }}"
                  data-screenshot-count="{{ group.items.size }}"
                  tabindex="0">
                 {% for screenshot in group.items %}
@@ -118,7 +119,7 @@ layout: default
 <section class="app-screenshot-gallery" aria-label="{{ app.name }} screenshots">
     <div class="container">
         <h2 class="app-screenshot-gallery-label">Screenshots</h2>
-        <div class="app-screenshot-scroll app-screenshot-scroll--fitted"
+        <div class="app-screenshot-scroll app-screenshot-scroll--fitted{{ shot_modifier }}"
              data-screenshot-count="{{ app.screenshots.size }}"
              tabindex="0">
             {% for screenshot in app.screenshots %}

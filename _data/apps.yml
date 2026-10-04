@@ -1,3 +1,27 @@
+- name: "Guards of the Castle"
+  slug: "guardsofthecastle"
+  coming_soon: true
+  tagline: "Wizard Castle Defense for One or Two Players"
+  description: "Slide two wizards up and down to blast the orcs, skeletons and dragons marching on the village. Play with two thumbs, or share one phone with a friend."
+  icon: "/img/guardsofthecastle/icon.webp"
+  icon_width: 512
+  icon_height: 512
+  color: "#B48FE0"
+  schema_category: "GameApplication"
+  pricing_model: "remove_ads"
+  ios_url: null
+  android_url: null
+  # Landscape game: app.html widens the hero frame and gallery slides for these.
+  screenshot_orientation: "landscape"
+  screenshots:
+    - "/img/guardsofthecastle/website_preview_guardsofthecastle_1.webp"
+    - "/img/guardsofthecastle/website_preview_guardsofthecastle_2.webp"
+    - "/img/guardsofthecastle/website_preview_guardsofthecastle_3.webp"
+  screenshot_width: 1280
+  screenshot_height: 720
+  privacy_policy: "/legal/guardsofthecastle_privacy_policy.html"
+  terms: "/legal/guardsofthecastle_terms_and_conditions.html"
+
 - name: "Neon Mayhem: Car Mod Racer"
   slug: "neonmayhem"
   coming_soon: true

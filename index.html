@@ -95,7 +95,7 @@ description: "Portfolio of Mitch Smith, a software engineer and indie app develo
                         <p>{{ app.description }}</p>
                     </div>
                     
-                    <div class="app-screenshots">
+                    <div class="app-screenshots{% if app.screenshot_orientation == "landscape" %} app-screenshots--landscape{% endif %}">
                         {% for screenshot in app.screenshots limit:3 %}
                         <div class="screenshot-item" data-screenshot="{{ screenshot }}">
                             <img src="{{ screenshot }}" alt="Screenshot for {{ app.name }}" class="screenshot-image" width="{{ app.screenshot_width }}" height="{{ app.screenshot_height }}" loading="lazy" decoding="async">

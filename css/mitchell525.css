@@ -960,6 +960,23 @@ body {
     object-fit: contain;
 }
 
+/* Landscape apps (apps.yml screenshot_orientation: "landscape", which adds .is-landscape):
+   the portrait sizes above would shrink a 16:9 shot to a strip, so the hero frame fills its
+   column and the slides get wider. The two-class selectors outrank the breakpoint overrides. */
+.app-hero-device-frame.is-landscape {
+    width: 100%;
+    max-width: 600px;
+}
+
+.app-screenshot-scroll--fitted.is-landscape .app-screenshot-slide {
+    min-width: min(260px, 70vw);
+    max-width: 420px;
+}
+
+.app-screenshot-scroll--scrollable.is-landscape .app-screenshot-slide .screenshot-image {
+    max-width: min(420px, 80vw);
+}
+
 .image-container {
     position: relative;
     border-radius: var(--radius-xlarge);
@@ -1117,6 +1134,17 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 1rem;
+}
+
+/* Landscape apps on the home cards: three 16:9 shots in a row are thumbnail strips, so the
+   first spans the card and the other two share the row below. On phones the #apps rules
+   below still show only the first. */
+.app-screenshots--landscape {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.app-screenshots--landscape .screenshot-item:first-child {
+    grid-column: 1 / -1;
 }
 
 .screenshot-item {
