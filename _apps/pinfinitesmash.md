@@ -2,7 +2,7 @@
 layout: app
 slug: pinfinitesmash
 date: 2025-10-05
-last_modified_at: 2026-09-21T19:55:00-04:00
+last_modified_at: 2026-10-08T12:00:00-04:00
 title: "Pinfinite Smash: Brick Breaker — Retro Pinball Arcade"
 description: "Pinball flippers under a brick breaker board. Survive faster waves, grab power-ups, unlock ball skins, and chase high scores offline."
 image: "/img/pinfinitesmash/website_preview_pinfinite_smash_1.webp"

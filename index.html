@@ -60,7 +60,7 @@ description: "Portfolio of Mitch Smith, a software engineer and indie app develo
                             </h3>
                             <p class="app-tagline">{{ app.tagline }}</p>
                             <div class="app-actions">
-                                {% if app.coming_soon %}
+                                {% if app.coming_soon and app.playables_url == nil %}
                                     <div class="coming-soon-badge">
                                         <span class="badge-text">Coming Soon</span>
                                     </div>

@@ -79,6 +79,7 @@
   pricing_model: "remove_ads"
   ios_url: null
   android_url: null
+  playables_url: "https://www.youtube.com/playables/Ugkx-6j0BZ5dqiHY8-TnofYW_DrVS21S5eBB"
   screenshots:
     - "/img/brickrise/website_preview_brickrise_1.webp"
     - "/img/brickrise/website_preview_brickrise_2.webp"
@@ -264,6 +265,7 @@
   pricing_model: "remove_ads"
   ios_url: "https://apps.apple.com/us/app/pinfinite-smash/id1643559563"
   android_url: null
+  playables_url: "https://www.youtube.com/playables/UgkxJQeYc6gosCqeP0ZQASJTqvG2gQ2vPhWl"
   rating_value: "4.3"
   rating_count: "10"
   screenshots:
