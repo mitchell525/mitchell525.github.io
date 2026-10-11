@@ -2,7 +2,7 @@
 layout: app
 slug: pinballdefenseforce
 date: 2025-10-05
-last_modified_at: 2026-09-21T19:55:00-04:00
+last_modified_at: 2026-10-11T12:00:00-04:00
 title: "Pinball Defense Force — Retro Space Shooter Arcade"
 description: "Defend space with retro pinball action against endless enemy waves and epic boss fights. Grab power-ups, chain multipliers, and save your best score—offline, anytime."
 image: "/img/pinballdefenseforce/website_preview_screenshots_pinball_defense_1.webp"
