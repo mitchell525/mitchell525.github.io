@@ -57,6 +57,7 @@
   pricing_model: "remove_ads"
   ios_url: null
   android_url: null
+  playables_url: "https://www.youtube.com/playables/Ugkx7mKwLeNf8JP-ZJH2c1Qst08Xa4xcFPxC"
   screenshots:
     - "/img/neonfleet/website_preview_neonfleet_1.webp"
     - "/img/neonfleet/website_preview_neonfleet_2.webp"
