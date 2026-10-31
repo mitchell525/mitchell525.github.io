@@ -1,0 +1,29 @@
+{% comment %} One game in a grid: 16:9 thumbnail, short name, tagline, play/store buttons.
+   Pass game= and location= (the GA4 link_location); loading="eager" for cards above the fold.
+   The title link stretches over the whole card; the buttons sit above it (z-index 2). {% endcomment %}
+{% assign g = include.game %}
+{% assign short_name = g.name | split: ":" | first %}
+<article class="game-card" style="--game-accent: {{ g.color }};" data-genre="{{ g.genre }}" data-ios="{% if g.ios_url %}1{% else %}0{% endif %}">
+    <div class="game-card-media">
+        <img src="{{ g.thumb }}_640.webp"
+             srcset="{{ g.thumb }}_640.webp 640w, {{ g.thumb }}_1280.webp 1280w"
+             sizes="(min-width: 1200px) 370px, (min-width: 992px) 30vw, (min-width: 640px) 46vw, 92vw"
+             alt="{{ short_name }} gameplay art" width="640" height="360"
+             loading="{{ include.loading | default: 'lazy' }}" decoding="async">
+    </div>
+    <div class="game-card-body">
+        <h3 class="game-card-title"><a href="/{{ g.slug }}/" class="game-card-link">{{ short_name }}</a></h3>
+        <p class="game-card-tagline">{{ g.tagline }}</p>
+        <div class="store-buttons game-card-actions">
+            {% if g.playables_url %}{% include playables-button.html app=g location=include.location %}{% endif %}
+            {% if g.ios_url %}
+            <a href="{{ g.ios_url }}?pt={{ site.app_store_pt }}&amp;ct=site&amp;mt=8" class="store-button" target="_blank" rel="noopener"
+               data-app-slug="{{ g.slug }}" data-app-name="{{ g.name }}" data-link-location="{{ include.location }}">
+                <img src="/img/appstore/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
+                     alt="Download {{ short_name }} on the App Store" class="store-badge">
+            </a>
+            {% endif %}
+            {% if g.crazygames_url %}{% include crazygames-button.html app=g location=include.location %}{% endif %}
+        </div>
+    </div>
+</article>

@@ -1,0 +1,121 @@
+---
+layout: default
+permalink: /games/
+last_modified_at: 2026-10-31T12:00:00-04:00
+title: "Games"
+description: "Free games by Mitch Smith: racers, pinball, brick breakers and more. Play them on YouTube with no download, and some on iPhone too."
+image: "/img/knockoutracer/thumb_1280.webp"
+---
+
+{% assign all_games = site.data.apps | where: "kind", "game" %}
+{% assign live_games = all_games | where_exp: "g", "g.thumb" | sort: "released" | reverse %}
+{% assign classics = all_games | where: "classic", true %}
+{% assign upcoming = all_games | where: "coming_soon", true %}
+
+<article class="games-page">
+    <header class="blog-post-header blog-index-header" style="--blog-post-accent: #FF3EA5;">
+        <div class="container">
+            <div class="blog-post-header-inner">
+                <div class="blog-post-hero-copy">
+                    <h1 class="blog-post-title">Games</h1>
+                    <p class="blog-post-lead">Racers, pinball, brick breakers and more</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="games-section" aria-labelledby="all-games-heading">
+        <div class="container">
+            <h2 id="all-games-heading" class="visually-hidden">All games</h2>
+
+            {% comment %} Filters start hidden; js/mitchell525.js shows them. Without JS every game stays visible. {% endcomment %}
+            <div class="game-filters" role="toolbar" aria-label="Filter games" hidden>
+                <div class="game-filter-group" role="group" aria-label="Genre">
+                    <button type="button" class="game-chip" data-filter-genre="" aria-pressed="true">All</button>
+                    <button type="button" class="game-chip" data-filter-genre="racing" aria-pressed="false">Racing</button>
+                    <button type="button" class="game-chip" data-filter-genre="arcade" aria-pressed="false">Pinball &amp; bricks</button>
+                    <button type="button" class="game-chip" data-filter-genre="action" aria-pressed="false">Action</button>
+                    <button type="button" class="game-chip" data-filter-genre="make" aria-pressed="false">Grow &amp; make</button>
+                </div>
+                <button type="button" class="game-chip game-chip--toggle" data-filter-ios aria-pressed="false">
+                    <i class="bi bi-apple" aria-hidden="true"></i> Also on iPhone
+                </button>
+            </div>
+            <p class="game-filter-count" aria-live="polite"></p>
+
+            <div class="game-grid">
+                {% for game in live_games %}
+                {% if forloop.index <= 3 %}{% assign card_loading = "eager" %}{% else %}{% assign card_loading = "lazy" %}{% endif %}
+                {% include game-card.html game=game location="games_grid" loading=card_loading %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    {% if classics.size > 0 %}
+    <section class="games-section games-section--classics" aria-labelledby="classics-heading">
+        <div class="container">
+            <h2 id="classics-heading" class="games-subheading">Classics on the App Store</h2>
+            <p class="games-subheading-lead">My earlier games, still on iPhone.</p>
+            <div class="game-mini-list">
+                {% for game in classics %}
+                {% assign short_name = game.name | split: ":" | first %}
+                <div class="game-mini">
+                    <img src="{{ game.icon }}" alt="" class="game-mini-icon" width="{{ game.icon_width }}" height="{{ game.icon_height }}" loading="lazy" decoding="async">
+                    <div class="game-mini-copy">
+                        <h3 class="game-mini-title"><a href="/{{ game.slug }}/" class="game-card-link">{{ short_name }}</a></h3>
+                        <p class="game-mini-tagline">{{ game.tagline }}</p>
+                    </div>
+                    {% if game.ios_url %}
+                    <a href="{{ game.ios_url }}?pt={{ site.app_store_pt }}&amp;ct=site&amp;mt=8" class="store-button" target="_blank" rel="noopener"
+                       data-app-slug="{{ game.slug }}" data-app-name="{{ game.name }}" data-link-location="games_classics">
+                        <img src="/img/appstore/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
+                             alt="Download {{ short_name }} on the App Store" class="store-badge">
+                    </a>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {% if upcoming.size > 0 %}
+    <section class="games-section games-section--classics" aria-labelledby="upcoming-heading">
+        <div class="container">
+            <h2 id="upcoming-heading" class="games-subheading">Coming soon</h2>
+            <div class="game-mini-list">
+                {% for game in upcoming %}
+                {% assign short_name = game.name | split: ":" | first %}
+                <div class="game-mini">
+                    <img src="{{ game.icon }}" alt="" class="game-mini-icon" width="{{ game.icon_width }}" height="{{ game.icon_height }}" loading="lazy" decoding="async">
+                    <div class="game-mini-copy">
+                        <h3 class="game-mini-title"><a href="/{{ game.slug }}/" class="game-card-link">{{ short_name }}</a></h3>
+                        <p class="game-mini-tagline">{{ game.tagline }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+</article>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Games by Mitch Smith",
+    "numberOfItems": {{ live_games.size }},
+    "itemListElement": [
+        {%- for game in live_games %}
+        {
+            "@type": "ListItem",
+            "position": {{ forloop.index }},
+            "url": {{ "/" | append: game.slug | append: "/" | absolute_url | jsonify }},
+            "name": {{ game.name | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+    ]
+}
+</script>

@@ -6,8 +6,8 @@
         {
             "@type": "ListItem",
             "position": 1,
-            "name": "Portfolio",
-            "item": {{ site.url | append: "/" | jsonify }}
+            "name": {{ crumb_label | default: "Portfolio" | jsonify }},
+            "item": {{ site.url | append: crumb_url | default: "/" | jsonify }}
         },
         {
             "@type": "ListItem",

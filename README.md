@@ -97,6 +97,29 @@ See `FIXES.md` for known issues in this layout (dead pages, leftover folders, na
 4. Add legal documents to `legal/` directory
 5. Add support pages to `support/` directory if needed (using `support.html` layout)
 
+### Adding a new game
+Games live in the same `_data/apps.yml`, marked `kind: "game"`. They show on `/games/` (newest first), never in
+the home page's Apps list or the footer. When a Playable goes live:
+
+1. Add (or update) its `apps.yml` entry with these on top of the usual fields:
+   ```yaml
+     kind: "game"
+     genre: "racing"        # racing | arcade (pinball & bricks) | action | make (grow & make): the /games/ filter chips
+     released: 2026-10-29   # Playable live date; sorts the grid
+     thumb: "/img/<slug>/thumb"   # 16:9 card art: thumb_640.webp + thumb_1280.webp
+     playables_url: "https://www.youtube.com/playables/<id>"
+     featured: 1            # optional: position in the home page's Featured row (keep it to 4)
+     short_id: "<id>"       # optional: a public gameplay Short, shown click-to-play on the game page
+     crazygames_url: "..."  # optional
+     classic: true          # optional: old App Store-only games, listed under "Classics" instead of the grid
+   ```
+   The card thumbnail is the live Playables thumbnail: its `og:image` on the Playable page, saved at `=w1280`,
+   resized to 640 and 1280 wide WebP. Without phone screenshots, the game page shows that art in its hero.
+2. Create `_apps/<slug>.md` with `layout: app`, `slug`, a fixed `date`, and hand-written `title`, `description`
+   and `image` (see CLAUDE.md: nothing is derived at build time).
+3. Legal pages are only needed for games on a store (`privacy_policy` / `terms`); the Support & Legal block hides
+   the legal links when they are missing.
+
 ### Adding a blog post
 1. Create a new file in `_posts/` named `YYYY-MM-DD-post-slug.md`:
    ```markdown

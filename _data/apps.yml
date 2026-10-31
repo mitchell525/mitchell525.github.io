@@ -1,5 +1,6 @@
 - name: "Guards of the Castle"
   slug: "guardsofthecastle"
+  kind: "game"
   coming_soon: true
   tagline: "Wizard Castle Defense for One or Two Players"
   description: "Slide two wizards up and down to blast the orcs, skeletons and dragons marching on the village. Play with two thumbs, or share one phone with a friend."
@@ -22,9 +23,124 @@
   privacy_policy: "/legal/guardsofthecastle_privacy_policy.html"
   terms: "/legal/guardsofthecastle_terms_and_conditions.html"
 
+- name: "Squish Factory"
+  slug: "squishfactory"
+  kind: "game"
+  genre: "make"
+  released: 2026-10-29
+  thumb: "/img/squishfactory/thumb"
+  tagline: "Make Squishy Buns, Open the Blind Box"
+  description: "Make squishy buns: pour, bake, paint and pick a face. Open the blind box to reveal its finish, squeeze it, then fill your shelves."
+  icon: "/img/squishfactory/icon.webp"
+  icon_width: 512
+  icon_height: 512
+  color: "#F28DB2"
+  schema_category: "GameApplication"
+  pricing_model: "free"
+  ios_url: null
+  android_url: null
+  playables_url: "https://www.youtube.com/playables/Ugkxb8yTJUjct33kQgm2q5Q-wz1eIEkJ91C3"
+
+- name: "Crash Canyon"
+  slug: "crashcanyon"
+  kind: "game"
+  genre: "racing"
+  released: 2026-10-29
+  thumb: "/img/crashcanyon/thumb"
+  tagline: "Monster Truck Crash Roguelite"
+  description: "Drive a monster truck through canyons, junkyards and harbors. Crush cars, flip off ramps, launch the crash dummy at the target and build your truck."
+  icon: "/img/crashcanyon/icon.webp"
+  icon_width: 512
+  icon_height: 512
+  color: "#D9772B"
+  schema_category: "GameApplication"
+  pricing_model: "free"
+  ios_url: null
+  android_url: null
+  playables_url: "https://www.youtube.com/playables/UgkxTYaQG8jACv53-qfv54wul9_dF2Nmd_gu"
+
+- name: "Switch Racer 3D: Car, Boat & Plane Race"
+  slug: "switchracer"
+  kind: "game"
+  genre: "racing"
+  released: 2026-10-28
+  thumb: "/img/switchracer/thumb"
+  tagline: "Tap to Switch Car, Boat or Plane"
+  description: "Race on road, water and sky. Tap car, boat, plane or truck at just the right moment, burst through the x10 wall and unlock new cars."
+  icon: "/img/switchracer/icon.webp"
+  icon_width: 512
+  icon_height: 512
+  color: "#2A9BD8"
+  schema_category: "GameApplication"
+  pricing_model: "free"
+  ios_url: null
+  android_url: null
+  playables_url: "https://www.youtube.com/playables/UgkxX290ZqAdjYXl9PctZeZfsQSNW_Yq1HEP"
+
+- name: "Cosmic Chomp: Eat Planets & Grow"
+  slug: "cosmicchomp"
+  kind: "game"
+  genre: "make"
+  released: 2026-10-26
+  thumb: "/img/cosmicchomp/thumb"
+  short_id: "jGwxlOxCNj4"
+  tagline: "Space Jelly Idle Grower"
+  description: "Be a hungry space jelly. Chomp rocks, moons and planets, grow a brood of tiny fish, beat silly guardians and evolve until you eat the whole cosmos."
+  icon: "/img/cosmicchomp/icon.webp"
+  icon_width: 512
+  icon_height: 512
+  color: "#E23C9B"
+  schema_category: "GameApplication"
+  pricing_model: "free"
+  ios_url: null
+  android_url: null
+  playables_url: "https://www.youtube.com/playables/UgkxBoryYL_YfiqohMBUmM6sS6XODe2CYWjm"
+
+- name: "Neon Colossus: Mech City Smash"
+  slug: "neoncolossus"
+  kind: "game"
+  genre: "action"
+  released: 2026-10-24
+  thumb: "/img/neoncolossus/thumb"
+  short_id: "kJE8ogBOtjE"
+  tagline: "Giant Mech vs. a Neon City"
+  description: "Smash a neon city as a giant mech. Blow up army bases for upgrades, stomp, overdrive, and survive 10 waves to face the Overlord."
+  icon: "/img/neoncolossus/icon.webp"
+  icon_width: 512
+  icon_height: 512
+  color: "#3B6FE0"
+  schema_category: "GameApplication"
+  pricing_model: "free"
+  ios_url: null
+  android_url: null
+  playables_url: "https://www.youtube.com/playables/UgkxrrFRor7h4PvEpVCLAQHeV_ly4NJnZtYT"
+
+- name: "Neon Skyward: Plane Racer"
+  slug: "neonskyward"
+  kind: "game"
+  genre: "racing"
+  released: 2026-10-16
+  thumb: "/img/neonskyward/thumb"
+  tagline: "Synthwave Sky Racer"
+  description: "Drag to fly, flick to roll. Race five rivals through neon skies, bolt on wild upgrades and pick your next zone at the warp gates."
+  icon: "/img/neonskyward/icon.webp"
+  icon_width: 512
+  icon_height: 512
+  color: "#FF5A36"
+  schema_category: "GameApplication"
+  pricing_model: "free"
+  ios_url: null
+  android_url: null
+  playables_url: "https://www.youtube.com/playables/Ugkx58auqU-kd8lTMeMaBazXkohbGallXPkH"
+
 - name: "Knockout Racer: Elimination"
   slug: "knockoutracer"
-  coming_soon: true
+  kind: "game"
+  genre: "racing"
+  released: 2026-10-23
+  thumb: "/img/knockoutracer/thumb"
+  featured: 1
+  crazygames_url: "https://www.crazygames.com/game/knockout-racer"
   tagline: "Last Car Each Lap Is Out"
   description: "Eight cars race a sunny city circuit and the last car each lap is knocked out. Ram rivals into the wall, bolt on wild upgrades, and be the one still driving."
   icon: "/img/knockoutracer/icon.webp"
@@ -47,7 +163,12 @@
 
 - name: "Neon Mayhem: Car Mod Racer"
   slug: "neonmayhem"
-  coming_soon: true
+  kind: "game"
+  genre: "racing"
+  released: 2026-10-15
+  thumb: "/img/neonmayhem/thumb"
+  featured: 2
+  short_id: "eynlBxRXCI0"
   tagline: "Roguelike Traffic Racing"
   description: "Race an endless synthwave highway against the clock. At every checkpoint, bolt a crazy mod onto your car: rockets, pogo springs, an evil twin."
   icon: "/img/neonmayhem/icon.webp"
@@ -56,7 +177,7 @@
   color: "#FF3EA5"
   schema_category: "GameApplication"
   pricing_model: "remove_ads"
-  ios_url: null
+  ios_url: "https://apps.apple.com/us/app/id6818624275"
   android_url: null
   playables_url: "https://www.youtube.com/playables/UgkxScsHbWmcDdVm9Mqjf1yXPXF2PiXXp1f4"
   screenshots:
@@ -70,7 +191,12 @@
 
 - name: "Neon Fleet: Space Survivors"
   slug: "neonfleet"
-  coming_soon: true
+  kind: "game"
+  genre: "action"
+  released: 2026-10-14
+  thumb: "/img/neonfleet/thumb"
+  featured: 3
+  short_id: "uVDbUvk2a1k"
   tagline: "Roguelike Galaxy Shooter"
   description: "Start with one ship and grow a neon armada. Drag to fly, tap to fire missile salvos, pick upgrades, and take down a capital ship at the end of every sector."
   icon: "/img/neonfleet/icon.webp"
@@ -79,7 +205,7 @@
   color: "#1FB8D6"
   schema_category: "GameApplication"
   pricing_model: "remove_ads"
-  ios_url: null
+  ios_url: "https://apps.apple.com/us/app/id6818282048"
   android_url: null
   playables_url: "https://www.youtube.com/playables/Ugkx7mKwLeNf8JP-ZJH2c1Qst08Xa4xcFPxC"
   screenshots:
@@ -93,7 +219,12 @@
 
 - name: "Brickrise: Ball Drop Brick Breaker"
   slug: "brickrise"
-  coming_soon: true
+  kind: "game"
+  genre: "arcade"
+  released: 2026-10-08
+  thumb: "/img/brickrise/thumb"
+  featured: 4
+  short_id: "qcyFsrFby88"
   tagline: "One-Tap Brick Breaker Roguelite"
   description: "Tap to drop balls through the pegs into numbered bricks rising from below. Level up, pick upgrades, and beat the Crystal Titan before the bricks reach the rim."
   icon: "/img/brickrise/icon.webp"
@@ -190,6 +321,11 @@
 
 - name: "Pinball Overdrive"
   slug: "pinballoverdrive"
+  kind: "game"
+  genre: "arcade"
+  released: 2026-10-02
+  thumb: "/img/pinballoverdrive/thumb"
+  short_id: "L1zG-QMVUbE"
   tagline: "Retro Neon Arcade Pinball"
   description: "Retro neon pinball with randomized hazards, power-ups, and unlockable skins. Climb the leaderboard in the classic game or test your reflexes in Survival Mode."
   icon: "/img/pinballoverdrive/icon.webp"
@@ -280,6 +416,11 @@
 
 - name: "Pinfinite Smash: Brick Breaker"
   slug: "pinfinitesmash"
+  kind: "game"
+  genre: "arcade"
+  released: 2026-10-08
+  thumb: "/img/pinfinitesmash/thumb"
+  short_id: "AivbQDCURQ4"
   tagline: "Retro Pinball Arcade Action"
   description: "Pinball flippers under a brick breaker board. Survive faster waves, grab power-ups, unlock ball skins, and chase high scores offline."
   icon: "/img/pinfinitesmash/icon.webp"
@@ -304,6 +445,11 @@
 
 - name: "Pinball Defense Force"
   slug: "pinballdefenseforce"
+  kind: "game"
+  genre: "arcade"
+  released: 2026-10-11
+  thumb: "/img/pinballdefenseforce/thumb"
+  short_id: "sTpf_echFm0"
   tagline: "Retro Space Shooter Arcade"
   description: "Defend space with retro pinball action against endless enemy waves and epic boss fights. Grab power-ups, chain multipliers, and save your best score—offline, anytime."
   icon: "/img/pinballdefenseforce/icon.webp"
@@ -332,6 +478,9 @@
 
 - name: "Tap and Teleport: Magic Arena"
   slug: "tapandteleport"
+  kind: "game"
+  genre: "action"
+  classic: true
   tagline: "3D Reflex Survival Arcade"
   description: "A lone wizard with one spell: teleport. Tap anywhere to blink clear of fireballs, archers and rival mages, collect orbs, and survive as long as you can."
   icon: "/img/tapandteleport/icon.webp"
@@ -353,6 +502,9 @@
 
 - name: "Surge Blast: Bubble Pop Match"
   slug: "surgeblast"
+  kind: "game"
+  genre: "puzzle"
+  classic: true
   tagline: "Color Shooter Arcade Puzzle"
   description: "Launch bubbles, match five of a color to pop them, and survive the surge that hits every eight bubbles. Quick neon rounds, high scores, fully offline."
   icon: "/img/surgeblast/icon.webp"
@@ -374,6 +526,7 @@
 
 - name: "Bounce and Bound"
   slug: "bounceandbound"
+  kind: "game"
   tagline: "A Retro Themed Puzzle Game"
   description: "Jump into Bounce and Bound, a free, retro-themed puzzle game inspired by the arcade era! Work your way through 36 challenging levels. Strategically drop bouncing balls to hit three goals and move onto the next level! But watch out! Various moving, bouncing, and exploding hazards make finding the correct time and location to drop a challenge."
   icon: "/img/bounceandbound/icon.webp"
@@ -396,6 +549,9 @@
 
 - name: "Dizzy Frog: Lily Pad Jump"
   slug: "dizzyfrog"
+  kind: "game"
+  genre: "arcade"
+  classic: true
   tagline: "Tap, Hop & Match the Color"
   description: "An ultra-casual color hopping game. Help Dizz leap from lily pad to lily pad—land accurately and he changes color as new pads appear in endless randomized patterns. Simple to pick up, easy to replay."
   icon: "/img/dizzyfrog/icon.webp"
@@ -417,6 +573,9 @@
 
 - name: "Shift and Shatter: Color Match"
   slug: "shiftandshatter"
+  kind: "game"
+  genre: "puzzle"
+  classic: true
   tagline: "Fast Shape Sort Reflex Arcade"
   description: "Six modes of quick-paced color matching. Drag each shape into the goal of its color, dodge bombs and walls, and beat your high score offline."
   icon: "/img/shiftandshatter/icon.webp"

@@ -2,11 +2,10 @@
 layout: app
 slug: neonmayhem
 date: 2026-10-02
+last_modified_at: 2026-10-31T12:00:00-04:00
 title: "Neon Mayhem: Car Mod Racer — Roguelike Traffic Racing"
 description: "Race an endless synthwave highway against the clock. At every checkpoint, bolt a crazy mod onto your car: rockets, pogo springs, an evil twin. How far can you go?"
-image: "/img/neonmayhem/website_preview_neonmayhem_1.webp"
-robots: "noindex, follow"
-sitemap: false
+image: "/img/neonmayhem/thumb_1280.webp"
 ---
 
 Beat the clock. Bolt on mods. See how far it goes.

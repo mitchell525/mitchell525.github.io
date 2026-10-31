@@ -31,12 +31,16 @@
             <div class="footer-apps">
                 <h4 class="footer-section-title">Apps</h4>
                 <div class="apps-grid">
-                    {% assign apps = site.data.apps | where_exp: "app", "app.hidden_from_home != true" | sort: 'name' %}
+                    {% comment %} Games are too many to list here; they get one tile pointing at /games/. {% endcomment %}
+                    {% assign apps = site.data.apps | where_exp: "app", "app.hidden_from_home != true" | where_exp: "app", "app.kind != 'game'" | sort: 'name' %}
                     {% for app in apps %}
                     <a href="/{{ app.slug }}/" class="app-link">
                         <span class="app-name">{{ app.name }}</span>
                     </a>
                     {% endfor %}
+                    <a href="/games/" class="app-link">
+                        <span class="app-name">All games</span>
+                    </a>
                 </div>
             </div>
         </div>

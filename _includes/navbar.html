@@ -36,6 +36,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    {% assign nav_app = nil %}{% if page.slug %}{% assign nav_app = site.data.apps | where: "slug", page.slug | first %}{% endif %}
+                    <a class="nav-link {% if page.url == '/games/' or nav_app.kind == 'game' %}active fw-semibold{% endif %}"
+                       href="/games/"
+                       aria-current="{% if page.url == '/games/' %}page{% else %}false{% endif %}">
+                        <i class="bi bi-controller me-1" aria-hidden="true"></i>
+                        Games
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/#apps">
                         <i class="bi bi-apps me-1" aria-hidden="true"></i>
                         Apps

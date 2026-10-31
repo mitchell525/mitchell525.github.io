@@ -2,10 +2,10 @@
 layout: app
 slug: pinballoverdrive
 date: 2025-10-05
-last_modified_at: 2026-10-02T12:00:00-04:00
+last_modified_at: 2026-10-31T12:00:00-04:00
 title: "Pinball Overdrive — Retro Neon Arcade Pinball"
 description: "Retro neon pinball with randomized hazards, power-ups, and unlockable skins. Climb the leaderboard in the classic game or test your reflexes in Survival Mode."
-image: "/img/pinballoverdrive/website_preview_screenshots_pinball_overdrive_1.webp"
+image: "/img/pinballoverdrive/thumb_1280.webp"
 ---
 
 Flip, fly, and survive the neon grid.

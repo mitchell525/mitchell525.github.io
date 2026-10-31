@@ -12,12 +12,15 @@
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
+    "@type": {% if app.kind == "game" %}"VideoGame"{% else %}"SoftwareApplication"{% endif %},
     "name": {{ app.name | jsonify }},
     "description": {{ app.description | jsonify }},
     "url": {{ page.url | absolute_url | jsonify }},
-    "image": {{ app.icon | absolute_url | jsonify }},
+    "image": {% if app.thumb %}{{ app.thumb | append: "_1280.webp" | absolute_url | jsonify }}{% else %}{{ app.icon | absolute_url | jsonify }}{% endif %},
     "applicationCategory": {{ app.schema_category | default: "MobileApplication" | jsonify }},
+    {% if app.kind == "game" and app.playables_url or app.kind == "game" and app.ios_url %}
+    "gamePlatform": [{% if app.playables_url %}"YouTube Playables (web browser)"{% endif %}{% if app.playables_url and app.ios_url %}, {% endif %}{% if app.ios_url %}"iOS"{% endif %}],
+    {% endif %}
     {% if app.ios_url or app.android_url %}
     "operatingSystem": [{% if app.ios_url %}"iOS"{% endif %}{% if app.ios_url and app.android_url %}, {% endif %}{% if app.android_url %}"Android"{% endif %}],
     {% endif %}

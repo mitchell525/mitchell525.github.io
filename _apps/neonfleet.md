@@ -2,11 +2,10 @@
 layout: app
 slug: neonfleet
 date: 2026-10-02
+last_modified_at: 2026-10-31T12:00:00-04:00
 title: "Neon Fleet: Space Survivors — Roguelike Galaxy Shooter"
 description: "Start with one ship and grow a neon armada. Drag to fly, tap to fire missile salvos, pick upgrades, and take down a capital ship at the end of every sector."
-image: "/img/neonfleet/website_preview_neonfleet_1.webp"
-robots: "noindex, follow"
-sitemap: false
+image: "/img/neonfleet/thumb_1280.webp"
 ---
 
 Start with one ship. End with an armada.

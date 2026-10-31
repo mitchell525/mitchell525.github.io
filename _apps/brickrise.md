@@ -2,11 +2,10 @@
 layout: app
 slug: brickrise
 date: 2026-09-29
+last_modified_at: 2026-10-31T12:00:00-04:00
 title: "Brickrise: Ball Drop Brick Breaker — One-Tap Roguelite"
 description: "Tap to drop balls through the pegs into numbered bricks rising from below. Level up, pick upgrades, and beat the Crystal Titan before the bricks reach the rim."
-image: "/img/brickrise/website_preview_brickrise_1.webp"
-robots: "noindex, follow"
-sitemap: false
+image: "/img/brickrise/thumb_1280.webp"
 ---
 
 Drop balls. Break bricks. Hold the line.

@@ -551,7 +551,8 @@
     const STORE_HOSTS = {
         'apps.apple.com': 'app_store',
         'itunes.apple.com': 'app_store',
-        'play.google.com': 'play_store'
+        'play.google.com': 'play_store',
+        'www.crazygames.com': 'crazygames'
     };
 
     // Numeric App Store id out of .../idNNNNNNNN (with or without a trailing query)
@@ -630,4 +631,74 @@
     } else {
         initStoreClickTracking();
     }
+})();
+
+// Games page filters: genre chips (one at a time) plus an "Also on iPhone" toggle.
+// The toolbar ships hidden so a no-JS visitor just sees every game.
+(function() {
+    'use strict';
+
+    function initGameFilters() {
+        const bar = document.querySelector('.game-filters');
+        if (!bar) return;
+        const cards = Array.from(document.querySelectorAll('.games-page .game-grid .game-card'));
+        const genreChips = Array.from(bar.querySelectorAll('[data-filter-genre]'));
+        const iosChip = bar.querySelector('[data-filter-ios]');
+        const count = document.querySelector('.game-filter-count');
+        let genre = '';
+        let iosOnly = false;
+
+        function apply() {
+            let shown = 0;
+            cards.forEach(function(card) {
+                const match = (!genre || card.dataset.genre === genre) &&
+                    (!iosOnly || card.dataset.ios === '1');
+                card.hidden = !match;
+                if (match) shown++;
+            });
+            genreChips.forEach(function(chip) {
+                chip.setAttribute('aria-pressed', String(chip.dataset.filterGenre === genre));
+            });
+            iosChip.setAttribute('aria-pressed', String(iosOnly));
+            if (count) {
+                count.textContent = (genre || iosOnly) ? shown + (shown === 1 ? ' game' : ' games') : '';
+            }
+        }
+
+        genreChips.forEach(function(chip) {
+            chip.addEventListener('click', function() {
+                genre = chip.dataset.filterGenre;
+                apply();
+            });
+        });
+        iosChip.addEventListener('click', function() {
+            iosOnly = !iosOnly;
+            apply();
+        });
+        bar.hidden = false;
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initGameFilters);
+    } else {
+        initGameFilters();
+    }
+})();
+
+// Game pages: swap the Short's poster for the YouTube player on tap.
+(function() {
+    'use strict';
+    document.addEventListener('click', function(e) {
+        const btn = e.target.closest('.short-facade');
+        if (!btn || btn.dataset.loaded) return;
+        btn.dataset.loaded = '1';
+        const frame = document.createElement('iframe');
+        frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(btn.dataset.shortId) +
+            '?autoplay=1&playsinline=1&rel=0';
+        frame.title = btn.getAttribute('aria-label').replace(/^Play /, '');
+        frame.allow = 'autoplay; encrypted-media; picture-in-picture';
+        frame.allowFullscreen = true;
+        btn.replaceWith(frame);
+        frame.classList.add('short-frame');
+    });
 })();

@@ -4,6 +4,7 @@ layout: default
 
 {% assign app = site.data.apps | where: "slug", page.slug | first %}
 {% if app.screenshot_orientation == "landscape" %}{% assign shot_modifier = " is-landscape" %}{% else %}{% assign shot_modifier = "" %}{% endif %}
+{% if app.kind == "game" %}{% assign crumb_label = "Games" %}{% assign crumb_url = "/games/" %}{% else %}{% assign crumb_label = "Portfolio" %}{% assign crumb_url = "/" %}{% endif %}
 
 <!-- Hero Section -->
 <section class="hero-section app-page-hero" style="--hero-accent: {{ app.color }};">
@@ -11,7 +12,7 @@ layout: default
         <div class="container">
             <ol class="blog-breadcrumb-list">
                 <li class="blog-breadcrumb-item">
-                    <a href="/">Portfolio</a>
+                    <a href="{{ crumb_url }}">{{ crumb_label }}</a>
                 </li>
                 <li class="blog-breadcrumb-item blog-breadcrumb-current" aria-current="page">
                     {{ app.name }}
@@ -39,8 +40,9 @@ layout: default
                         <div class="coming-soon-badge">
                             <span class="badge-text">Coming Soon</span>
                         </div>
-                    {% elsif app.ios_url or app.android_url or app.playables_url %}
+                    {% elsif app.ios_url or app.android_url or app.playables_url or app.crazygames_url %}
                         <div class="store-buttons">
+                            {% if app.playables_url %}{% include playables-button.html app=app location="app_page_hero" %}{% endif %}
                             {% if app.ios_url %}
                                 <a href="{{ app.ios_url }}?pt={{ site.app_store_pt }}&amp;ct=site&amp;mt=8" class="store-button" target="_blank" rel="noopener" aria-label="Download on the App Store"
                                    data-app-slug="{{ app.slug }}" data-app-name="{{ app.name }}" data-link-location="app_page_hero">
@@ -49,6 +51,7 @@ layout: default
                                          class="store-badge">
                                 </a>
                             {% endif %}
+                            {% if app.crazygames_url %}{% include crazygames-button.html app=app location="app_page_hero" %}{% endif %}
                             {% if app.android_url %}
                                 <a href="{{ app.android_url }}" class="store-button" target="_blank" rel="noopener" aria-label="Get it on Google Play"
                                    data-app-slug="{{ app.slug }}" data-app-name="{{ app.name }}" data-link-location="app_page_hero">
@@ -57,7 +60,6 @@ layout: default
                                          class="store-badge">
                                 </a>
                             {% endif %}
-                            {% if app.playables_url %}{% include playables-button.html app=app location="app_page_hero" %}{% endif %}
                         </div>
                     {% else %}
                         <div class="unavailable-badge">
@@ -67,6 +69,15 @@ layout: default
                 </div>
             </div>
             <div class="hero-image">
+                {% if app.screenshots.first == nil and app.thumb %}
+                <div class="app-hero-thumb">
+                    <img src="{{ app.thumb }}_1280.webp"
+                         srcset="{{ app.thumb }}_640.webp 640w, {{ app.thumb }}_1280.webp 1280w"
+                         sizes="(min-width: 992px) 560px, 92vw"
+                         alt="{{ app.name }} gameplay art" width="1280" height="720"
+                         fetchpriority="high" decoding="async">
+                </div>
+                {% else %}
                 <div class="app-hero-device-frame{{ shot_modifier }}">
                     {% if app.screenshots.first %}
                         <img src="{{ app.screenshots.first }}"
@@ -78,10 +89,33 @@ layout: default
                              decoding="async">
                     {% endif %}
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>
 </section>
+
+{% if app.playables_url %}
+<section class="app-play-band" aria-label="How to play {{ app.name }}">
+    <div class="container">
+        <p class="app-play-note"><i class="bi bi-youtube" aria-hidden="true"></i> Free on YouTube Playables. No download: it opens right in the YouTube app or your browser.</p>
+    </div>
+</section>
+{% endif %}
+
+{% if app.short_id %}
+<section class="app-short" aria-labelledby="app-short-heading">
+    <div class="container">
+        <h2 id="app-short-heading" class="app-screenshot-gallery-label">See it in action</h2>
+        {% comment %} Facade: a poster button that swaps in the YouTube player on tap, so the page
+           never loads YouTube's player (or its cookies) until the visitor asks for it. {% endcomment %}
+        <button type="button" class="short-facade" data-short-id="{{ app.short_id }}" aria-label="Play the {{ app.name }} video">
+            <img src="https://i.ytimg.com/vi/{{ app.short_id }}/oar2.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
+            <span class="short-facade-play" aria-hidden="true"><i class="bi bi-play-fill"></i></span>
+        </button>
+    </div>
+</section>
+{% endif %}
 
 {% if app.screenshot_groups.size > 0 %}
 <section class="app-screenshot-gallery" aria-label="{{ app.name }} screenshots">
@@ -230,6 +264,7 @@ layout: default
             </div>
             {% endif %}
             
+            {% if app.privacy_policy %}
             <div class="app-item">
                 <div class="app-item-content">
                     <div class="app-header">
@@ -246,6 +281,7 @@ layout: default
                     </div>
                 </div>
             </div>
+            {% endif %}
         </div>
     </div>
 </section>

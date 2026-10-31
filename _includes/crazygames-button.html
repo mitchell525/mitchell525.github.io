@@ -1,0 +1,8 @@
+{% comment %} "Play free on CrazyGames" button, the same shape as the YouTube one (.playables-badge).
+   CrazyGames has no public badge; their logo is only licensed through the Developer Portal, so this uses
+   a plain controller glyph. Pass app= and location= (the GA4 link_location). {% endcomment %}
+<a href="{{ include.app.crazygames_url }}" class="store-button" target="_blank" rel="noopener"
+   aria-label="Play {{ include.app.name }} free on CrazyGames"
+   data-app-slug="{{ include.app.slug }}" data-app-name="{{ include.app.name }}" data-link-location="{{ include.location }}">
+    <span class="playables-badge crazygames-badge store-badge"><i class="bi bi-controller" aria-hidden="true"></i><span><small>Play free on</small>CrazyGames</span></span>
+</a>

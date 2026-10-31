@@ -1,6 +1,6 @@
 ---
 layout: default
-last_modified_at: 2026-09-13T12:31:49-04:00
+last_modified_at: 2026-10-31T12:00:00-04:00
 title: "Software Engineer & App Developer"
 description: "Portfolio of Mitch Smith, a software engineer and indie app developer from Baltimore building iOS games, travel tools, and utilities."
 ---
@@ -20,9 +20,9 @@ description: "Portfolio of Mitch Smith, a software engineer and indie app develo
                     In my free time, I create mobile apps that bring joy and entertainment to users worldwide.
                 </p>
                 <div class="hero-cta">
-                    <a href="#apps" class="cta-button">
-                        <span>Explore My Apps</span>
-                        <i class="bi bi-arrow-down"></i>
+                    <a href="/games/" class="cta-button">
+                        <span>Play My Games</span>
+                        <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
@@ -35,16 +35,40 @@ description: "Portfolio of Mitch Smith, a software engineer and indie app develo
     </div>
 </section>
 
+<!-- Featured Games -->
+{% assign featured_games = site.data.apps | where_exp: "a", "a.featured" | sort: "featured" %}
+{% assign live_games = site.data.apps | where: "kind", "game" | where_exp: "g", "g.thumb" %}
+<section id="games" class="apps-section games-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Games</h2>
+        </div>
+
+        <div class="game-grid game-grid--featured">
+            {% for game in featured_games %}
+            {% include game-card.html game=game location="home_featured" %}
+            {% endfor %}
+        </div>
+
+        <div class="hero-cta games-all-cta">
+            <a href="/games/" class="cta-button">
+                <span>See All {{ live_games.size }} Games</span>
+            </a>
+        </div>
+    </div>
+</section>
+
 <!-- Apps Section -->
 <section id="apps" class="apps-section">
     <div class="container">
         <div class="section-header">
-            <h2 class="section-title">My Apps</h2>
-            <p class="section-subtitle">Discover the mobile experiences I've crafted</p>
+            <h2 class="section-title">Apps</h2>
+            <p class="section-subtitle">For road trips, music and travel memories</p>
         </div>
 
         <div class="apps-list">
             {% for app in site.data.apps %}
+            {% if app.kind == "game" %}{% continue %}{% endif %}
             {% unless app.hidden_from_home %}
             <div class="app-item" data-app-color="{{ app.color }}">
                 <div class="app-item-content">
