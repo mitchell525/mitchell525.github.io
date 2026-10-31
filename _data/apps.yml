@@ -29,6 +29,7 @@
   genre: "make"
   released: 2026-10-29
   thumb: "/img/squishfactory/thumb"
+  short_id: "xhVGKP8Av0E"
   tagline: "Make Squishy Buns, Open the Blind Box"
   description: "Make squishy buns: pour, bake, paint and pick a face. Open the blind box to reveal its finish, squeeze it, then fill your shelves."
   icon: "/img/squishfactory/icon.webp"
@@ -47,6 +48,7 @@
   genre: "racing"
   released: 2026-10-29
   thumb: "/img/crashcanyon/thumb"
+  short_id: "uOoWng0jwr8"
   tagline: "Monster Truck Crash Roguelite"
   description: "Drive a monster truck through canyons, junkyards and harbors. Crush cars, flip off ramps, launch the crash dummy at the target and build your truck."
   icon: "/img/crashcanyon/icon.webp"
@@ -65,6 +67,7 @@
   genre: "racing"
   released: 2026-10-28
   thumb: "/img/switchracer/thumb"
+  short_id: "dsZtTngFWts"
   tagline: "Tap to Switch Car, Boat or Plane"
   description: "Race on road, water and sky. Tap car, boat, plane or truck at just the right moment, burst through the x10 wall and unlock new cars."
   icon: "/img/switchracer/icon.webp"
@@ -121,6 +124,7 @@
   genre: "racing"
   released: 2026-10-16
   thumb: "/img/neonskyward/thumb"
+  short_id: "E6Aq3lH0EkI"
   tagline: "Synthwave Sky Racer"
   description: "Drag to fly, flick to roll. Race five rivals through neon skies, bolt on wild upgrades and pick your next zone at the warp gates."
   icon: "/img/neonskyward/icon.webp"
@@ -139,6 +143,7 @@
   genre: "racing"
   released: 2026-10-23
   thumb: "/img/knockoutracer/thumb"
+  short_id: "NDsmAVk7AHU"
   featured: 1
   crazygames_url: "https://www.crazygames.com/game/knockout-racer"
   tagline: "Last Car Each Lap Is Out"
