@@ -65,7 +65,7 @@
 <body>
 	<script>
 	// our goblin icon in the loading bar (Poki fills this from the uploaded thumbnail on poki.com)
-	new MutationObserver(() => document.querySelectorAll("img.thumbnail").forEach(i => { if (!i.src.endsWith("icon.jpg")) i.src = "icon.jpg"; }))
+	new MutationObserver(() => document.querySelectorAll("img#thumbnail, img[src*=\"img.poki-cdn.com\"]").forEach(i => { if (!i.src.endsWith("icon.jpg")) i.src = "icon.jpg"; }))
 		.observe(document.documentElement, { childList: true, subtree: true });
 	</script>
 	<script src="https://game-cdn.poki.com/loaders/v3/master-loader.js"></script>
