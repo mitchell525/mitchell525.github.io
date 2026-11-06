@@ -23,6 +23,42 @@
   privacy_policy: "/legal/guardsofthecastle_privacy_policy.html"
   terms: "/legal/guardsofthecastle_terms_and_conditions.html"
 
+- name: "Neon Strike"
+  slug: "neonstrike"
+  kind: "game"
+  genre: "action"
+  released: 2026-11-05
+  thumb: "/img/neonstrike/thumb"
+  tagline: "Boss Shooter in a Neon Jet"
+  description: "Fly a neon jet through seven synthwave sectors. Blast enemy waves, pick upgrades and take down a giant boss at the end of every sector."
+  icon: "/img/neonstrike/icon.webp"
+  icon_width: 512
+  icon_height: 512
+  color: "#C43BD8"
+  schema_category: "GameApplication"
+  pricing_model: "free"
+  ios_url: null
+  android_url: null
+  playables_url: "https://www.youtube.com/playables/UgkxC9CrwVqigvSLmcjYLiAePjf8OgECBTbz"
+
+- name: "Junkyard Derby"
+  slug: "junkyardderby"
+  kind: "game"
+  genre: "racing"
+  released: 2026-11-06
+  thumb: "/img/junkyardderby/thumb"
+  tagline: "Demolition Derby, Last Car Standing"
+  description: "Last car standing wins! Ram rivals, grab nitro and armor, survive fire rings and acid pits, then upgrade your junker in the garage."
+  icon: "/img/junkyardderby/icon.webp"
+  icon_width: 512
+  icon_height: 512
+  color: "#7B4FD0"
+  schema_category: "GameApplication"
+  pricing_model: "free"
+  ios_url: null
+  android_url: null
+  playables_url: "https://www.youtube.com/playables/Ugkxsy7I_rYw7i5IvlTGSNRF9FMzD9rkIdp5"
+
 - name: "Kaboom Town"
   slug: "kaboomtown"
   kind: "game"
@@ -523,27 +559,24 @@
   privacy_policy: "/legal/tap_and_teleport_privacy_policy.html"
   terms: "/legal/tap_and_teleport_terms_and_conditions.html"
 
-- name: "Surge Blast: Bubble Pop Match"
+- name: "Surge Blast: Neon Orb Shooter"
   slug: "surgeblast"
   kind: "game"
-  genre: "puzzle"
-  classic: true
-  tagline: "Color Shooter Arcade Puzzle"
-  description: "Launch bubbles, match five of a color to pop them, and survive the surge that hits every eight bubbles. Quick neon rounds, high scores, fully offline."
+  genre: "arcade"
+  released: 2026-11-06
+  thumb: "/img/surgeblast/thumb"
+  tagline: "Neon Orb Shooter"
+  description: "Launch glowing orbs, pop groups of five and build a power-up combo before the pile reaches the line. A fresh daily run every day."
   icon: "/img/surgeblast/icon.webp"
-  icon_width: 501
-  icon_height: 501
-  color: "#6D2BD9"
+  icon_width: 512
+  icon_height: 512
+  color: "#E2338F"
   schema_category: "GameApplication"
-  pricing_model: "remove_ads"
+  pricing_model: "free"
+  # The iOS app is still the earlier v1 ("Bubble Pop Match"); the Playable is v2.
   ios_url: "https://apps.apple.com/us/app/id1547094707"
   android_url: null
-  screenshots:
-    - "/img/surgeblast/website_preview_surge_blast_neon_1.webp"
-    - "/img/surgeblast/website_preview_surge_blast_neon_2.webp"
-    - "/img/surgeblast/website_preview_surge_blast_neon_3.webp"
-  screenshot_width: 450
-  screenshot_height: 978
+  playables_url: "https://www.youtube.com/playables/Ugkx4UH19xGwVw8J204J2v-xCfWTXwQcdKHc"
   privacy_policy: "/legal/surge_blast_privacy_policy.html"
   terms: "/legal/surge_blast_terms_and_conditions.html"
 
