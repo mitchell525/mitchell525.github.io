@@ -3,7 +3,7 @@ layout: app
 slug: knockoutracer
 date: 2026-10-30
 last_modified_at: 2026-10-31T12:00:00-04:00
-title: "Knockout Racer: Elimination — Last Car Each Lap Is Out"
+title: "Knockout Racer: Elimination Race — Last Car Each Lap Is Out"
 description: "Eight cars race a sunny city circuit and the last car each lap is knocked out. Ram rivals into the wall, bolt on wild upgrades, and be the one still driving."
 image: "/img/knockoutracer/thumb_1280.webp"
 ---

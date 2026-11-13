@@ -23,6 +23,24 @@
   privacy_policy: "/legal/guardsofthecastle_privacy_policy.html"
   terms: "/legal/guardsofthecastle_terms_and_conditions.html"
 
+- name: "Dye Shop: Tie-Dye Maker"
+  slug: "dyeshop"
+  kind: "game"
+  genre: "make"
+  released: 2026-11-07
+  thumb: "/img/dyeshop/thumb"
+  tagline: "Run a Cozy Tie-Dye Shop"
+  description: "Run a cozy tie-dye shop with Mo the cat. Fold, band and dye each shirt to match the order, then reveal it and see how your customer reacts."
+  icon: "/img/dyeshop/icon.webp"
+  icon_width: 512
+  icon_height: 512
+  color: "#E8338A"
+  schema_category: "GameApplication"
+  pricing_model: "free"
+  ios_url: null
+  android_url: null
+  playables_url: "https://www.youtube.com/playables/UgkxJ4odDvxQcJN0b25JKBKTgnla42s9miGn"
+
 - name: "Neon Strike"
   slug: "neonstrike"
   kind: "game"
@@ -191,7 +209,7 @@
   android_url: null
   playables_url: "https://www.youtube.com/playables/Ugkx58auqU-kd8lTMeMaBazXkohbGallXPkH"
 
-- name: "Knockout Racer: Elimination"
+- name: "Knockout Racer: Elimination Race"
   slug: "knockoutracer"
   kind: "game"
   genre: "racing"
