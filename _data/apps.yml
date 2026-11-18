@@ -23,6 +23,24 @@
   privacy_policy: "/legal/guardsofthecastle_privacy_policy.html"
   terms: "/legal/guardsofthecastle_terms_and_conditions.html"
 
+- name: "Knight Ball: Pinball Dungeon Quest"
+  slug: "knightball"
+  kind: "game"
+  genre: "arcade"
+  released: 2026-11-18
+  thumb: "/img/knightball/thumb"
+  tagline: "Pinball Through a Monster Dungeon"
+  description: "Hit your pinball into goblins, skeletons and ghosts! Pick a path through the dungeon, collect magic upgrades and beat three giant bosses."
+  icon: "/img/knightball/icon.webp"
+  icon_width: 512
+  icon_height: 512
+  color: "#5B2DA8"
+  schema_category: "GameApplication"
+  pricing_model: "free"
+  ios_url: null
+  android_url: null
+  playables_url: "https://www.youtube.com/playables/UgkxKs9B-cJXFe1yTOsb_iK3HXtqUT4M7bwu"
+
 - name: "Tiny Hiders"
   slug: "tinyhiders"
   kind: "game"
