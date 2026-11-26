@@ -23,6 +23,24 @@
   privacy_policy: "/legal/guardsofthecastle_privacy_policy.html"
   terms: "/legal/guardsofthecastle_terms_and_conditions.html"
 
+- name: "Iron Highway: Car Survival"
+  slug: "ironhighway"
+  kind: "game"
+  genre: "action"
+  released: 2026-11-26
+  thumb: "/img/ironhighway/thumb"
+  tagline: "Outlast the Raider Pack in a Muscle Car"
+  description: "A muscle car, a desert road and a raider pack on your tail. Smash them off the road, pick parts that bolt onto the car and outlast them."
+  icon: "/img/ironhighway/icon.webp"
+  icon_width: 512
+  icon_height: 512
+  color: "#E2552A"
+  schema_category: "GameApplication"
+  pricing_model: "free"
+  ios_url: null
+  android_url: null
+  playables_url: "https://www.youtube.com/playables/UgkxOWkyMN0glhxXq1bmBXD2omBSoHWCg5j3"
+
 - name: "Robo Switch 3D: Robot Car Race"
   slug: "roboswitch"
   kind: "game"
