@@ -23,6 +23,42 @@
   privacy_policy: "/legal/guardsofthecastle_privacy_policy.html"
   terms: "/legal/guardsofthecastle_terms_and_conditions.html"
 
+- name: "Little Weather: Cozy Puzzle"
+  slug: "littleweather"
+  kind: "game"
+  genre: "make"
+  released: 2026-11-27
+  thumb: "/img/littleweather/thumb"
+  tagline: "Be the Weather over Nine Tiny Islands"
+  description: "You are the weather over nine tiny islands. Make it rain on a dry hilltop and poppies open. Each one is a calm puzzle of rain, wind and sun."
+  icon: "/img/littleweather/icon.webp"
+  icon_width: 512
+  icon_height: 512
+  color: "#3E7A8C"
+  schema_category: "GameApplication"
+  pricing_model: "free"
+  ios_url: null
+  android_url: null
+  playables_url: "https://www.youtube.com/playables/Ugkxr-NsJxZ_W9FXRBq-K-LfCEFfQRScRFIo"
+
+- name: "Gobble Hop: Eat & Grow Slime Puzzle"
+  slug: "gobblehop"
+  kind: "game"
+  genre: "make"
+  released: 2026-11-27
+  thumb: "/img/gobblehop/thumb"
+  tagline: "Hop, Gobble Smaller Slimes and Grow"
+  description: "Hop across glowing tiles and eat smaller slimes to grow bigger. Dodge the big ones, beat the slime bosses, or chase a high score in Endless."
+  icon: "/img/gobblehop/icon.webp"
+  icon_width: 512
+  icon_height: 512
+  color: "#6B4FD8"
+  schema_category: "GameApplication"
+  pricing_model: "free"
+  ios_url: null
+  android_url: null
+  playables_url: "https://www.youtube.com/playables/UgkxF0B-iM6D57_wr-kLWhi8036tMxJjqCs-"
+
 - name: "Wake Racer: Speed Boat Race"
   slug: "wakeracer"
   kind: "game"
